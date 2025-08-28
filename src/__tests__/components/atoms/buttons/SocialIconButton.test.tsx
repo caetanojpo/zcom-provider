@@ -27,16 +27,16 @@ describe('SocialIconButton test suite', () => {
     expect(link).toHaveAttribute('target', '_blank');
   });
 
-	it('Should set rel to "noopener noreferrer" when target is "_blank"', () => {
-		render(<SocialIconButton name="Docs" link="https://docs.example.com" target="_blank" />);
+  it('Should set rel to "noopener noreferrer" when target is "_blank"', () => {
+    render(<SocialIconButton name="Docs" link="https://docs.example.com" target="_blank" />);
 
-		const link = screen.getByRole('link', {
-			name: 'Docs — abre em nova aba',
-		});
+    const link = screen.getByRole('link', {
+      name: 'Docs — abre em nova aba',
+    });
 
-		expect(link).toHaveAttribute('target', '_blank');
-		expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-	});
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
 
   it('Should accept custom target without rel', () => {
     render(<SocialIconButton name="Docs" link="https://docs.example.com" target="_self" />);

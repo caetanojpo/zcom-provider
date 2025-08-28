@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 describe('DarkOverlay test suite', () => {
   it('Should render with default value (30%)', () => {
-    render(<DarkOverlay/>);
+    render(<DarkOverlay />);
     const div = screen.getByTestId('dark-overlay');
 
     expect(div).toBeInTheDocument();

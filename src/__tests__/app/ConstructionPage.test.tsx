@@ -66,25 +66,25 @@ describe('ConstructionPage test suite', () => {
     jest.clearAllMocks();
   });
 
-	it('Should renders main heading as an h1', () => {
-		const heading = screen.getByRole('heading', { level: 1 });
-		expect(heading).toBeInTheDocument();
-		expect(heading).toHaveTextContent(/Site em construção/i);
-	});
+  it('Should renders main heading as an h1', () => {
+    const heading = screen.getByRole('heading', { level: 1 });
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(/Site em construção/i);
+  });
 
-	it('Should renders decorative background element with aria-hidden', () => {
-		const decorative = container.querySelector('[aria-hidden]') as HTMLElement | null;
-		expect(decorative).toBeTruthy();
-		expect(decorative?.className).toEqual(expect.stringContaining('bg-construction_bg'));
-	});
+  it('Should renders decorative background element with aria-hidden', () => {
+    const decorative = container.querySelector('[aria-hidden]') as HTMLElement | null;
+    expect(decorative).toBeTruthy();
+    expect(decorative?.className).toEqual(expect.stringContaining('bg-construction_bg'));
+  });
 
-	it('Should renders DarkOverlay (mock) and Icon', () => {
-		const overlay = screen.getByTestId('dark-overlay');
-		expect(overlay).toBeInTheDocument();
+  it('Should renders DarkOverlay (mock) and Icon', () => {
+    const overlay = screen.getByTestId('dark-overlay');
+    expect(overlay).toBeInTheDocument();
 
-		const icon = screen.getByTestId('icon');
-		expect(icon).toBeInTheDocument();
-	});
+    const icon = screen.getByTestId('icon');
+    expect(icon).toBeInTheDocument();
+  });
 
   it('Should renders main title and descriptive texts', () => {
     const heading = screen.getByTestId('mainText');
@@ -135,7 +135,7 @@ describe('ConstructionPage test suite', () => {
     expect(linkedin).toHaveAttribute('href', expect.stringContaining('linkedin.com'));
   });
 
-	it('Should snapshot to detect unintentional structural changes', () => {
-		expect(container).toMatchSnapshot();
-	});
+  it('Should snapshot to detect unintentional structural changes', () => {
+    expect(container).toMatchSnapshot();
+  });
 });

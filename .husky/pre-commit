@@ -4,4 +4,4 @@ npm run lint
 echo "🛠️ Running format..."
 npm run format
 
-
+git add .
