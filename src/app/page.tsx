@@ -38,23 +38,30 @@ export default function Home() {
         </div>
 
         <div className="w-full max-w-3xl text-center xl:text-left">
-          <h1 className="text-2xl md:text-4xl lg:text-3xl 2xl:text-4xl font-semibold tracking-tight italic">
+          <h1
+            data-testid={'mainText'}
+            className="text-2xl md:text-4xl lg:text-3xl 2xl:text-4xl font-semibold tracking-tight italic"
+          >
             Site em <span className="text-zcom">construção</span>!
           </h1>
 
           <div className="mt-4 text-sm md:text-base text-white">
-            <p>Nosso site está em construção, mas estamos prontos para começar!</p>
-            <p className="mt-2">A Zcom está preparando algo incrível para vocês! </p>
-            <p className="mt-10">
+            <p data-testid={'firstText'}>
+              Nosso site está em construção, mas estamos prontos para começar!
+            </p>
+            <p data-testid={'secondText'} className="mt-2">
+              A Zcom está preparando algo incrível para vocês!
+            </p>
+            <p data-testid={'thirdText'} className="mt-10">
               Clique nos ícones abaixo para acessar nossas redes sociais ou entrar em contato para
               saber mais.
             </p>
           </div>
 
           <div className="mt-6 flex items-center justify-center xl:justify-start gap-4">
-            {socialMediaLinks.map((item) => (
+            {socialMediaLinks.map((item, index) => (
               <SocialIconButton
-                key={item.title ?? item.link}
+                key={index}
                 name={item.title}
                 target={item.target}
                 icon={item.icon}
