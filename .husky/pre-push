@@ -1,0 +1,8 @@
+echo "🔍 Running type-check..."
+npm run type-check || exit 1
+
+echo "🛠️ Running build..."
+npm run build || exit 1
+
+echo "🧪 Running tests with coverage..."
+npm run test:coverage || exit 1

@@ -1,7 +1,7 @@
-import { LOGO, SITE_URL, TYOU_URL } from '@/utils/constants';
+import { LOGO, SITE_URL, TYOU_URL } from '@/utils/constants.utils';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataConfig: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: 'ZCOM — Provedor de Internet em Cândido Mota',
