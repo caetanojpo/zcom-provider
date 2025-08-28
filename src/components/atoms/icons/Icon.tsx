@@ -18,6 +18,7 @@ export const Icon: React.FC<IconProps> = ({
 
   return (
     <IconSVG
+      data-testid="icon"
       {...props}
       className={`inline-block align-middle ${className}`}
       style={sizePx ? { width: sizePx, height: sizePx, ...props.style } : props.style}
