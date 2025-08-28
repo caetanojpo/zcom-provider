@@ -8,7 +8,7 @@ jest.mock('next/image', () => ({
   default: (props: Parameters<typeof nextImageMock>[0]) => nextImageMock(props),
 }));
 
-jest.mock('../../data/links', () => ({
+jest.mock('../../data/links.data', () => ({
   __esModule: true,
   socialMediaLinks: mockSocialMediaLinks,
 }));

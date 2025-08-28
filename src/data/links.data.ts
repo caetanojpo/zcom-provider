@@ -2,14 +2,14 @@ import WhatsAppIcon from '../../public/icons/whatsapp.svg';
 import InstagramIcon from '../../public/icons/instagram.svg';
 import { SVGIcon } from '@/types/svg';
 
-type Links = {
+type LinksData = {
   title?: string;
   link: string;
   target?: string;
   icon?: SVGIcon;
 };
 
-export const socialMediaLinks: Links[] = [
+export const socialMediaLinks: LinksData[] = [
   {
     link: 'https://wa.me/5518996660018',
     icon: WhatsAppIcon,

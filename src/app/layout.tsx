@@ -1,9 +1,9 @@
 import './globals.css';
-import { neometric } from '@/app/fonts';
+import { neometric } from '@/data/fonts.data';
 import Script from 'next/script';
-import { organizationSchema } from '@/config/organizationSchema';
+import { organizationSchemaConfig } from '@/config/organizationSchema.config';
 
-export { metadata } from '@/config/metadata';
+export { metadataConfig } from '@/config/metadata.config';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script
           id="zcom-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaConfig) }}
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">{children}</body>

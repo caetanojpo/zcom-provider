@@ -6,7 +6,11 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/**/*.{config,utils,types,data}.{ts,tsx,js,jsx}',
+  ],
   coverageDirectory: 'coverage',
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',

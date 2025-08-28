@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { AlertTriangle } from 'lucide-react';
 import { Icon } from '@/components/atoms/icons/Icon';
-import { socialMediaLinks } from '@/data/links';
-import { cn } from '@/lib/utils';
+import { socialMediaLinks } from '@/data/links.data';
+import { cn } from '@/lib/concatTailwind';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 

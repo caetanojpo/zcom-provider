@@ -1,6 +1,6 @@
-import { LOGO, SITE_URL, TYOU_URL } from '@/utils/constants';
+import { LOGO, SITE_URL, TYOU_URL } from '@/utils/constants.utils';
 
-export const organizationSchema = {
+export const organizationSchemaConfig = {
   '@context': 'https://schema.org',
   '@type': 'InternetServiceProvider',
   name: 'ZCOM',
