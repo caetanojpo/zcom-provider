@@ -1,1 +1,7 @@
-npm run test
+echo "🛠️ Running lint..."
+npm run lint
+
+echo "🛠️ Running format..."
+npm run format
+
+
