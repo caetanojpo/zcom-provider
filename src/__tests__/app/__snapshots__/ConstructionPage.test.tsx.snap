@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ConstructionPage test suite Should snapshot to detect unintentional structural changes 1`] = `
+<div>
+  <main
+    class="relative w-dvw h-dvh overflow-hidden text-white flex flex-col xl:flex-row items-center xl:items-start"
+  >
+    <div
+      aria-hidden="true"
+      class="absolute pointer-events-none z-10 bg-construction_bg bg-no-repeat bg-center bg-contain bottom-[-200px] left-[-100px] w-[120%] h-[420px] md:bottom-[-300px] md:left-[-200px] md:h-[600px] xl:bottom-[-500px] xl:left-[-650px] xl:h-[900px]"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-b xl:bg-gradient-to-br from-dark to-zcom"
+    />
+    <div
+      data-testid="dark-overlay"
+      style="background-color: rgba(0, 0, 0, 0.3);"
+    />
+    <section
+      class="relative w-full h-[40dvh] xl:h-[70dvh] z-20 flex items-center justify-center xl:justify-start xl:order-2"
+    >
+      <img
+        alt="Placa "sob construção" da empresa ZCOM"
+        class="object-contain h-full absolute top-0 left-16 md:static md:w-auto"
+        height="800"
+        src="/images/construction/under-construction-sign.png"
+        width="1200"
+      />
+    </section>
+    <section
+      class="w-full h-[50dvh] xl:h-dvh z-20 flex flex-col items-center justify-center gap-6 px-6 md:px-12 xl:px-32 2xl:px-64"
+    >
+      <div
+        class="relative w-full h-fit flex items-center justify-center xl:justify-start"
+      >
+        <svg
+          aria-hidden="true"
+          class="w-16 h-16 xl:w-32 xl:h-32 text-zcom"
+          data-testid="icon"
+        />
+      </div>
+      <div
+        class="w-full max-w-3xl text-center xl:text-left"
+      >
+        <h1
+          class="text-2xl md:text-4xl lg:text-3xl 2xl:text-4xl font-semibold tracking-tight italic"
+          data-testid="mainText"
+        >
+          Site em 
+          <span
+            class="text-zcom"
+          >
+            construção
+          </span>
+          !
+        </h1>
+        <div
+          class="mt-4 text-sm md:text-base text-white"
+        >
+          <p
+            data-testid="firstText"
+          >
+            Nosso site está em construção, mas estamos prontos para começar!
+          </p>
+          <p
+            class="mt-2"
+            data-testid="secondText"
+          >
+            A Zcom está preparando algo incrível para vocês!
+          </p>
+          <p
+            class="mt-10"
+            data-testid="thirdText"
+          >
+            Clique nos ícones abaixo para acessar nossas redes sociais ou entrar em contato para saber mais.
+          </p>
+        </div>
+        <div
+          class="mt-6 flex items-center justify-center xl:justify-start gap-4"
+        >
+          <a
+            data-testid="social-Instagram"
+            href="https://instagram.com/zcom"
+          >
+            Instagram
+          </a>
+          <a
+            data-testid="social-LinkedIn"
+            href="https://linkedin.com/company/zcom"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+`;
