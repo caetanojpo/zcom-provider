@@ -9,7 +9,7 @@ describe('SocialIconButton test suite', () => {
     render(<SocialIconButton link={linkExample} />);
     const link = screen.getByRole('link');
     const svg = link.querySelector('svg');
-    screen.debug();
+
     expect(link).toHaveAttribute('href', linkExample);
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).not.toHaveAttribute('rel');
@@ -27,7 +27,18 @@ describe('SocialIconButton test suite', () => {
     expect(link).toHaveAttribute('target', '_blank');
   });
 
-  it('Sould accept custom target without rel', () => {
+	it('Should set rel to "noopener noreferrer" when target is "_blank"', () => {
+		render(<SocialIconButton name="Docs" link="https://docs.example.com" target="_blank" />);
+
+		const link = screen.getByRole('link', {
+			name: 'Docs — abre em nova aba',
+		});
+
+		expect(link).toHaveAttribute('target', '_blank');
+		expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+	});
+
+  it('Should accept custom target without rel', () => {
     render(<SocialIconButton name="Docs" link="https://docs.example.com" target="_self" />);
 
     const link = screen.getByRole('link', {
