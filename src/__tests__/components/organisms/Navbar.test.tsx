@@ -27,7 +27,11 @@ jest.mock('next/image', () => ({
 jest.mock('next/link', () => ({
   __esModule: true,
   default: function MockLink({ href, children, ...props }: MockLinkProps) {
-    return <a href={href} {...props}>{children}</a>;
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
   },
 }));
 
@@ -40,10 +44,13 @@ jest.mock('@/components/molecules/NavbarMenu', () => ({
 
 jest.mock('@/components/atoms/buttons/HamburgerButton', () => ({
   __esModule: true,
-  default: function MockHamburgerButton({ isOpen, onClick }: MockHamburgerButtonProps): JSX.Element {
+  default: function MockHamburgerButton({
+    isOpen,
+    onClick,
+  }: MockHamburgerButtonProps): JSX.Element {
     return (
-      <button 
-        data-testid="hamburger-button" 
+      <button
+        data-testid="hamburger-button"
         onClick={onClick}
         aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
       >
@@ -55,7 +62,10 @@ jest.mock('@/components/atoms/buttons/HamburgerButton', () => ({
 
 jest.mock('@/components/molecules/MobileDrawer', () => ({
   __esModule: true,
-  default: function MockMobileDrawer({ isOpen, onClose }: MockMobileDrawerProps): JSX.Element | null {
+  default: function MockMobileDrawer({
+    isOpen,
+    onClose,
+  }: MockMobileDrawerProps): JSX.Element | null {
     return isOpen ? (
       <div data-testid="mobile-drawer">
         Mobile Drawer
@@ -69,8 +79,8 @@ jest.mock('@/data/imageSrc.data', () => ({
   __esModule: true,
   IMAGE_SRC: {
     navBar: {
-      logo: '/images/logo.png'
-    }
+      logo: '/images/logo.png',
+    },
   },
 }));
 
@@ -80,26 +90,26 @@ jest.mock('@/data/copywriting/navbar.data', () => ({
     logoAlt: 'Logo da empresa ZCOM',
     invoice: {
       text: '2ª via da fatura',
-      link: '#invoice'
-    }
+      link: '#invoice',
+    },
   },
 }));
 
 jest.mock('@/data/links.data', () => ({
   __esModule: true,
   socialMediaLinks: [
-    { 
-      title: 'Instagram', 
-      link: 'https://instagram.com/zcom', 
+    {
+      title: 'Instagram',
+      link: 'https://instagram.com/zcom',
       target: '_blank',
-      icon: () => 'Instagram' // Return string instead of JSX to avoid React warnings
+      icon: () => 'Instagram', // Return string instead of JSX to avoid React warnings
     },
-    { 
-      title: 'LinkedIn', 
-      link: 'https://linkedin.com/company/zcom', 
+    {
+      title: 'LinkedIn',
+      link: 'https://linkedin.com/company/zcom',
       target: '_blank',
-      icon: () => 'LinkedIn' // Return string instead of JSX to avoid React warnings
-    }
+      icon: () => 'LinkedIn', // Return string instead of JSX to avoid React warnings
+    },
   ],
 }));
 
@@ -119,7 +129,7 @@ describe('NavBar test suite', () => {
 
   it('Should render navbar with logo', () => {
     render(<NavBar />);
-    
+
     const logo = screen.getByAltText('Logo da empresa ZCOM');
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute('src', '/images/logo.png');
@@ -127,14 +137,14 @@ describe('NavBar test suite', () => {
 
   it('Should render desktop menu', () => {
     render(<NavBar />);
-    
+
     const desktopMenu = screen.getByTestId('navbar-menu');
     expect(desktopMenu).toBeInTheDocument();
   });
 
   it('Should render hamburger button for mobile', () => {
     render(<NavBar />);
-    
+
     const hamburgerButton = screen.getByTestId('hamburger-button');
     expect(hamburgerButton).toBeInTheDocument();
     expect(hamburgerButton).toHaveTextContent('Hamburger Closed');
@@ -142,60 +152,60 @@ describe('NavBar test suite', () => {
 
   it('Should render desktop invoice link', () => {
     render(<NavBar />);
-    
+
     const invoiceLink = screen.getByText('2ª via da fatura');
     expect(invoiceLink).toBeInTheDocument();
   });
 
   it('Should render WhatsApp contact in desktop', () => {
     render(<NavBar />);
-    
+
     const phoneNumber = screen.getByText('(18) 99785-6960');
     expect(phoneNumber).toBeInTheDocument();
   });
 
   it('Should toggle mobile menu when hamburger button is clicked', () => {
     render(<NavBar />);
-    
+
     const hamburgerButton = screen.getByTestId('hamburger-button');
-    
+
     // Initially closed
     expect(hamburgerButton).toHaveTextContent('Hamburger Closed');
     expect(screen.queryByTestId('mobile-drawer')).not.toBeInTheDocument();
-    
+
     // Click to open
     fireEvent.click(hamburgerButton);
-    
+
     expect(hamburgerButton).toHaveTextContent('Hamburger Open');
     expect(screen.getByTestId('mobile-drawer')).toBeInTheDocument();
-    
+
     // Click to close
     fireEvent.click(hamburgerButton);
-    
+
     expect(hamburgerButton).toHaveTextContent('Hamburger Closed');
     expect(screen.queryByTestId('mobile-drawer')).not.toBeInTheDocument();
   });
 
   it('Should close mobile menu when drawer close is called', () => {
     render(<NavBar />);
-    
+
     const hamburgerButton = screen.getByTestId('hamburger-button');
-    
+
     // Open the menu
     fireEvent.click(hamburgerButton);
     expect(screen.getByTestId('mobile-drawer')).toBeInTheDocument();
-    
+
     // Close via drawer
     const closeButton = screen.getByText('Close Drawer');
     fireEvent.click(closeButton);
-    
+
     expect(screen.queryByTestId('mobile-drawer')).not.toBeInTheDocument();
     expect(hamburgerButton).toHaveTextContent('Hamburger Closed');
   });
 
   it('Should render logo as a link to home', () => {
     render(<NavBar />);
-    
+
     // Get the logo link specifically by finding the link with the logo image
     const logoLink = screen.getByRole('link', { name: /logo da empresa zcom/i });
     expect(logoLink).toHaveAttribute('href', '/');
@@ -203,7 +213,7 @@ describe('NavBar test suite', () => {
 
   it('Should have correct CSS classes for responsive design', () => {
     render(<NavBar />);
-    
+
     // Find the navbar container by looking for the main container div
     const navbarContainer = document.querySelector('.relative.top-6.mx-auto');
     expect(navbarContainer).toHaveClass('relative', 'top-6', 'mx-auto', 'w-[95%]');
@@ -213,11 +223,11 @@ describe('NavBar test suite', () => {
 
   it('Should hide desktop elements on mobile and show hamburger', () => {
     render(<NavBar />);
-    
+
     // Desktop elements should have hidden md:flex classes
     const desktopSection = screen.getByText('2ª via da fatura').closest('div');
     expect(desktopSection).toHaveClass('hidden', 'md:flex');
-    
+
     // Hamburger should be visible
     const hamburgerButton = screen.getByTestId('hamburger-button');
     expect(hamburgerButton).toBeInTheDocument();

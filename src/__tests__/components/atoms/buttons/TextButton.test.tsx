@@ -8,12 +8,8 @@ describe('TextButton test suite', () => {
   const internalLink = '/internal';
 
   it('Should render with required props', () => {
-    render(
-      <TextButton href={linkExample}>
-        Test Button
-      </TextButton>
-    );
-    
+    render(<TextButton href={linkExample}>Test Button</TextButton>);
+
     const link = screen.getByRole('link', { name: 'Test Button' });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', linkExample);
@@ -25,9 +21,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} target="_blank">
         External Link
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link', { name: 'External Link — abre em nova aba' });
     expect(link).toHaveAttribute('href', linkExample);
     expect(link).toHaveAttribute('target', '_blank');
@@ -38,9 +34,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} ariaLabel="Custom label">
         Button Text
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link', { name: 'Custom label' });
     expect(link).toBeInTheDocument();
   });
@@ -50,20 +46,16 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} className={customClass}>
         Styled Button
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link');
     expect(link).toHaveClass(customClass);
   });
 
   it('Should use default className when none provided', () => {
-    render(
-      <TextButton href={linkExample}>
-        Default Button
-      </TextButton>
-    );
-    
+    render(<TextButton href={linkExample}>Default Button</TextButton>);
+
     const link = screen.getByRole('link');
     expect(link).toHaveClass('inline-flex', 'items-center', 'justify-center');
   });
@@ -72,9 +64,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} target="_parent">
         Parent Target
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('target', '_parent');
     expect(link).not.toHaveAttribute('rel');
@@ -84,9 +76,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} variant="body-lg">
         Large Text
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link');
     expect(link).toBeInTheDocument();
     // Typography component should receive the variant prop
@@ -95,12 +87,8 @@ describe('TextButton test suite', () => {
   });
 
   it('Should handle internal links correctly', () => {
-    render(
-      <TextButton href={internalLink}>
-        Internal Link
-      </TextButton>
-    );
-    
+    render(<TextButton href={internalLink}>Internal Link</TextButton>);
+
     const link = screen.getByRole('link', { name: 'Internal Link' });
     expect(link).toHaveAttribute('href', internalLink);
     expect(link).toHaveAttribute('target', '_self');
@@ -110,9 +98,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample}>
         <span>Complex Children</span>
-      </TextButton>
+      </TextButton>,
     );
-    
+
     expect(screen.getByText('Complex Children')).toBeInTheDocument();
   });
 
@@ -120,9 +108,9 @@ describe('TextButton test suite', () => {
     render(
       <TextButton href={linkExample} target="_blank">
         <span>JSX Child</span>
-      </TextButton>
+      </TextButton>,
     );
-    
+
     const link = screen.getByRole('link');
     // Should not have the auto-generated aria-label since children is not a string
     expect(link).not.toHaveAttribute('aria-label');
