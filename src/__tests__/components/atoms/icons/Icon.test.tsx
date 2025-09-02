@@ -39,12 +39,17 @@ describe('Icon test suite', () => {
     expect(icon).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('Should applies sizePx to width and height and merges with provided style', () => {
-    render(<Icon icon={GitBranch} sizePx={32} style={{ opacity: 0.5 }} />);
+  it('Should apply correct CSS classes for xl size', () => {
+    render(<Icon icon={GitBranch} size="xl" />);
     const { icon } = setup();
 
-    expect(icon).toHaveStyle('width: 32px');
-    expect(icon).toHaveStyle('height: 32px');
-    expect(icon.style.opacity).toBe('0.5');
+    expect(icon).toHaveClass('w-32', 'h-32');
+  });
+
+  it('Should merge custom className with default classes', () => {
+    render(<Icon icon={GitBranch} size="md" className="text-red-500 rotate-45" />);
+    const { icon } = setup();
+
+    expect(icon).toHaveClass('w-10', 'h-10', 'text-red-500', 'rotate-45');
   });
 });

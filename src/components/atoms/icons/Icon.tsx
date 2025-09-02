@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { SVGIcon } from '@/types/svg';
+import { cn } from '@/lib/concatTailwind';
 
 export const iconVariants = cva('inline-block select-none', {
   variants: {
@@ -9,7 +10,7 @@ export const iconVariants = cva('inline-block select-none', {
       sm: 'w-6 h-6',
       md: 'w-10 h-10',
       lg: 'w-12 h-12',
-      xl: 'w-16 h-16 xl:w-32 xl:h-32',
+      xl: 'w-32 h-32',
     },
     variant: {
       default: 'text-zcom hover:text-white',
@@ -27,6 +28,7 @@ export interface IconProps
     VariantProps<typeof iconVariants> {
   icon: SVGIcon;
   decorative?: boolean;
+  className?: string;
 }
 
 export const Icon: React.FC<IconProps> = ({
@@ -34,6 +36,7 @@ export const Icon: React.FC<IconProps> = ({
   variant,
   size,
   decorative = true,
+  className,
   ...props
 }) => {
   const ariaHidden = decorative ? true : (props['aria-hidden'] ?? false);
@@ -44,7 +47,7 @@ export const Icon: React.FC<IconProps> = ({
       {...props}
       aria-hidden={ariaHidden}
       focusable="false"
-      className={iconVariants({ variant, size })}
+      className={cn(iconVariants({ variant, size }), className)}
     />
   );
 };
