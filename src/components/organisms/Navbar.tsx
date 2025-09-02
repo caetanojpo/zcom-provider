@@ -35,7 +35,7 @@ export default function NavBar() {
           w-[95%]
           rounded-full
           px-8 md:py-3 py-4
-          bg-gradient-to-r from-zcomDark to-zcom
+          bg-gradient-to-r from-zcom-dark to-zcom
           shadow-[inset_0_1px_0_rgba(255,255,255,.06),0_6px_20px_rgba(0,0,0,.35)]
           border border-white/10
         "

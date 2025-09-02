@@ -40,7 +40,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       <div
         className={`
           fixed top-0 right-0 h-full w-80 max-w-[85vw] z-50
-          bg-gradient-to-b from-zcomDark to-zcom
+          bg-gradient-to-b from-zcom-dark to-zcom
           shadow-2xl
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
