@@ -1,7 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import MobileDrawer from '@/components/molecules/MobileDrawer';
 
-// Mock Next.js components
 jest.mock('next/image', () => {
   return function MockImage({ src, alt, width, height }: any) {
     return <img src={src} alt={alt} width={width} height={height} />;
@@ -14,23 +12,20 @@ jest.mock('next/link', () => {
   };
 });
 
-// Mock child components to avoid icon rendering issues
+jest.mock('../../../public/icons/whatsapp.svg', () => 'WhatsAppIcon');
+
 jest.mock('@/components/atoms/buttons/SocialIconButton', () => {
   return function MockSocialIconButton({ name, link }: any) {
     return <a href={link} data-testid={`social-${name}`}>{name} Icon</a>;
   };
 });
 
-jest.mock('@/components/atoms/text/Typography', () => {
-  return function MockTypography({ children, variant, className }: any) {
+jest.mock('@/components/atoms/text/Typography', () => ({
+  Typography: function MockTypography({ children, variant, className }: any) {
     return <span className={className} data-variant={variant}>{children}</span>;
-  };
-});
+  }
+}));
 
-// Mock WhatsApp Icon
-jest.mock('../../../../../public/icons/whatsapp.svg', () => 'WhatsAppIcon');
-
-// Mock data
 jest.mock('@/data/imageSrc.data', () => ({
   IMAGE_SRC: {
     navBar: {
@@ -47,6 +42,10 @@ jest.mock('@/data/copywriting/navbar.data', () => ({
       { text: 'Planos', link: '#Planos' },
       { text: 'Parceiros', link: '#Parceiros' }
     ],
+    phone: {
+      text: '(18) 99785-6960',
+      icon: 'WhatsAppIcon'
+    },
     invoice: {
       text: '2ª via da fatura',
       link: '#invoice'
@@ -60,6 +59,9 @@ jest.mock('@/data/links.data', () => ({
   ]
 }));
 
+// Import the component after all mocks are set up
+import MobileDrawer from '@/components/molecules/MobileDrawer';
+
 describe('MobileDrawer test suite', () => {
   const mockOnClose = jest.fn();
 
@@ -71,17 +73,14 @@ describe('MobileDrawer test suite', () => {
   it('Should render drawer elements when open', () => {
     render(<MobileDrawer isOpen={true} onClose={mockOnClose} />);
     
-    // Check for logo
     expect(screen.getByAltText('Logo da empresa ZCOM')).toBeInTheDocument();
     
-    // Check for close button
     expect(screen.getByRole('button', { name: 'Fechar menu' })).toBeInTheDocument();
   });
 
   it('Should have correct visibility classes when closed', () => {
     render(<MobileDrawer isOpen={false} onClose={mockOnClose} />);
     
-    // Check backdrop visibility
     const backdrop = document.querySelector('[class*="opacity-0"][class*="invisible"]');
     expect(backdrop).toBeInTheDocument();
   });
