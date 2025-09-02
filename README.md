@@ -3,9 +3,11 @@
 > Landing page estática para ZCOM — Provedor de Internet em Cândido Mota
 >
 > Site público:
-> [**https://www.zcomprovedor.com.br**](https://www.zcomprovedor.com.br/?utm_source=chatgpt.com) \
-> \
-> <img  alt="logo" src="https://github.com/user-attachments/assets/18e4dc22-60d7-44e3-91ac-0aa05b0f3407" />
+> [**https://www.zcomprovedor.com.br**](https://www.zcomprovedor.com.br/?utm_source=chatgpt.com)
+
+\
+\
+<img  alt="logo" src="https://github.com/user-attachments/assets/18e4dc22-60d7-44e3-91ac-0aa05b0f3407" />
 
 \
 \
