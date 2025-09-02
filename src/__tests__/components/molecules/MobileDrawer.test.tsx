@@ -1,13 +1,37 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
+type MockImageProps = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+type MockLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+};
+
+type MockSocialIconButtonProps = {
+  name: string;
+  link: string;
+};
+
+type MockTypographyProps = {
+  children: React.ReactNode;
+  variant: string;
+  className?: string;
+};
+
 jest.mock('next/image', () => {
-  return function MockImage({ src, alt, width, height }: any) {
+  return function MockImage({ src, alt, width, height }: MockImageProps) {
     return <img src={src} alt={alt} width={width} height={height} />;
   };
 });
 
 jest.mock('next/link', () => {
-  return function MockLink({ href, children, onClick, ...props }: any) {
+  return function MockLink({ href, children, onClick, ...props }: MockLinkProps) {
     return <a href={href} onClick={onClick} {...props}>{children}</a>;
   };
 });
@@ -15,13 +39,13 @@ jest.mock('next/link', () => {
 jest.mock('../../../public/icons/whatsapp.svg', () => 'WhatsAppIcon');
 
 jest.mock('@/components/atoms/buttons/SocialIconButton', () => {
-  return function MockSocialIconButton({ name, link }: any) {
+  return function MockSocialIconButton({ name, link }: MockSocialIconButtonProps) {
     return <a href={link} data-testid={`social-${name}`}>{name} Icon</a>;
   };
 });
 
 jest.mock('@/components/atoms/text/Typography', () => ({
-  Typography: function MockTypography({ children, variant, className }: any) {
+  Typography: function MockTypography({ children, variant, className }: MockTypographyProps) {
     return <span className={className} data-variant={variant}>{children}</span>;
   }
 }));
@@ -59,7 +83,6 @@ jest.mock('@/data/links.data', () => ({
   ]
 }));
 
-// Import the component after all mocks are set up
 import MobileDrawer from '@/components/molecules/MobileDrawer';
 
 describe('MobileDrawer test suite', () => {

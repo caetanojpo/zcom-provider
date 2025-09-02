@@ -1,10 +1,24 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { mockSocialMediaLinks } from '@/__mocks__/data/links.mock';
 import nextImageMock from '@/__mocks__/nextImage.mock';
 import NavBar from '@/components/organisms/Navbar';
 import { JSX } from 'react';
 
-// Mock Next.js Image component using the project's standard mock
+type MockLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+};
+
+type MockHamburgerButtonProps = {
+  isOpen: boolean;
+  onClick: () => void;
+};
+
+type MockMobileDrawerProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: Parameters<typeof nextImageMock>[0]) => nextImageMock(props),
@@ -12,12 +26,11 @@ jest.mock('next/image', () => ({
 
 jest.mock('next/link', () => ({
   __esModule: true,
-  default: function MockLink({ href, children, ...props }: any) {
+  default: function MockLink({ href, children, ...props }: MockLinkProps) {
     return <a href={href} {...props}>{children}</a>;
   },
 }));
 
-// Mock child components following the project's pattern
 jest.mock('@/components/molecules/NavbarMenu', () => ({
   __esModule: true,
   default: function MockNavbarMenu(): JSX.Element {
@@ -27,7 +40,7 @@ jest.mock('@/components/molecules/NavbarMenu', () => ({
 
 jest.mock('@/components/atoms/buttons/HamburgerButton', () => ({
   __esModule: true,
-  default: function MockHamburgerButton({ isOpen, onClick }: any): JSX.Element {
+  default: function MockHamburgerButton({ isOpen, onClick }: MockHamburgerButtonProps): JSX.Element {
     return (
       <button 
         data-testid="hamburger-button" 
@@ -42,7 +55,7 @@ jest.mock('@/components/atoms/buttons/HamburgerButton', () => ({
 
 jest.mock('@/components/molecules/MobileDrawer', () => ({
   __esModule: true,
-  default: function MockMobileDrawer({ isOpen, onClose }: any): JSX.Element | null {
+  default: function MockMobileDrawer({ isOpen, onClose }: MockMobileDrawerProps): JSX.Element | null {
     return isOpen ? (
       <div data-testid="mobile-drawer">
         Mobile Drawer
@@ -52,7 +65,6 @@ jest.mock('@/components/molecules/MobileDrawer', () => ({
   },
 }));
 
-// Mock data files using the project's mock data
 jest.mock('@/data/imageSrc.data', () => ({
   __esModule: true,
   IMAGE_SRC: {
