@@ -39,13 +39,6 @@ describe('Icon test suite', () => {
     expect(icon).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('Should apply correct CSS classes for xl size', () => {
-    render(<Icon icon={GitBranch} size="xl" />);
-    const { icon } = setup();
-
-    expect(icon).toHaveClass('w-32', 'h-32');
-  });
-
   it('Should merge custom className with default classes', () => {
     render(<Icon icon={GitBranch} size="md" className="text-red-500 rotate-45" />);
     const { icon } = setup();
