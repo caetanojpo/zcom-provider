@@ -5,6 +5,7 @@ import type { SVGIcon } from '@/types/svg';
 export const iconVariants = cva('inline-block select-none', {
   variants: {
     size: {
+      xs: 'w-5 h-5',
       sm: 'w-6 h-6',
       md: 'w-10 h-10',
       lg: 'w-12 h-12',

@@ -19,7 +19,7 @@ function SocialIconButton({ name, link, target, icon, variant, size }: SocialIco
       target={target ?? '_blank'}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       aria-label={label}
-      className="inline-flex items-center justify-center rounded-full p-2 transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zcom"
+      className="inline-flex items-center justify-center rounded-full p-1 transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zcom"
     >
       <Icon icon={icon ?? CircleQuestionMark} variant={variant} size={size} aria-hidden={false} />
     </Link>
