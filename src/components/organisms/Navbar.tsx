@@ -7,12 +7,12 @@ import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import NavbarMenu from '@/components/molecules/NavbarMenu';
 import { Typography } from '@/components/atoms/text/Typography';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
-import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
 import { socialMediaLinks } from '@/data/links.data';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import HamburgerButton from '@/components/atoms/buttons/HamburgerButton';
 import MobileDrawer from '@/components/molecules/MobileDrawer';
 import Link from 'next/link';
+import IconTextButton from '../atoms/buttons/IconTextButton';
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +41,7 @@ export default function NavBar() {
         "
       >
         <div className="flex items-center justify-between md:gap-6">
-          <div className="flex flex-1 items-center md:gap-20 gap-4">
+          <div className="flex flex-[0.6] items-center justify-between md:gap-8 gap-4">
             <Link href="/" className="w-[100px] flex-shrink-0">
               <Image
                 src={IMAGE_SRC.navBar.logo}
@@ -59,23 +59,24 @@ export default function NavBar() {
             <TextButton
               href={NAVBAR_COPYWRITING.invoice.link}
               variant="body-xs"
-              className="text-white/90 hover:text-white transition-colors"
+              className="text-white/90 hover:text-white transition-colors text-center"
             >
               {NAVBAR_COPYWRITING.invoice.text}
             </TextButton>
 
             <div className="flex items-center gap-1">
-              <SocialIconButton
-                name="whatsapp"
-                target="_blank"
-                icon={WhatsAppIcon}
-                link="https://wa.me/5518996660018"
+              <IconTextButton
+                name={NAVBAR_COPYWRITING.phone.name}
+                target={NAVBAR_COPYWRITING.phone.target}
+                icon={NAVBAR_COPYWRITING.phone.icon}
+                link={NAVBAR_COPYWRITING.phone.link}
+                text={NAVBAR_COPYWRITING.phone.text}
                 variant="white"
                 size="xs"
+                textVariant="body-xs"
+                textClassName="text-white"
+                gap='xs'
               />
-              <Typography variant="body-xs" className="text-white">
-                (18) 99785-6960
-              </Typography>
             </div>
 
             <div className="flex items-center">

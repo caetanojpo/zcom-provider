@@ -1,11 +1,6 @@
-// Typography.tsx
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-
-// optional: your own cn utility
-function cn(...classes: (string | undefined | false)[]) {
-  return classes.filter(Boolean).join(' ');
-}
+import { cn } from '@/lib/concatTailwind';
 
 export const typographyVariants = cva('', {
   variants: {
@@ -40,6 +35,8 @@ type OwnProps<T extends As> = {
 
 export type TypographyProps<T extends As> = OwnProps<T> &
   Omit<React.ComponentPropsWithRef<T>, keyof OwnProps<T> | 'ref'>;
+
+export type TypographyVariant = VariantProps<typeof typographyVariants>['variant'];
 
 function TypographyImpl<T extends As = 'span'>(
   { component, variant, className, ...rest }: TypographyProps<T>,

@@ -1,9 +1,5 @@
-// TextButton.tsx
 import Link from 'next/link';
-import { Typography, typographyVariants } from '@/components/atoms/text/Typography';
-import type { VariantProps } from 'class-variance-authority';
-
-type TypographyVariant = VariantProps<typeof typographyVariants>['variant'];
+import { Typography, TypographyVariant } from '@/components/atoms/text/Typography';
 
 type TextButtonProps = {
   href: string;

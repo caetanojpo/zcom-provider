@@ -7,6 +7,7 @@ import { IMAGE_SRC } from '@/data/imageSrc.data';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import { Typography } from '@/components/atoms/text/Typography';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
+import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
 import { socialMediaLinks } from '@/data/links.data';
 
@@ -92,7 +93,6 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               </Typography>
             </Link>
           ))}
-
           <Link
             href={NAVBAR_COPYWRITING.invoice.link}
             onClick={onClose}
@@ -105,20 +105,20 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-          {/* WhatsApp */}
-          <div className="flex items-center gap-3 mb-4">
-            <SocialIconButton
-              name="whatsapp"
-              target="_blank"
-              icon={WhatsAppIcon}
-              link="https://wa.me/5518996660018"
-              variant="white"
-              size="sm"
-            />
-            <Typography variant="body-sm" className="text-white">
-              (18) 99785-6960
-            </Typography>
-          </div>
+
+          <IconTextButton
+            name={NAVBAR_COPYWRITING.phone.name}
+            target={NAVBAR_COPYWRITING.phone.target}
+            icon={NAVBAR_COPYWRITING.phone.icon}
+            link={NAVBAR_COPYWRITING.phone.link}
+            text={NAVBAR_COPYWRITING.phone.text}
+            variant="white"
+            size="sm"
+            textVariant="body-sm"
+            textClassName="text-white"
+            gap='xs'
+            className="mb-4"
+          />
 
           <div className="flex items-center gap-2">
             <Typography variant="body-xs" className="text-white/70 mr-2">

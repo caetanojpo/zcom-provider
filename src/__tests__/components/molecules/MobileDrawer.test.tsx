@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 
 type MockImageProps = {
   src: string;
@@ -40,12 +41,16 @@ jest.mock('next/link', () => {
   };
 });
 
-jest.mock('../../../public/icons/whatsapp.svg', () => 'WhatsAppIcon');
+jest.mock('../../../public/icons/whatsapp.svg', () => {
+  return function WhatsAppIcon(props: any) {
+    return <svg {...props} data-testid="whatsapp-icon" />;
+  };
+});
 
 jest.mock('@/components/atoms/buttons/SocialIconButton', () => {
   return function MockSocialIconButton({ name, link }: MockSocialIconButtonProps) {
     return (
-      <a href={link} data-testid={`social-${name}`}>
+      <a href={link} data-testid={`social-${name?.toLowerCase()}`}>
         {name} Icon
       </a>
     );
@@ -70,28 +75,10 @@ jest.mock('@/data/imageSrc.data', () => ({
   },
 }));
 
-jest.mock('@/data/copywriting/navbar.data', () => ({
-  NAVBAR_COPYWRITING: {
-    logoAlt: 'Logo da empresa ZCOM',
-    mainSection: [
-      { text: 'Home', link: '#Home' },
-      { text: 'Planos', link: '#Planos' },
-      { text: 'Parceiros', link: '#Parceiros' },
-    ],
-    phone: {
-      text: '(18) 99785-6960',
-      icon: 'WhatsAppIcon',
-    },
-    invoice: {
-      text: '2ª via da fatura',
-      link: '#invoice',
-    },
-  },
-}));
-
 jest.mock('@/data/links.data', () => ({
   socialMediaLinks: [
-    { title: 'Instagram', link: '#instagram', target: '_blank', icon: 'Instagram' },
+    { title: 'WhatsApp ZCOM', link: 'https://wa.me/5518996660018', target: '_blank', icon: 'WhatsAppIcon' },
+    { title: 'Instagram ZCOM', link: '#instagram', target: '_blank', icon: 'Instagram' },
   ],
 }));
 
@@ -108,7 +95,7 @@ describe('MobileDrawer test suite', () => {
   it('Should render drawer elements when open', () => {
     render(<MobileDrawer isOpen={true} onClose={mockOnClose} />);
 
-    expect(screen.getByAltText('Logo da empresa ZCOM')).toBeInTheDocument();
+    expect(screen.getByAltText(NAVBAR_COPYWRITING.logoAlt)).toBeInTheDocument();
 
     expect(screen.getByRole('button', { name: 'Fechar menu' })).toBeInTheDocument();
   });
@@ -140,14 +127,14 @@ describe('MobileDrawer test suite', () => {
   it('Should render invoice link', () => {
     render(<MobileDrawer isOpen={true} onClose={mockOnClose} />);
 
-    expect(screen.getByText('2ª via da fatura')).toBeInTheDocument();
+    expect(screen.getByText(NAVBAR_COPYWRITING.invoice.text)).toBeInTheDocument();
   });
 
   it('Should render contact information', () => {
     render(<MobileDrawer isOpen={true} onClose={mockOnClose} />);
 
-    expect(screen.getByText('(18) 99785-6960')).toBeInTheDocument();
-    expect(screen.getByTestId('social-whatsapp')).toBeInTheDocument();
+    expect(screen.getByText(NAVBAR_COPYWRITING.phone.text)).toBeInTheDocument();
+    expect(screen.getByTestId('social-whatsapp zcom')).toBeInTheDocument();
   });
 
   it('Should set and reset body overflow', () => {

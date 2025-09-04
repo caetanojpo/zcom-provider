@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import nextImageMock from '@/__mocks__/nextImage.mock';
 import NavBar from '@/components/organisms/Navbar';
+import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import { JSX } from 'react';
 
 type MockLinkProps = {
@@ -84,17 +85,6 @@ jest.mock('@/data/imageSrc.data', () => ({
   },
 }));
 
-jest.mock('@/data/copywriting/navbar.data', () => ({
-  __esModule: true,
-  NAVBAR_COPYWRITING: {
-    logoAlt: 'Logo da empresa ZCOM',
-    invoice: {
-      text: '2ª via da fatura',
-      link: '#invoice',
-    },
-  },
-}));
-
 jest.mock('@/data/links.data', () => ({
   __esModule: true,
   socialMediaLinks: [
@@ -102,18 +92,17 @@ jest.mock('@/data/links.data', () => ({
       title: 'Instagram',
       link: 'https://instagram.com/zcom',
       target: '_blank',
-      icon: () => 'Instagram', // Return string instead of JSX to avoid React warnings
+      icon: () => 'Instagram',
     },
     {
       title: 'LinkedIn',
       link: 'https://linkedin.com/company/zcom',
       target: '_blank',
-      icon: () => 'LinkedIn', // Return string instead of JSX to avoid React warnings
+      icon: () => 'LinkedIn',
     },
   ],
 }));
 
-// Mock WhatsApp icon following the project's pattern
 jest.mock('../../../../../public/icons/whatsapp.svg', () => ({
   __esModule: true,
   default: function WhatsAppIconMock(): JSX.Element {
@@ -130,7 +119,7 @@ describe('NavBar test suite', () => {
   it('Should render navbar with logo', () => {
     render(<NavBar />);
 
-    const logo = screen.getByAltText('Logo da empresa ZCOM');
+    const logo = screen.getByAltText(NAVBAR_COPYWRITING.logoAlt);
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute('src', '/images/logo.png');
   });
@@ -153,15 +142,22 @@ describe('NavBar test suite', () => {
   it('Should render desktop invoice link', () => {
     render(<NavBar />);
 
-    const invoiceLink = screen.getByText('2ª via da fatura');
+    const invoiceLink = screen.getByText(NAVBAR_COPYWRITING.invoice.text);
     expect(invoiceLink).toBeInTheDocument();
+    // TextButton component wraps the text, so we need to check the parent/closest link
+    const linkElement = invoiceLink.closest('a');
+    expect(linkElement).toHaveAttribute('href', NAVBAR_COPYWRITING.invoice.link);
   });
 
   it('Should render WhatsApp contact in desktop', () => {
     render(<NavBar />);
 
-    const phoneNumber = screen.getByText('(18) 99785-6960');
+    const phoneNumber = screen.getByText(NAVBAR_COPYWRITING.phone.text);
     expect(phoneNumber).toBeInTheDocument();
+
+    // Check if the WhatsApp link is correct by finding the SocialIconButton
+    const whatsappLink = screen.getByRole('link', { name: /whatsapp/i });
+    expect(whatsappLink).toHaveAttribute('href', NAVBAR_COPYWRITING.phone.link);
   });
 
   it('Should toggle mobile menu when hamburger button is clicked', () => {
@@ -207,14 +203,15 @@ describe('NavBar test suite', () => {
     render(<NavBar />);
 
     // Get the logo link specifically by finding the link with the logo image
-    const logoLink = screen.getByRole('link', { name: /logo da empresa zcom/i });
+    const logoLink = screen.getByRole('link', {
+      name: new RegExp(NAVBAR_COPYWRITING.logoAlt, 'i'),
+    });
     expect(logoLink).toHaveAttribute('href', '/');
   });
 
   it('Should have correct CSS classes for responsive design', () => {
     render(<NavBar />);
 
-    // Find the navbar container by looking for the main container div
     const navbarContainer = document.querySelector('.relative.top-6.mx-auto');
     expect(navbarContainer).toHaveClass('relative', 'top-6', 'mx-auto', 'w-[95%]');
     expect(navbarContainer).toHaveClass('rounded-full');
@@ -225,7 +222,7 @@ describe('NavBar test suite', () => {
     render(<NavBar />);
 
     // Desktop elements should have hidden md:flex classes
-    const desktopSection = screen.getByText('2ª via da fatura').closest('div');
+    const desktopSection = screen.getByText(NAVBAR_COPYWRITING.invoice.text).closest('div');
     expect(desktopSection).toHaveClass('hidden', 'md:flex');
 
     // Hamburger should be visible
