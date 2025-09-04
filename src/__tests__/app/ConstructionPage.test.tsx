@@ -1,6 +1,7 @@
 import { mockSocialMediaLinks } from '@/__mocks__/data/links.mock';
 import { render, screen } from '@testing-library/react';
 import nextImageMock from '@/__mocks__/nextImage.mock';
+import mockIcon from '@/__mocks__/components/atoms/icons/Icon.mock';
 import { JSX } from 'react';
 
 jest.mock('next/image', () => ({
@@ -16,9 +17,7 @@ jest.mock('../../data/links.data', () => ({
 jest.mock('../../components/atoms/icons/Icon', () => {
   return {
     __esModule: true,
-    Icon: (props: { className?: string; 'aria-hidden'?: boolean }): JSX.Element => (
-      <svg data-testid="icon" className={props.className} aria-hidden={props['aria-hidden']} />
-    ),
+    Icon: mockIcon,
   };
 });
 
