@@ -15,7 +15,6 @@ const config: Config = {
         dark: '#282829',
         light: '#FEFEFE',
         zcom: '#0E46B9',
-        zcomDark: '#20325d',
       },
     },
   },

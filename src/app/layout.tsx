@@ -1,11 +1,11 @@
-import '../globals.css';
+import './globals.css';
 import { neometric } from '@/data/fonts.data';
 import Script from 'next/script';
 import { organizationSchemaConfig } from '@/config/organizationSchema.config';
 
 export { metadataConfig } from '@/config/metadata.config';
 
-export default function RootLayoutDev({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br" className={`${neometric.variable}`}>
       <head>
