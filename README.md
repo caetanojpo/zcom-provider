@@ -87,15 +87,12 @@ residências e empresas, destacar instalação rápida, suporte 24/7 e infraestr
 ```bash
 # instalar dependências
 npm install
-
 # rodar em desenvolvimento
 npm run dev
-
 # rodar testes
 npm run test           # (ou npm run test:coverage)
 # build de produção
 npm run build
-
 ```
 
 ---
