@@ -24,18 +24,18 @@ const gapVariants = {
   lg: 'gap-4',
 };
 
-function IconTextButton({ 
-  name, 
-  link, 
-  target, 
-  icon, 
+function IconTextButton({
+  name,
+  link,
+  target,
+  icon,
   text,
   textVariant = 'body-sm',
   textClassName,
   gap = 'md',
   className,
-  variant, 
-  size 
+  variant,
+  size,
 }: IconTextButtonProps) {
   const label = name ? `${name} — abre em nova aba` : 'Abrir link externo';
 
@@ -46,9 +46,9 @@ function IconTextButton({
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       aria-label={label}
       className={cn(
-        "inline-flex items-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zcom",
+        'inline-flex items-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zcom',
         gapVariants[gap],
-        className
+        className,
       )}
     >
       <div className="inline-flex items-center justify-center rounded-full p-1">

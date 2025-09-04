@@ -105,7 +105,6 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-
           <IconTextButton
             name={NAVBAR_COPYWRITING.phone.name}
             target={NAVBAR_COPYWRITING.phone.target}
@@ -116,7 +115,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             size="sm"
             textVariant="body-sm"
             textClassName="text-white"
-            gap='xs'
+            gap="xs"
             className="mb-4"
           />
 

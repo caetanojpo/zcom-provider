@@ -12,7 +12,15 @@ type SocialIconButtonProps = {
   icon?: SVGIcon;
 } & Omit<IconProps, 'icon'>;
 
-function SocialIconButton({ children, name, link, target, icon, variant, size }: SocialIconButtonProps) {
+function SocialIconButton({
+  children,
+  name,
+  link,
+  target,
+  icon,
+  variant,
+  size,
+}: SocialIconButtonProps) {
   const label = name ? `${name} — abre em nova aba` : 'Abrir link externo';
 
   return (

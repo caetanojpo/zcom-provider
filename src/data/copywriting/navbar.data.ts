@@ -21,7 +21,7 @@ export const NAVBAR_COPYWRITING = {
     target: '_blank',
     text: '(18) 99785-6960',
     icon: WhatsAppIcon,
-    link: 'https://wa.me/5518996660018'
+    link: 'https://wa.me/5518996660018',
   },
   invoice: {
     text: '2ª via da fatura',

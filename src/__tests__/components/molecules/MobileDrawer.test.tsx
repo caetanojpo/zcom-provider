@@ -41,11 +41,12 @@ jest.mock('next/link', () => {
   };
 });
 
-jest.mock('../../../public/icons/whatsapp.svg', () => {
-  return function WhatsAppIcon(props: any) {
-    return <svg {...props} data-testid="whatsapp-icon" />;
-  };
-});
+jest.mock('../../../../../public/icons/whatsapp.svg', () => ({
+  __esModule: true,
+  default: function WhatsAppIcon(): JSX.Element {
+    return <svg data-testid="whatsapp-icon" />;
+  },
+}));
 
 jest.mock('@/components/atoms/buttons/SocialIconButton', () => {
   return function MockSocialIconButton({ name, link }: MockSocialIconButtonProps) {
@@ -77,12 +78,18 @@ jest.mock('@/data/imageSrc.data', () => ({
 
 jest.mock('@/data/links.data', () => ({
   socialMediaLinks: [
-    { title: 'WhatsApp ZCOM', link: 'https://wa.me/5518996660018', target: '_blank', icon: 'WhatsAppIcon' },
+    {
+      title: 'WhatsApp ZCOM',
+      link: 'https://wa.me/5518996660018',
+      target: '_blank',
+      icon: 'WhatsAppIcon',
+    },
     { title: 'Instagram ZCOM', link: '#instagram', target: '_blank', icon: 'Instagram' },
   ],
 }));
 
 import MobileDrawer from '@/components/molecules/MobileDrawer';
+import { JSX } from 'react';
 
 describe('MobileDrawer test suite', () => {
   const mockOnClose = jest.fn();

@@ -75,7 +75,7 @@ export default function NavBar() {
                 size="xs"
                 textVariant="body-xs"
                 textClassName="text-white"
-                gap='xs'
+                gap="xs"
               />
             </div>
 

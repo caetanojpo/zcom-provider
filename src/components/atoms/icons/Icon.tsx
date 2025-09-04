@@ -16,7 +16,7 @@ export const iconVariants = cva('inline-block select-none', {
     variant: {
       default: 'text-zcom hover:text-white',
       primary: 'text-white hover:text-zcom',
-      white: 'text-white hover:text-white'
+      white: 'text-white hover:text-white',
     },
   },
   defaultVariants: {
