@@ -36,7 +36,7 @@ export default function Home() {
       </section>
       <section className="w-full h-[50dvh] xl:h-dvh z-20 flex flex-col items-center justify-center gap-6 px-6 md:px-12 xl:px-32 2xl:px-64">
         <div className="relative w-full h-fit flex items-center justify-center xl:justify-start">
-          <Icon icon={AlertTriangle} size="xl" variant="default" aria-hidden />
+          <Icon icon={AlertTriangle} className="w-16 h-16 xl:w-32 xl:h-32 text-zcom" aria-hidden />
         </div>
 
         <div className="w-full max-w-3xl text-center xl:text-left">

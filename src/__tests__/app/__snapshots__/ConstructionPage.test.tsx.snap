@@ -35,7 +35,7 @@ exports[`ConstructionPage test suite Should snapshot to detect unintentional str
       >
         <svg
           aria-hidden="true"
-          class="inline-block select-none w-16 h-16 xl:w-32 xl:h-32 text-zcom hover:text-white"
+          class="w-16 h-16 xl:w-32 xl:h-32 text-zcom"
           data-testid="icon"
         />
       </div>
