@@ -121,3 +121,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+.textStroke {
+  text-shadow:
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px -0.5px 0 #000;
+}
+.textLetterOutline {
+  text-shadow:
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+.textLetterSoft {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.45);
+}

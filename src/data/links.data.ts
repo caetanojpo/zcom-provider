@@ -23,3 +23,5 @@ export const socialMediaLinks: LinksData[] = [
     target: '_blank',
   },
 ];
+
+export const COMERCIAL_WHATSAPP: string = 'https://wa.me/5518996660018';

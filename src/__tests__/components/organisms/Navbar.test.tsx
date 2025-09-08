@@ -215,7 +215,7 @@ describe('NavBar test suite', () => {
     const navbarContainer = document.querySelector('.relative.top-6.mx-auto');
     expect(navbarContainer).toHaveClass('relative', 'top-6', 'mx-auto', 'w-[95%]');
     expect(navbarContainer).toHaveClass('rounded-full');
-    expect(navbarContainer).toHaveClass('bg-gradient-to-r', 'from-zcom-dark', 'to-zcom');
+    expect(navbarContainer).toHaveClass('bg-gradient-to-r', 'from-zcom-700', 'to-zcom-500');
   });
 
   it('Should hide desktop elements on mobile and show hamburger', () => {
