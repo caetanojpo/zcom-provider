@@ -28,7 +28,7 @@ export default function NavBar() {
     <>
       <div
         className="
-          absolute
+          relative
           top-6
           mx-auto
           w-[95%]
