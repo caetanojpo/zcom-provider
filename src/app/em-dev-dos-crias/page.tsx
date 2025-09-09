@@ -4,7 +4,7 @@ import PlansPage from '@/components/pages/PlansPage';
 export default function HomeDev() {
   return (
     <>
-      <NavBar />
+      {/*<NavBar />*/}
       <PlansPage />
     </>
   );

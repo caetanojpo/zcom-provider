@@ -9,7 +9,7 @@ export const typographyVariants = cva('', {
       'heading-md': 'text-2xl font-semibold leading-8 tracking-tight',
       'heading-lg': 'text-3xl font-semibold leading-9 tracking-tight',
       'heading-xl': 'text-4xl font-bold leading-10 tracking-tight',
-      'heading-2xl': 'text-5xl font-boldleading-10 leading-tight tracking-tight',
+      'heading-2xl': 'text-5xl font-bold leading-10 leading-tight tracking-tight',
       'heading-3xl': 'text-6xl font-bold leading-tight tracking-tight',
       'heading-4xl': 'text-7xl font-bold leading-tight tracking-tight',
       'heading-5xl': 'text-8xl font-bold leading-tight tracking-tight',
