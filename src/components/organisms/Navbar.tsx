@@ -28,9 +28,10 @@ export default function NavBar() {
     <>
       <div
         className="
-          relative
+          fixed
           top-6
-          mx-auto
+          left-1/2
+          transform -translate-x-1/2
           w-[95%]
           rounded-full
           px-8 md:py-3 py-4
