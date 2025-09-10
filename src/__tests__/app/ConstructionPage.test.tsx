@@ -74,7 +74,7 @@ describe('ConstructionPage test suite', () => {
   it('Should renders decorative background element with aria-hidden', () => {
     const decorative = container.querySelector('[aria-hidden]') as HTMLElement | null;
     expect(decorative).toBeTruthy();
-    expect(decorative?.className).toEqual(expect.stringContaining('bg-construction_bg'));
+    expect(decorative?.className).toEqual(expect.stringContaining('bg-construction-bg'));
   });
 
   it('Should renders DarkOverlay (mock) and Icon', () => {

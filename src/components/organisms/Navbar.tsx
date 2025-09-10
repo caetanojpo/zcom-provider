@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { IMAGE_SRC } from '@/data/imageSrc.data';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import NavbarMenu from '@/components/molecules/NavbarMenu';
-import { Typography } from '@/components/atoms/text/Typography';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 import { socialMediaLinks } from '@/data/links.data';
 import TextButton from '@/components/atoms/buttons/TextButton';
@@ -29,15 +28,17 @@ export default function NavBar() {
     <>
       <div
         className="
-          relative
+          fixed
           top-6
-          mx-auto
+          left-1/2
+          transform -translate-x-1/2
           w-[95%]
           rounded-full
           px-8 md:py-3 py-4
-          bg-gradient-to-r from-zcom-dark to-zcom
-          shadow-[inset_0_1px_0_rgba(255,255,255,.06),0_6px_20px_rgba(0,0,0,.35)]
+          bg-gradient-to-r from-zcom-700 to-zcom-500
+          shadow-xl
           border border-white/10
+          z-50
         "
       >
         <div className="flex items-center justify-between md:gap-6">

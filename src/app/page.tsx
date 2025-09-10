@@ -14,13 +14,13 @@ export default function Home() {
       <div
         aria-hidden
         className={cn(
-          'absolute pointer-events-none z-10 bg-construction_bg bg-no-repeat bg-center bg-contain',
+          'absolute pointer-events-none z-10 bg-construction-bg bg-no-repeat bg-center bg-contain',
           'bottom-[-200px] left-[-100px] w-[120%] h-[420px]',
           'md:bottom-[-300px] md:left-[-200px] md:h-[600px]',
           'xl:bottom-[-500px] xl:left-[-650px] xl:h-[900px]',
         )}
       />
-      <div className="absolute inset-0 bg-gradient-to-b xl:bg-gradient-to-br from-dark to-zcom" />
+      <div className="absolute inset-0 bg-gradient-to-b xl:bg-gradient-to-br from-dark to-zcom-500" />
       <DarkOverlay />
       <section className="relative w-full h-[40dvh] xl:h-[70dvh] z-20 flex items-center justify-center xl:justify-start xl:order-2">
         <Image

@@ -9,9 +9,11 @@ type LinksData = {
   icon?: SVGIcon;
 };
 
+export const COMERCIAL_WHATSAPP: string = 'https://wa.me/5518996660018';
+
 export const socialMediaLinks: LinksData[] = [
   {
-    link: 'https://wa.me/5518996660018',
+    link: COMERCIAL_WHATSAPP,
     icon: WhatsAppIcon,
     title: 'WhatsApp ZCOM',
     target: '_blank',
