@@ -6,12 +6,12 @@ import { IMAGE_SRC } from '@/data/imageSrc.data';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import NavbarMenu from '@/components/molecules/NavbarMenu';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
-import { socialMediaLinks } from '@/data/links.data';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import HamburgerButton from '@/components/atoms/buttons/HamburgerButton';
 import MobileDrawer from '@/components/molecules/MobileDrawer';
 import Link from 'next/link';
 import IconTextButton from '../atoms/buttons/IconTextButton';
+import { navbarLinks } from '@/data/navbar.links.data';
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,11 +28,7 @@ export default function NavBar() {
     <>
       <div
         className="
-          fixed
-          top-6
-          left-1/2
-          transform -translate-x-1/2
-          w-[95%]
+          w-full
           rounded-full
           px-8 md:py-3 py-4
           bg-gradient-to-r from-zcom-700 to-zcom-500
@@ -81,7 +77,7 @@ export default function NavBar() {
             </div>
 
             <div className="flex items-center">
-              {socialMediaLinks.map((item, idx) => (
+              {navbarLinks.map((item, idx) => (
                 <SocialIconButton
                   key={idx}
                   name={item.title}
