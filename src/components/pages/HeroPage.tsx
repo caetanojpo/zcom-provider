@@ -36,7 +36,7 @@ function HeroPage() {
         className={'min-h-[100vh] w-[100vw] flex flex-col items-end px-[5vw] py-[5vh] gap-[6vh]'}
       >
         <NavBar />
-        <div className="w-[50vw] flex-shrink-0 hidden md:block z-20">
+        <div className="w-[30vw] flex-shrink-0 hidden md:block z-20">
           <Image
             src="/images/logo/logo.webp"
             alt="ZCOM Logo"
