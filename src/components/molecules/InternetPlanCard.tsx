@@ -1,15 +1,28 @@
 import { Typography } from '@/components/atoms/text/Typography';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import { HERO_PAGE_COPYWRITING } from '@/data/copywriting/hero-page.data';
+import { COMERCIAL_WHATSAPP } from '@/data/links.data';
 
 function InternetPlanCard() {
   return (
-    <div className="flex flex-col gap-y-[1vw] italic overflow-hidden rounded-[2vw] bg-gradient-to-r from-zcom-700 to-zcom-500 px-[4vw] pt-[2vw] pb-[3vw] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.2)]">
-      <div className="flex items-baseline gap-[1vw]">
+    <section
+      role="region"
+      aria-labelledby="plan-heading"
+      className="flex flex-col gap-y-[1vw] italic overflow-hidden rounded-[2vw] bg-gradient-to-r from-zcom-700 to-zcom-500 px-[4vw] pt-[2vw] pb-[3vw] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.2)]"
+    >
+      <h2 id="plan-heading" className="sr-only">
+        Oferta de Plano de Internet
+      </h2>
+
+      <div
+        className="flex items-baseline gap-[1vw]"
+        aria-label={`Velocidade da internet: ${HERO_PAGE_COPYWRITING.speed} megabits por segundo`}
+      >
         <Typography
           variant={'heading-4xl'}
           className={`text-zcom-200 font-black leading-none [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
           style={{ fontSize: 'clamp(4.5rem, 6.5vw, 10rem)' }}
+          aria-hidden="true"
         >
           {HERO_PAGE_COPYWRITING.speed}
         </Typography>
@@ -17,6 +30,7 @@ function InternetPlanCard() {
           variant={'heading-2xl'}
           className={'font-bold text-white leading-none'}
           style={{ fontSize: 'clamp(2rem, 3vw, 5.5rem)' }}
+          aria-hidden="true"
         >
           mega
         </Typography>
@@ -30,11 +44,15 @@ function InternetPlanCard() {
           {HERO_PAGE_COPYWRITING.helperText}
         </Typography>
       </div>
-      <div className="flex">
+      <div
+        className="flex"
+        aria-label={`Preço mensal: ${HERO_PAGE_COPYWRITING.currencySymbol}${HERO_PAGE_COPYWRITING.price},${HERO_PAGE_COPYWRITING.decimalPrice} por ${HERO_PAGE_COPYWRITING.recurrence}`}
+      >
         <Typography
           variant="body-md"
           className={'text-white align-text-bottom font-normal'}
           style={{ fontSize: 'clamp(1rem, .5vw, 2rem)' }}
+          aria-hidden="true"
         >
           {HERO_PAGE_COPYWRITING.currencySymbol}
         </Typography>
@@ -43,6 +61,7 @@ function InternetPlanCard() {
             variant={'heading-2xl'}
             className={`text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
             style={{ fontSize: 'clamp(3rem, 5vw, 6rem)' }}
+            aria-hidden="true"
           >
             {HERO_PAGE_COPYWRITING.price}
           </Typography>
@@ -50,6 +69,7 @@ function InternetPlanCard() {
             variant={'heading-md'}
             className={`text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
             style={{ fontSize: 'clamp(2rem, 2.5vw, 5rem)' }}
+            aria-hidden="true"
           >
             {HERO_PAGE_COPYWRITING.decimalPrice}
           </Typography>
@@ -57,23 +77,29 @@ function InternetPlanCard() {
             variant="body-md"
             className={'text-white font-normal ml-[0.25vw]'}
             style={{ fontSize: 'clamp(1rem, .5vw, 2rem)' }}
+            aria-hidden="true"
           >
             / {HERO_PAGE_COPYWRITING.recurrence}
           </Typography>
         </div>
       </div>
       <div className="my-2">
-        <TextButton href={'#'} className={'bg-zcom-200 rounded-[100px] px-[5vw] py-[1.5vw]'}>
+        <TextButton
+          href={COMERCIAL_WHATSAPP}
+          className={'bg-zcom-200 rounded-[100px] px-[5vw] py-[1.5vw]'}
+          ariaLabel={`Assinar plano de internet de ${HERO_PAGE_COPYWRITING.speed} mega por ${HERO_PAGE_COPYWRITING.currencySymbol}${HERO_PAGE_COPYWRITING.price},${HERO_PAGE_COPYWRITING.decimalPrice} por ${HERO_PAGE_COPYWRITING.recurrence}`}
+        >
           <Typography
             variant="heading-sm"
             className={'text-white h-full'}
             style={{ fontSize: 'clamp(1rem, 1.5vw, 2.5rem)' }}
+            aria-hidden="true"
           >
             Assine já
           </Typography>
         </TextButton>
       </div>
-    </div>
+    </section>
   );
 }
 
