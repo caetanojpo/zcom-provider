@@ -7,7 +7,7 @@ import { PLANS_PAGE_COPYWRITING } from '@/data/copywriting/plans-page.data';
 
 function PlansPage() {
   return (
-    <main
+    <section
       className={
         'flex flex-col gap-8 w-screen min-h-screen bg-gradient-to-r from-zcom-500 to-dark via-z p-8 text-white relative '
       }
@@ -42,7 +42,7 @@ function PlansPage() {
           </div>
         ))}
       </section>
-    </main>
+    </section>
   );
 }
 

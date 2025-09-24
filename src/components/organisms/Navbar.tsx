@@ -29,15 +29,17 @@ export default function NavBar() {
       <div
         className="
           w-full
-          rounded-full
           px-8 md:py-3 py-4
-          bg-gradient-to-r from-zcom-700 to-zcom-500
-          shadow-xl
-          border border-white/10
           z-50
+          absolute
         "
       >
-        <div className="flex items-center justify-between md:gap-6">
+        <div
+          className="flex items-center justify-between md:gap-6 px-8 md:py-3 py-4 rounded-full
+	      bg-gradient-to-r from-zcom-700 to-zcom-500
+	      shadow-xl
+	      border border-white/10"
+        >
           <div className="flex flex-[0.6] items-center justify-between md:gap-8 gap-4">
             <Link href="/" className="w-[100px] flex-shrink-0">
               <Image
