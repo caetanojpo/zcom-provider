@@ -5,6 +5,7 @@ import NavBar from '@/components/organisms/Navbar';
 import FioFibraPage from '@/components/pages/FioFibraPage';
 import FiberOpticPage from '@/components/pages/FiberOpticPage';
 import PartnerPage from '@/components/pages/PartnerPage';
+import Footer from '@/components/organisms/Footer';
 
 export default function HomeDev() {
   return (
@@ -16,6 +17,7 @@ export default function HomeDev() {
       <MapPage />
       <FioFibraPage />
       <PartnerPage />
+      <Footer />
     </main>
   );
 }
