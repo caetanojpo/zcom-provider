@@ -3,7 +3,7 @@ import { Icon, IconProps } from '@/components/atoms/icons/Icon';
 import { CircleQuestionMark } from 'lucide-react';
 import { SVGIcon } from '@/types/svg';
 import { Typography, TypographyVariant } from '@/components/atoms/text/Typography';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 
 type IconTextButtonProps = {
   name?: string;

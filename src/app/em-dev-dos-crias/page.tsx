@@ -3,6 +3,7 @@ import HeroPage from '@/components/pages/HeroPage';
 import MapPage from '@/components/pages/MapPage';
 import NavBar from '@/components/organisms/Navbar';
 import FioFibraPage from '@/components/pages/FioFibraPage';
+import PartnerPage from '@/components/pages/PartnerPage';
 
 export default function HomeDev() {
   return (
@@ -12,6 +13,7 @@ export default function HomeDev() {
       <PlansPage />
       <MapPage />
       <FioFibraPage />
+      <PartnerPage />
     </main>
   );
 }
