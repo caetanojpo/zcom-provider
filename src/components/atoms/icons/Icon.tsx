@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { SVGIcon } from '@/types/svg';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 
 export const iconVariants = cva('inline-block select-none', {
   variants: {

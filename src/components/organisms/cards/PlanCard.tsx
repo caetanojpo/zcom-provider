@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 import { ZcomPlans } from '@/data/plans.data';
 import PlansSpeedBadge from '@/components/molecules/plans/PlansSpeedBadge';
 import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';

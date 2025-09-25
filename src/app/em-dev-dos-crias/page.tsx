@@ -4,6 +4,7 @@ import MapPage from '@/components/pages/MapPage';
 import NavBar from '@/components/organisms/Navbar';
 import FioFibraPage from '@/components/pages/FioFibraPage';
 import FiberOpticPage from '@/components/pages/FiberOpticPage';
+import PartnerPage from '@/components/pages/PartnerPage';
 
 export default function HomeDev() {
   return (
@@ -12,8 +13,9 @@ export default function HomeDev() {
       <HeroPage />
       <FiberOpticPage />
       <PlansPage />
-      <MapPage />
-      <FioFibraPage />
+	    <MapPage />
+	    <FioFibraPage />
+	    <PartnerPage />
     </main>
   );
 }
