@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 import { ZcomPlans } from '@/data/plans.data';
 import PlansSpeedBadge from '@/components/molecules/plans/PlansSpeedBadge';
 import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';
@@ -10,7 +10,7 @@ import PlansPriceCard from '@/components/molecules/plans/PlansPriceCard';
 function PlanCard({ plan }: { plan: ZcomPlans }) {
   return (
     <article
-      className={`flex flex-col items-center h-fit w-full max-w-xs md:max-w-md relative ${plan.id === 2 && 'lg:scale-115'}`}
+      className={`flex flex-col items-center h-fit w-full max-w-xs md:max-w-md relative ${plan.id === 2 && 'lg:scale-108 2xl:scale-115'}`}
       aria-labelledby={`plan-${plan.title}-title`}
     >
       <div

@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 import { Typography } from '@/components/atoms/text/Typography';
 
 type PlansSpeedBadgeProps = {

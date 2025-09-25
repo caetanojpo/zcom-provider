@@ -6,97 +6,79 @@ import { COMERCIAL_WHATSAPP } from '@/data/links.data';
 function InternetPlanCard() {
   return (
     <section
-      role="region"
       aria-labelledby="plan-heading"
-      className="flex flex-col gap-y-[1vw] italic overflow-hidden rounded-[2vw] bg-gradient-to-r from-zcom-700 to-zcom-500 px-[4vw] pt-[2vw] pb-[3vw] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.2)]"
+      className="flex flex-col gap-[5px]  italic rounded-[1.5rem] bg-gradient-to-r from-zcom-700 to-zcom-500 pl-[1.5rem] lg:pr-[1.5rem] py-[2dvh] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.2)] w-fit"
     >
       <h2 id="plan-heading" className="sr-only">
         Oferta de Plano de Internet
       </h2>
 
       <div
-        className="flex items-baseline gap-[1vw]"
+        className="flex items-baseline gap-[5px]"
         aria-label={`Velocidade da internet: ${HERO_PAGE_COPYWRITING.speed} megabits por segundo`}
       >
         <Typography
-          variant={'heading-4xl'}
-          className={`text-zcom-200 font-black leading-none [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
-          style={{ fontSize: 'clamp(4.5rem, 6.5vw, 10rem)' }}
+          className={`text-[48px] lg:text-[88px] text-zcom-200 font-black leading-none [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
           aria-hidden="true"
         >
           {HERO_PAGE_COPYWRITING.speed}
         </Typography>
         <Typography
-          variant={'heading-2xl'}
-          className={'font-bold text-white leading-none'}
-          style={{ fontSize: 'clamp(2rem, 3vw, 5.5rem)' }}
+          className={
+            'text-[28px] lg:text-[48px] font-bold text-white leading-none [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]'
+          }
           aria-hidden="true"
         >
           mega
         </Typography>
       </div>
-      <div className="w-[50vw] sm:w-[30vw] md:w-[20vw]">
-        <Typography
-          variant={'heading-md'}
-          className={'font-bold text-white'}
-          style={{ fontSize: 'clamp(1rem, 1.5vw, 2.5rem)' }}
-        >
+      <div className="w-[80%]">
+        <Typography className={'text-[12px] lg:text-[24px] xl:text-[20px] font-bold text-white'}>
           {HERO_PAGE_COPYWRITING.helperText}
         </Typography>
       </div>
       <div
-        className="flex"
+        className="flex relative"
         aria-label={`Preço mensal: ${HERO_PAGE_COPYWRITING.currencySymbol}${HERO_PAGE_COPYWRITING.price},${HERO_PAGE_COPYWRITING.decimalPrice} por ${HERO_PAGE_COPYWRITING.recurrence}`}
       >
         <Typography
-          variant="body-md"
-          className={'text-white align-text-bottom font-normal'}
-          style={{ fontSize: 'clamp(1rem, .5vw, 2rem)' }}
+          className={'text-[10px] lg:text-[22px] text-white ' + '' + ' font-normal'}
           aria-hidden="true"
         >
           {HERO_PAGE_COPYWRITING.currencySymbol}
         </Typography>
-        <div className="flex items-baseline ml-[0.25vw]">
+        <div className="flex items-baseline ml-[0.25vw] leading-8 lg:leading-16">
           <Typography
-            variant={'heading-2xl'}
-            className={`text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
-            style={{ fontSize: 'clamp(3rem, 5vw, 6rem)' }}
+            className={`text-[32px] lg:text-[64px] text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
             aria-hidden="true"
           >
             {HERO_PAGE_COPYWRITING.price}
           </Typography>
           <Typography
-            variant={'heading-md'}
-            className={`text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
-            style={{ fontSize: 'clamp(2rem, 2.5vw, 5rem)' }}
+            className={`text-[20px] lg:text-[48px] text-zcom-200 font-black [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]`}
             aria-hidden="true"
           >
             {HERO_PAGE_COPYWRITING.decimalPrice}
           </Typography>
           <Typography
-            variant="body-md"
-            className={'text-white font-normal ml-[0.25vw]'}
-            style={{ fontSize: 'clamp(1rem, .5vw, 2rem)' }}
+            variant="body-lg"
+            className={'text-[16px] lg:text-[32px] text-white font-normal ml-[0.25vw]'}
             aria-hidden="true"
           >
             / {HERO_PAGE_COPYWRITING.recurrence}
           </Typography>
         </div>
       </div>
-      <div className="my-2">
+      <div className="my-2 hover:scale-105 ease-in-out duration-150">
         <TextButton
           href={COMERCIAL_WHATSAPP}
-          className={'bg-zcom-200 rounded-[100px] px-[5vw] py-[1.5vw]'}
+          variant={'heading-sm'}
+          className={
+            'text-white bg-zcom-200 rounded-[100px] px-[6dvw] py-[1.5dvh] lg:py-[1.2rem] shadow-md '
+          }
           ariaLabel={`Assinar plano de internet de ${HERO_PAGE_COPYWRITING.speed} mega por ${HERO_PAGE_COPYWRITING.currencySymbol}${HERO_PAGE_COPYWRITING.price},${HERO_PAGE_COPYWRITING.decimalPrice} por ${HERO_PAGE_COPYWRITING.recurrence}`}
         >
-          <Typography
-            variant="heading-sm"
-            className={'text-white h-full'}
-            style={{ fontSize: 'clamp(1rem, 1.5vw, 2.5rem)' }}
-            aria-hidden="true"
-          >
-            Assine já
-          </Typography>
+          Assine já
         </TextButton>
       </div>
     </section>

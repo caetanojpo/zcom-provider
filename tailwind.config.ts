@@ -10,6 +10,7 @@ const config: Config = {
         'subs-dark-lines': "url('/images/subs/dark-lines-subs.webp')",
         'subs-lines': "url('/images/subs/lines-subs.webp')",
         'subs-lines-desk': "url('/images/subs/lines-sub-desk.webp')",
+        'fio-fibra-bg': "url('/images/group/bg-group.webp')",
       },
       fontFamily: {
         sans: ['var(--font-neometric)', 'system-ui', 'sans-serif'],
