@@ -13,9 +13,9 @@ export default function HomeDev() {
       <HeroPage />
       <FiberOpticPage />
       <PlansPage />
-	    <MapPage />
-	    <FioFibraPage />
-	    <PartnerPage />
+      <MapPage />
+      <FioFibraPage />
+      <PartnerPage />
     </main>
   );
 }
