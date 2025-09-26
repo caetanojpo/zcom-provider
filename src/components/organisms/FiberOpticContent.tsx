@@ -99,7 +99,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
           <motion.div
             variants={buttonVariants}
             className="my-2 h-fit w-fit"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 10px rgba(0, 255, 255, 0.5)' }} // Glow on hover
+            whileHover={{ scale: 1.05 }} // Glow on hover
             transition={{ duration: 0.2 }}
           >
             <TextButton

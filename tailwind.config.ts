@@ -13,6 +13,7 @@ const config: Config = {
         'fio-fibra-bg': "url('/images/group/bg-group.webp')",
         'lines-footer': "url('/images/footer/lines-footer.webp')",
         'bg-padrao': "url('/images/bg.svg')",
+        'bg-5g': "url('/images/5g/bg-5g.webp')",
       },
       fontFamily: {
         sans: ['var(--font-neometric)', 'system-ui', 'sans-serif'],

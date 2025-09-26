@@ -1,5 +1,4 @@
 'use client';
-
 import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
@@ -37,7 +36,7 @@ function BackgroundPageLayout({
 }: BackgroundPageLayoutProps) {
   return (
     <motion.div
-      className={cn('relative flex min-h-screen w-screen flex-col italic', className)}
+      className={cn('relative flex  h-full w-screen flex-col italic', className)}
       initial="hidden"
       style={{ backgroundColor }}
       whileInView="visible"
