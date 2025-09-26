@@ -1,48 +1,105 @@
-import React from 'react';
+'use client';
+
+import { motion, Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import { Typography } from '@/components/atoms/text/Typography';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { zcomPlans } from '@/data/plans.data';
 import PlanCard from '@/components/organisms/cards/PlanCard';
 import { PLANS_PAGE_COPYWRITING } from '@/data/copywriting/plans-page.data';
 
+const sectionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const backgroundVariants: Variants = {
+  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' }, // From top-left corner
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 1.2, ease: 'easeOut' },
+  },
+};
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
 function PlansPage() {
   return (
-    <section
-      className={
-        'flex flex-col gap-8 w-screen min-h-screen bg-gradient-to-r from-zcom-500 to-dark via-z p-8 text-white relative '
-      }
+    <motion.section
+      className={cn(
+        'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  via-z p-8 text-white',
+      )}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
     >
-      <div
-        className={
-          'absolute inset-0 bg-subs-lines lg:bg-subs-lines-desk bg-cover lg:bg-no-repeat lg:bg-[position:calc(50%_-_600px)_10px] lg:top-10 bg-center '
-        }
+      <DarkOverlay />
+      <motion.div
+        className={cn(
+          'absolute inset-0 bg-subs-lines bg-center bg-cover lg:bg-subs-lines-desk lg:bg-no-repeat lg:bg-[position:calc(50%_-_600px)_10px] lg:top-10',
+        )}
         aria-hidden
+        variants={backgroundVariants}
       />
-      <DarkOverlay percentage={20} />
 
-      <header className={'flex justify-center items-center'}>
+      <motion.header className="flex items-center justify-center" variants={headerVariants}>
         <div
-          className={
-            'flex justify-center items-center bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 rounded-3xl shadow-lg relative my-4 px-6 lg:px-8 '
-          }
+          className={cn(
+            'relative my-4 flex items-center justify-center rounded-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 px-6 shadow-lg lg:px-8',
+          )}
         >
-          <Typography className={'font-bold text-xl lg:text-[28px] italic'}>
+          <Typography className="italic font-bold text-xl lg:text-[28px]">
             {PLANS_PAGE_COPYWRITING.pageTitle}
           </Typography>
         </div>
-      </header>
+      </motion.header>
 
       <section
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 items-start justify-center lg:mt-16"
+        className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3 items-start justify-center lg:mt-16"
         aria-label="Planos zcom"
       >
         {zcomPlans.map((plan, index) => (
-          <div key={index} className="flex justify-center">
+          <motion.div
+            key={index}
+            className="flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={cardVariants}
+            transition={{ delay: index * 0.2 }}
+          >
             <PlanCard plan={plan} />
-          </div>
+          </motion.div>
         ))}
       </section>
-    </section>
+    </motion.section>
   );
 }
 

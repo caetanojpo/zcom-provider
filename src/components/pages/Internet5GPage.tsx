@@ -1,54 +1,81 @@
 'use client';
 
-import BackgroundPageLayout from '@/components/atoms/layouts/BackgroundPageLayout';
+import { motion, Variants } from 'framer-motion';
 import Internet5GPageHeader from '@/components/organisms/Internet5GPageHeader';
 import Internet5GContent from '@/components/organisms/Internet5GContent';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
+import { cn } from '@/lib/utils';
+
+// const sectionVariants: Variants = {
+// 	hidden: { opacity: 0, scale: 0.98 },
+// 	visible: {
+// 		opacity: 1,
+// 		scale: 1,
+// 		transition: {
+// 			duration: 0.8,
+// 			ease: 'easeOut',
+// 			staggerChildren: 0.3,
+// 		},
+// 	},
+// };
+
+const backgroundVariants: Variants = {
+  hidden: { opacity: 0, scale: 1.1, rotate: 2 }, // Subtle rotation for dynamic entry
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 1,
+      ease: 'easeOut',
+      type: 'spring',
+      stiffness: 90,
+      damping: 20,
+    },
+  },
+};
 
 function Internet5GPage() {
-  const [animationStarted, setAnimationStarted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationStarted(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <main role="main" aria-label="Página de Internet Fibra Óptica da Zcom" className={'relative'}>
-      <BackgroundPageLayout
-        backgroundImage="/images/5g/bg-5g.webp"
-        backgroundAlt="Linhas decorativas em tons de azul representando conexões de fibra óptica"
-        backgroundColor="#0b1f39"
-      >
-        <div
-          className={`hidden md:block absolute bottom-[50px] left-[-135px] w-[50vw] h-[80vh] transform transition-all duration-1000 ease-out delay-300
-    ${animationStarted ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
-        >
-          <Image
-            src="/images/5g/woman-chair-5g.webp"
-            alt="Mulher feliz aproveitando internet de alta velocidade em seu celular"
-            fill
-            priority
-          />
-        </div>
-        <div
-          className={`hidden md:block absolute bottom-0 left-[-200px] w-[75vw] h-[75vh] transform transition-all duration-1000 ease-out
-    ${animationStarted ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
-          aria-hidden="true"
-        >
-          <Image src="/images/5g/lines-5g.webp" alt="" fill priority />
-        </div>
+    <motion.main
+      aria-label="Página de Internet 5G da Zcom"
+      className={cn(
+        'relative bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 flex h-full w-full xl:h-[85dvh] justify-end',
+      )}
+      initial="hidden"
+      whileInView="visible"
+    >
+      <motion.div className="absolute w-full h-full">
+        <Image
+          src="/images/5g/bg-5g.webp" // Replace with actual path for bg-bg-5g
+          alt="Fundo decorativo para Internet 5G"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
+      <DarkOverlay />
 
-        <div className={'z-10'}>
-          <Internet5GPageHeader />
-          <Internet5GContent />
-        </div>
-      </BackgroundPageLayout>
-    </main>
+      <motion.div
+        className="hidden xl:flex absolute bottom-[-3dvh] left-[-33dvw] h-full w-full z-20"
+        aria-hidden="true"
+        variants={backgroundVariants}
+      >
+        <Image
+          src="/images/5g/lines-5g.webp"
+          alt="Linhas decorativas representando conexões 5G"
+          fill
+          priority
+          className="object-contain"
+          sizes="100vw"
+        />
+      </motion.div>
+      <div className="z-20 w-full xl:w-[60%] flex flex-col">
+        <Internet5GPageHeader />
+        <Internet5GContent />
+      </div>
+    </motion.main>
   );
 }
 

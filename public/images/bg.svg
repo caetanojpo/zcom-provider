@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="150mm" height="85.6606mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 13002.67 7425.44"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:none}
+    .fil0 {fill:url(#id3)}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <path d="M13002.67 0l-13002.67 0 0 7425.44 13002.67 0 0 -7425.44z"/>
+   </clipPath>
+    <clipPath id="id1">
+    </clipPath>
+    <clipPath id="id2">
+     <path d="M13002.67 0l-13002.67 0 0 7425.44 13002.67 0 0 -7425.44z"/>
+    </clipPath>
+  <linearGradient id="id3" gradientUnits="userSpaceOnUse" x1="13004.07" y1="50911.72" x2="-5648.68" y2="51039.12">
+   <stop offset="0" style="stop-opacity:1; stop-color:#282829"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#0E46B9"/>
+  </linearGradient>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon class="fil0" points="13002.67,0 -0,0 -0,7425.44 13002.67,7425.44 "/>
+  <g style="clip-path:url(#id0)">
+   <g id="_2409831193648">
+   </g>
+   <g style="clip-path:url(#id1)">
+    <image x="-593.13" y="16467.36" width="15561.98" height="9352.79" xlink:href="bg_Images\bg_ImgID1.png"/>
+   </g>
+   <g style="clip-path:url(#id2)">
+   </g>
+  </g>
+  <polygon class="fil1" points="13002.67,0 -0,0 -0,7425.44 13002.67,7425.44 "/>
+ </g>
+</svg>

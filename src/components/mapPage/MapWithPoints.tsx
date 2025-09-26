@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 
 interface Point {
@@ -20,9 +22,41 @@ const points: Point[] = [
   { top: '88%', left: '55%' },
 ];
 
+const mapVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' }, // From top-right corner
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 1.2, ease: 'easeOut' },
+  },
+};
+
+const pointVariants: Variants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: [1, 0.5, 1], // Pulsing opacity for blinking effect
+    scale: [1, 1.3, 1], // Slight scale pulse to enhance blinking
+    transition: {
+      duration: 1.3,
+      ease: 'easeOut',
+      delay: Math.random() * 0.5, // Random initial delay for varied blinking
+      repeat: Infinity, // Continuous blinking
+      repeatType: 'loop',
+      times: [0, 0.5, 1], // Timing for opacity and scale keyframes
+    },
+  },
+};
+
 const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div className={`relative w-full aspect-[1/1] xl:aspect-[10/5] ${className}`}>
+    <motion.div
+      className={`relative w-full aspect-[1/1] xl:aspect-[10/5] ${className}`}
+      initial="hidden"
+      whileInView="visible"
+      variants={mapVariants}
+    >
       {/* MAPA BASE */}
       <Image
         src="/images/map/cm-map.webp"
@@ -34,7 +68,12 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
 
       <div className="absolute inset-0">
         {points.map((p, i) => (
-          <div key={i} className="absolute" style={{ top: p.top, left: p.left }}>
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{ top: p.top, left: p.left }}
+            variants={pointVariants}
+          >
             <span className="relative flex items-center justify-center">
               {/* Glow difuso externo */}
               <span className="absolute h-5 w-5 rounded-full bg-blue-500 opacity-30 blur-md"></span>
@@ -45,10 +84,10 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
               {/* Miolo branco brilhante */}
               <span className="relative h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_2px_rgba(59,130,246,0.8)]"></span>
             </span>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

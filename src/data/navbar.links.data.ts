@@ -1,4 +1,3 @@
-import FacebookIcon from '../../public/icons/facebook.svg';
 import InstagramIcon from '../../public/icons/instagram.svg';
 import { SVGIcon } from '@/types/svg';
 
@@ -14,12 +13,6 @@ export const navbarLinks: LinksData[] = [
     link: 'https://www.instagram.com/zcomprovedor?igsh=MWh6eHkzYW9hb3E1ZQ%3D%3D&utm_source=qr',
     icon: InstagramIcon,
     title: 'Instagram ZCOM',
-    target: '_blank',
-  },
-  {
-    link: '#',
-    icon: FacebookIcon,
-    title: 'Facebook ZCOM',
     target: '_blank',
   },
 ];

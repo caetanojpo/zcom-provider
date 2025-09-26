@@ -1,4 +1,4 @@
-import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Typography } from '@/components/atoms/text/Typography';
 
@@ -8,25 +8,35 @@ type PlansSpeedBadgeProps = {
   dataStorage: string;
 };
 
+const badgeVariants: Variants = {
+  hidden: { opacity: 0, y: -50, x: -50 }, // From top-left
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
+
 function PlansSpeedBadge({ title, speed, dataStorage }: PlansSpeedBadgeProps) {
   return (
-    <div
+    <motion.div
       className={cn(
-        'flex flex-col items-center justify-center absolute top-0 lg:-top-2 left-1/2 -translate-x-1/2 text-center z-20',
-        'px-2',
+        'absolute -top-2 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center justify-center px-2 text-center lg:-top-2',
       )}
+      variants={badgeVariants}
     >
       <Typography
         id={`plan-${title}-title`}
-        variant={'heading-3xl'}
-        className={`text-zcom-200 lg:text-[80px] textLetterSoft font-black italic leading-3 lg:leading-8`}
+        variant="heading-3xl"
+        className="font-black italic leading-3 text-zcom-200 textLetterSoft lg:leading-8 lg:text-[80px]"
       >
         {speed}
       </Typography>
-      <Typography variant={'heading-xl'} className={'font-bold italic lg:text-5xl'}>
+      <Typography variant="heading-xl" className="italic font-bold lg:text-5xl">
         {dataStorage}
       </Typography>
-    </div>
+    </motion.div>
   );
 }
 
