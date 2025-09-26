@@ -122,11 +122,11 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-[700px] flex-col gap-4 xl:w-[50%]"
+      className="flex w-full max-w-[700px] xl:max-w-[1500px] flex-col xl:flex-row gap-4 xl:w-[80%] "
       variants={newsletterVariants}
     >
       <motion.div
-        className="flex flex-col gap-4 rounded-[50px] bg-gradient-to-r from-zcom-700 to-zcom-500 px-4 py-6 shadow-md md:flex-row md:rounded-[80px] md:px-10"
+        className="flex flex-col gap-4 rounded-[50px] bg-gradient-to-r from-zcom-700 to-zcom-500 px-4 py-6 xl:py-2 xl:w-full shadow-md md:flex-row md:rounded-[80px] md:px-10 xl:items-center"
         variants={newsletterVariants}
       >
         <div className="flex items-center justify-center">
@@ -135,11 +135,11 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
             alt="ZCOM Logo"
             width={100}
             height={100}
-            className="object-contain md:w-[140px]"
+            className="object-contain md:w-[140px] xl:w-[200px]"
           />
         </div>
-        <div className="flex h-full w-full flex-col gap-4">
-          <motion.div className="relative" variants={inputVariants}>
+        <div className="flex h-full w-full flex-col xl:flex-row gap-4 xl:items-center">
+          <motion.div className="relative xl:w-full" variants={inputVariants}>
             <input
               type="text"
               name="name"
@@ -151,7 +151,7 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
               aria-label="Seu nome"
             />
           </motion.div>
-          <motion.div className="relative" variants={inputVariants}>
+          <motion.div className="relative xl:w-full" variants={inputVariants}>
             <input
               type="email"
               name="email"
@@ -164,8 +164,22 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
             />
           </motion.div>
         </div>
+        <motion.div
+          className="z-40 hidden xl:flex w-full xl:w-fit justify-center pt-4 xl:pt-0 xl:items-center "
+          variants={buttonVariants}
+        >
+          <button
+            type="submit"
+            className="transform cursor-pointer rounded-full bg-zcom-200 px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent shadow-md drop-shadow-md"
+          >
+            CADASTRAR
+          </button>
+        </motion.div>
       </motion.div>
-      <motion.div className="z-30 flex w-full justify-center pt-4" variants={buttonVariants}>
+      <motion.div
+        className="z-30 flex xl:hidden w-full justify-center pt-4"
+        variants={buttonVariants}
+      >
         <button
           type="submit"
           className="transform cursor-pointer rounded-full bg-zcom-200 px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent"
@@ -228,7 +242,7 @@ function FooterContacts() {
             size="sm"
             gap="xs"
             icon={MapPin}
-            text="Rua Ângelo Pípolo, 666\nCândido Mota/SP"
+            text="Rua Ângelo Pípolo, 666 Cândido Mota/SP"
             variant="iconFooter"
             className="md:hidden"
           />
@@ -237,7 +251,8 @@ function FooterContacts() {
             size="sm"
             gap="xs"
             icon={MapPin}
-            text="Rua Ângelo Pípolo, 666\nCândido Mota/SP"
+            text={`Rua Ângelo Pípolo, 666
+            Cândido Mota/SP`}
             variant="iconFooter"
             whiteSpace="whitespace-pre-line"
             className="hidden md:flex"
