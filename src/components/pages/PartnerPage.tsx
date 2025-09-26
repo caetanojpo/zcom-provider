@@ -1,70 +1,149 @@
 'use client';
-import React from 'react';
-import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
+
+import { motion, Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import { Typography } from '@/components/atoms/text/Typography';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
 import { InstagramIcon, MousePointer } from 'lucide-react';
 import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
+import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
+import Link from 'next/link';
+import ClientImage from '@/components/molecules/ClientImage';
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const carouselVariants: Variants = {
+  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const buttonVariants: Variants = {
+  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const gridItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, x: -50 }, // From bottom-left corner
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
 
 function PartnerPage() {
   const clients = [
     {
       logo: '/images/logo/partners/alvaresagricola.webp',
-      link: '',
+      link: '#1B5EBA',
+      glow: '#1B5EBA',
     },
     {
       logo: '/images/logo/partners/blackbully.webp',
-      link: '',
+      link: '#1C242C',
+      glow: '#05a3b3',
     },
     {
       logo: '/images/logo/partners/casadiconti.webp',
       link: '',
+      glow: '#052d83',
     },
     {
       logo: '/images/logo/partners/coopermota.webp',
       link: '',
+      glow: '#0c6635',
     },
     {
       logo: '/images/logo/partners/gigantevermelho.webp',
       link: '',
+      glow: '#d02d34',
     },
     {
       logo: '/images/logo/partners/saldaterra.webp',
       link: '',
+      glow: '#0c3304',
     },
   ];
 
   return (
-    <section className="h-full  w-full bg-gradient-to-l from-zcom-700 to-zcom-500 relative">
+    <motion.section
+      className={cn('relative h-full w-full bg-gradient-to-r from-dark to-zcom-500')}
+      initial="hidden"
+      whileInView="visible"
+    >
       <DarkOverlay />
-      <div className="flex flex-col gap-10 w-full h-full p-6 xl:px-10 z-20 justify-around items-center">
+      <div className="z-20 flex h-full w-full flex-col items-center justify-around gap-10 p-6 xl:px-10">
         {/* Header */}
-        <div className="flex flex-col w-full z-20 relative items-center justify-center mt-14 md:mt-20">
-          <div className="flex bg-white w-fit h-fit px-2 py-2 md:p-4 rounded-4xl absolute top-[-40px] md:top-[-50px]">
-            <Typography className="text-zcom-500 font-bold italic md:text-[30px]">
+        <motion.div
+          className="relative z-20 mt-14 flex w-full flex-col items-center justify-center md:mt-20"
+          variants={headerVariants}
+        >
+          <div className="absolute top-[-40px] flex h-fit w-fit rounded-4xl bg-white px-2 py-2 md:top-[-50px] md:p-4">
+            <Typography className="italic font-bold text-zcom-500 md:text-[30px]">
               Nossos parceiros e clientes
             </Typography>
           </div>
-          <div className="bg-gradient-to-r from-zcom-700 to-zcom-500 w-full xl:w-[70%] h-fit py-8 md:px-4 z-30 rounded-[50px] md:rounded-[80px] shadow-md">
+          <div className="z-30 h-fit w-full rounded-[50px] bg-gradient-to-r from-zcom-700 to-zcom-500 shadow-md md:rounded-[80px] xl:w-[70%]">
             {/* Mobile Grid: 3 cols, 2 rows */}
-            <div className="grid grid-cols-3 grid-rows-2 gap-4 md:hidden px-4">
+            <motion.div
+              className="grid grid-cols-3 grid-rows-2 gap-4 px-4 md:hidden"
+              variants={carouselVariants}
+            >
               {clients.map((client, index) => (
-                <div key={index} className="flex justify-center items-center ">
-                  <Image
-                    src={client.logo}
-                    alt=""
-                    width={100}
-                    height={100}
-                    className="object-contain "
-                  />
-                </div>
+                <motion.div
+                  key={index}
+                  className="flex items-center justify-center"
+                  variants={gridItemVariants}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link href={client.link} className={'h-full w-full py-4'}>
+                    <Image
+                      src={client.logo}
+                      alt=""
+                      width={100}
+                      height={100}
+                      className="object-contain"
+                    />
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="hidden md:block h-full w-full ">
+            <motion.div className="hidden h-full w-full md:block">
               <Carousel
                 opts={{
                   align: 'center',
@@ -72,52 +151,47 @@ function PartnerPage() {
                 }}
                 plugins={[Autoplay({ delay: 2000 })]} // Autoplay every 2 seconds
               >
-                <CarouselContent>
+                <CarouselContent className={'flex py-8 items-center justify-center'}>
                   {clients.map((client, index) => (
-                    <CarouselItem key={index} className="basis-1/5 xl:basis-1/6">
-                      <div className="flex justify-center items-center h-full">
-                        <Image
-                          src={client.logo}
-                          alt=""
-                          width={100}
-                          height={100}
-                          className="object-contain"
-                        />
-                      </div>
+                    <CarouselItem key={index} className="basis-1/7 ">
+                      <ClientImage link={client.link} src={client.logo} glowColor={client.glow} />
                     </CarouselItem>
                   ))}
                 </CarouselContent>
               </Carousel>
-            </div>
+            </motion.div>
           </div>
-        </div>
-        <IconTextButton
-          link={''}
-          icon={MousePointer}
-          size={'xs'}
-          textClassName={' ml-[-8px] text-white italic font-bold text-[12px]'}
-          text={'Venha fazer parte desse time de parceiros!'}
-          className={
-            'w-fit h-fit bg-gradient-to-r from-zcom-700 shadow-md to-zcom-500 z-20 rounded-4xl p-2 flex md:hidden'
-          }
-        />
-        <IconTextButton
-          link={''}
-          icon={MousePointer}
-          size={'md'}
-          textClassName={'text-white italic font-bold text-[20px]'}
-          text={'Venha fazer parte desse time de parceiros!'}
-          className={
-            'w-fit h-fit bg-gradient-to-r from-zcom-700 shadow-md to-zcom-500 z-20 rounded-4xl p-2 px-4 hidden md:flex'
-          }
-        />
-        <div className={'z-20 flex gap-4'}>
+        </motion.div>
+
+        <motion.div variants={buttonVariants} className={'z-20'}>
+          <IconTextButton
+            link=""
+            icon={MousePointer}
+            size="xs"
+            textClassName="ml-[-8px] italic font-bold text-[12px] text-white"
+            text="Venha fazer parte desse time de parceiros!"
+            className="flex h-fit w-fit rounded-4xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 shadow-md md:hidden"
+          />
+        </motion.div>
+
+        <motion.div variants={buttonVariants} className={'z-20'}>
+          <IconTextButton
+            link=""
+            icon={MousePointer}
+            size="md"
+            textClassName="italic font-bold text-[20px] text-white"
+            text="Venha fazer parte desse time de parceiros!"
+            className="hidden h-fit w-fit rounded-4xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 px-4 shadow-md md:flex"
+          />
+        </motion.div>
+
+        <motion.div className="z-20 flex gap-4" variants={buttonVariants}>
           <IconTextButton
             name={NAVBAR_COPYWRITING.phone.name}
             target={NAVBAR_COPYWRITING.phone.target}
             icon={NAVBAR_COPYWRITING.phone.icon}
             link={NAVBAR_COPYWRITING.phone.link}
-            text={''}
+            text=""
             variant="white"
             size="md"
             textVariant="body-xs"
@@ -129,16 +203,16 @@ function PartnerPage() {
             target={NAVBAR_COPYWRITING.phone.target}
             icon={InstagramIcon}
             link={NAVBAR_COPYWRITING.phone.link}
-            text={''}
+            text=""
             variant="white"
             size="md"
             textVariant="body-xs"
             textClassName="text-white"
             gap="xs"
           />
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

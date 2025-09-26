@@ -12,6 +12,7 @@ const config: Config = {
         'subs-lines-desk': "url('/images/subs/lines-sub-desk.webp')",
         'fio-fibra-bg': "url('/images/group/bg-group.webp')",
         'lines-footer': "url('/images/footer/lines-footer.webp')",
+        'bg-padrao': "url('/images/bg.svg')",
       },
       fontFamily: {
         sans: ['var(--font-neometric)', 'system-ui', 'sans-serif'],

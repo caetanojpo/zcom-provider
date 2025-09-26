@@ -1,4 +1,9 @@
+'use client';
+
+import { motion, Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface BackgroundPageLayoutProps {
   children: ReactNode;
@@ -7,6 +12,21 @@ interface BackgroundPageLayoutProps {
   className?: string;
 }
 
+const backgroundVariants: Variants = {
+  hidden: { opacity: 0, scale: 1.1 }, // Start slightly zoomed for a dynamic effect
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+      ease: 'easeOut',
+      type: 'spring',
+      stiffness: 80,
+      damping: 20,
+    },
+  },
+};
+
 function BackgroundPageLayout({
   children,
   backgroundImage,
@@ -14,14 +34,23 @@ function BackgroundPageLayout({
   className = '',
 }: BackgroundPageLayoutProps) {
   return (
-    <div
-      className={`min-h-screen w-screen bg-cover bg-center flex flex-col italic ${className}`}
-      style={{ backgroundImage: `url('${backgroundImage}')` }}
-      role="img"
-      aria-label={backgroundAlt}
+    <motion.div
+      className={cn('relative flex min-h-screen w-screen flex-col italic', className)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={backgroundVariants}
     >
-      {children}
-    </div>
+      {/* Use Image component for preloading to prevent white flash */}
+      <Image
+        src={backgroundImage}
+        alt={backgroundAlt}
+        fill
+        className="object-cover"
+        priority // Preload for immediate rendering
+      />
+      <div className="relative z-10">{children}</div>
+    </motion.div>
   );
 }
 

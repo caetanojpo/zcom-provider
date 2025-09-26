@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import { motion, Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import HouseIconSVG from '../../../public/icons/house.svg';
 import BuildingIconSVG from '../../../public/icons/building.svg';
@@ -20,28 +23,76 @@ const badgeData: MapBadgeProps[] = [
   },
 ] as const;
 
+const sectionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const childVariants: Variants = {
+  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+};
+
+const mapVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' }, // From top-right corner
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 1.2, ease: 'easeOut' },
+  },
+};
+
 const MapPage: React.FC = () => {
   return (
-    <section className="relative flex flex-col gap-8 w-screen min-h-fit bg-gradient-to-r from-zcom-500 to-dark via-z py-8 md:py-20 text-white">
+    <motion.section
+      className={cn(
+        'relative flex min-h-fit w-screen flex-col gap-8 bg-gradient-to-r from-dark to-zcom-500 py-8 text-white md:py-20',
+      )}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <DarkOverlay />
-      <div className="z-20 h-full w-full flex flex-col gap-4 items-center justify-start ">
+      <div className="z-20 flex h-full w-full flex-col items-center justify-start gap-4">
         <MapFocusHeader />
-        <div className="flex flex-col md:flex-row h-full w-full">
-          <div className="flex flex-col h-full  w-full md:w-[50%] md:items-center md:h-[50dvh] justify-evenly">
-            <div className="flex justify-around gap-8 mt-8 md:order-2 md:justify-start md:gap-16 xl:gap-32">
-              {badgeData.map((item) => (
+        <div className="flex h-full w-full flex-col md:flex-row">
+          <div className="flex h-full w-full flex-col justify-evenly md:h-[50dvh] md:w-[50%] md:items-center">
+            <motion.div
+              className="mt-8 flex justify-around gap-8 md:order-2 md:gap-16 md:justify-start xl:gap-32"
+              variants={childVariants}
+            >
+              {badgeData.map((item, index) => (
                 <MapBadge key={item.title} {...item} />
               ))}
-            </div>
-            <MapWithPoints className="mt-8 w-[95%] mx-auto md:hidden" />
+            </motion.div>
+            <motion.div className="mx-auto mt-8 w-[95%] md:hidden" variants={mapVariants}>
+              <MapWithPoints className="w-full" />
+            </motion.div>
             <MapDescription />
           </div>
-          <div className="hidden md:flex h-full w-[50%] lg:w-[50%] items-center xl:items-stretch xl:py-10 justify-center absolute right-0 top-0">
+          <motion.div
+            className="absolute right-0 top-0 hidden h-full w-[50%] items-center justify-center md:flex lg:w-[50%] xl:items-stretch xl:py-10"
+            variants={mapVariants}
+          >
             <MapWithPoints className="w-full" />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
