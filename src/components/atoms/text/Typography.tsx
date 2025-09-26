@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 
 export const typographyVariants = cva('', {
   variants: {

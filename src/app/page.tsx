@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { AlertTriangle } from 'lucide-react';
 import { Icon } from '@/components/atoms/icons/Icon';
 import { socialMediaLinks } from '@/data/links.data';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 import { CONSTRUCTION_PAGE_COPYWRITING } from '@/data/copywriting/construction-page.data';

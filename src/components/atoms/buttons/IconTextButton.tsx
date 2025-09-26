@@ -3,7 +3,7 @@ import { Icon, IconProps } from '@/components/atoms/icons/Icon';
 import { CircleQuestionMark } from 'lucide-react';
 import { SVGIcon } from '@/types/svg';
 import { Typography, TypographyVariant } from '@/components/atoms/text/Typography';
-import { cn } from '@/lib/concatTailwind';
+import { cn } from '@/lib/utils';
 
 type IconTextButtonProps = {
   name?: string;
@@ -15,6 +15,8 @@ type IconTextButtonProps = {
   textClassName?: string;
   gap?: 'xs' | 'sm' | 'md' | 'lg';
   className?: string;
+  whiteSpace?: 'whitespace-pre-line' | null;
+  iconClassName?: string;
 } & Omit<IconProps, 'icon'>;
 
 const gapVariants = {
@@ -36,6 +38,8 @@ function IconTextButton({
   className,
   variant,
   size,
+  iconClassName,
+  whiteSpace = null,
 }: IconTextButtonProps) {
   const label = name ? `${name} — abre em nova aba` : 'Abrir link externo';
 
@@ -52,9 +56,15 @@ function IconTextButton({
       )}
     >
       <div className="inline-flex items-center justify-center rounded-full p-1">
-        <Icon icon={icon ?? CircleQuestionMark} variant={variant} size={size} aria-hidden={false} />
+        <Icon
+          icon={icon ?? CircleQuestionMark}
+          variant={variant}
+          size={size}
+          aria-hidden={false}
+          className={iconClassName}
+        />
       </div>
-      <Typography variant={textVariant} className={textClassName}>
+      <Typography variant={textVariant} className={cn(textClassName, whiteSpace)}>
         {text}
       </Typography>
     </Link>
