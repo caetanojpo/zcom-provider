@@ -10,6 +10,7 @@ interface BackgroundPageLayoutProps {
   backgroundImage: string;
   backgroundAlt: string;
   className?: string;
+  backgroundColor?: string; // fallback color behind image (handles transparent edges)
 }
 
 const backgroundVariants: Variants = {
@@ -32,11 +33,13 @@ function BackgroundPageLayout({
   backgroundImage,
   backgroundAlt,
   className = '',
+  backgroundColor = '#000',
 }: BackgroundPageLayoutProps) {
   return (
     <motion.div
       className={cn('relative flex min-h-screen w-screen flex-col italic', className)}
       initial="hidden"
+      style={{ backgroundColor }}
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={backgroundVariants}
