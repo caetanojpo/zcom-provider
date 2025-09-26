@@ -12,18 +12,18 @@ import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import Link from 'next/link';
 import ClientImage from '@/components/molecules/ClientImage';
-
-const sectionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
+//
+// const sectionVariants: Variants = {
+// 	hidden: { opacity: 0 },
+// 	visible: {
+// 		opacity: 1,
+// 		transition: {
+// 			duration: 0.8,
+// 			ease: 'easeOut',
+// 			staggerChildren: 0.3,
+// 		},
+// 	},
+// };
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
@@ -143,7 +143,7 @@ function PartnerPage() {
               ))}
             </motion.div>
 
-            <motion.div className="hidden h-full w-full md:block">
+            <motion.div className="hidden h-full w-full md:block" variants={carouselVariants}>
               <Carousel
                 opts={{
                   align: 'center',

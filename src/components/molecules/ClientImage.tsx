@@ -44,13 +44,17 @@ function ClientImage({
 }: ClientImageProps) {
   return (
     <motion.a
-      className={cn('flex h-10 w-10 p items-center justify-center rounded-full', className)}
+      className={cn('flex h-22 w-22 p items-center justify-center rounded-full', className)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }} // Matches PartnerPage animation trigger
+      variants={imageVariants}
       whileHover="hover"
       style={{ '--glow-color': glowColor } as React.CSSProperties} // Pass glow color as CSS variable
       href={link}
       target={`_blank`}
     >
-      <Image src={src} alt={alt} fill className="object-cover" />
+      <Image src={src} alt={alt} width={100} height={100} className="object-cover w-full h-full" />
     </motion.a>
   );
 }
