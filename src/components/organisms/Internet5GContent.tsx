@@ -55,7 +55,6 @@ const buttonVariants: Variants = {
   },
   hover: {
     scale: 1.05,
-    boxShadow: '0 0 12px rgba(0, 255, 255, 0.6)', // Cyan glow to match zcom-200
     transition: {
       duration: 0.3,
       ease: 'easeOut',
