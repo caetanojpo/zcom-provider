@@ -83,7 +83,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
               aria-label="Informação sobre a Zcom e o grupo Fiofibra"
             >
               A Zcom faz parte do grupo Fiofibra, o maior implementador de fibra óptica da região.{' '}
-              <span className="text-zcom-200">Sua internet vindo direto da fonte!</span>
+              <span className="text-zcom-200 font-bold">Sua internet vindo direto da fonte!</span>
             </Typography>
 
             <Typography

@@ -79,7 +79,8 @@ function Internet5GContent({ className = '' }: Internet5GContentProps) {
             aria-describedby="fiber-optic-description"
           >
             O primeiro provedor de internet a trazer o{' '}
-            <span className="text-zcom-200">modelo 5G</span> para nossa cidade.
+            <span className="text-zcom-200 bg-white px-2 rounded-full">modelo 5G</span> para nossa
+            cidade.
           </Typography>
 
           <motion.div id="fiber-optic-description" className="space-y-4" variants={childVariants}>
@@ -89,7 +90,8 @@ function Internet5GContent({ className = '' }: Internet5GContentProps) {
               aria-label="Informação sobre a Zcom e o grupo Fiofibra"
             >
               Além de qualidade, rapidez e confiabilidade, a Zcom também permite que você tenha{' '}
-              <span className="text-zcom-200">mobilidade</span> ao usar o seu plano.
+              <span className="text-zcom-200 bg-white px-2 rounded-full font-bold">mobilidade</span>{' '}
+              ao usar o seu plano.
             </Typography>
 
             <Typography
@@ -99,7 +101,10 @@ function Internet5GContent({ className = '' }: Internet5GContentProps) {
             >
               Leve a sua internet para onde você estiver, no seu carro, sítio, viagem, onde estiver
               a Zcom estará com você nos seus{' '}
-              <span className="text-zcom-200">melhores momentos</span>!
+              <span className="text-zcom-200 bg-white px-2 rounded-full font-bold">
+                melhores momentos
+              </span>
+              !
             </Typography>
           </motion.div>
 
