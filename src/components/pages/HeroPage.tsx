@@ -60,7 +60,7 @@ function HeroPage() {
       id={'hero'}
       aria-label="Seção principal com ofertas de planos de internet"
       className={cn(
-        'relative flex h-full min-h-[100dvh] w-screen items-end bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 lg:min-h-[70dvh] xl:h-[100dvh] xl:items-start overflow-hidden',
+        'relative flex h-full min-h-[100dvh] w-screen items-end bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  xl:h-[100dvh] xl:items-start overflow-hidden',
       )}
       initial="hidden"
       whileInView="visible"

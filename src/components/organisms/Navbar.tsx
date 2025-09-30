@@ -35,10 +35,7 @@ export default function NavBar() {
         "
       >
         <div
-          className="flex items-center justify-between md:gap-6 px-8 md:py-3 py-4 rounded-full
-	      bg-gradient-to-r from-zcom-700 to-zcom-500
-	      shadow-xl
-	      border border-white/10"
+          className={` ${isMobileMenuOpen ? 'hidden' : 'flex'} items-center justify-between md:gap-6 px-8 md:py-3 py-4 rounded-full  bg-gradient-to-r from-zcom-700 to-zcom-500 shadow-xl border border-white/10`}
         >
           <div className="flex flex-[1] items-center justify-between md:gap-8 gap-4">
             <Link href="/#hero" className="w-[100px] flex-shrink-0">
@@ -54,11 +51,11 @@ export default function NavBar() {
             <NavbarMenu />
           </div>
 
-          <div className="hidden md:flex flex-1 items-center justify-end gap-4">
+          <div className="hidden lg:flex flex-1 items-center justify-end gap-4">
             <TextButton
               href={NAVBAR_COPYWRITING.invoice.link}
               variant="body-xs"
-              className="text-white/90 hover:text-white transition-colors text-center transition-transform hover:scale-105"
+              className="hidden xl:flex text-white/90 hover:text-white transition-colors text-center transition-transform hover:scale-105"
               target={'_blank'}
             >
               {NAVBAR_COPYWRITING.invoice.text}

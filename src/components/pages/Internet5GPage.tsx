@@ -42,7 +42,7 @@ function Internet5GPage() {
       id={'5g'}
       aria-label="Página de Internet 5G da Zcom"
       className={cn(
-        'relative bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 flex h-full w-full xl:h-[85dvh] justify-end',
+        'relative bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 flex h-full w-full xl:h-[100dvh] justify-end',
       )}
       initial="hidden"
       whileInView="visible"

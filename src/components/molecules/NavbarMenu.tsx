@@ -3,7 +3,7 @@ import TextButton from '@/components/atoms/buttons/TextButton';
 
 export default function NavbarMenu() {
   return (
-    <nav className="hidden md:flex items-center text-white/90">
+    <nav className="hidden lg:flex items-center text-white/90">
       {NAVBAR_COPYWRITING.mainSection.map((e, idx) => (
         <div
           key={idx}

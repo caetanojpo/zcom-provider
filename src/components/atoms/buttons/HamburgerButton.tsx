@@ -9,7 +9,7 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
       onClick={onClick}
       className="
         relative w-8 h-8 flex flex-col justify-center items-center
-        md:hidden
+        lg:hidden
         p-1 rounded-md hover:bg-white/10 transition-colors
       "
       aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
