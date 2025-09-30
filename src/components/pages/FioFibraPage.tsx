@@ -117,7 +117,7 @@ function FioFibraPage() {
             href="https://fiofibra.com.br/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-[90%] items-center justify-center rounded-4xl bg-zcom-500 shadow-lg transition-all duration-150 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-zcom-200 md:h-14 md:w-[70%] xl:h-12 xl:w-[40%]"
+            className="px-4 py-8 sm:py-0 sm:px-0 flex h-10 w-[90%] items-center justify-center rounded-4xl bg-zcom-500 shadow-lg transition-all duration-150 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-zcom-200 md:h-14 md:w-[70%] xl:h-12 xl:w-[40%]"
             aria-label="Clique aqui e conheça a Fiofibra"
           >
             <Typography className="italic font-bold text-[16px] md:text-[24px]">

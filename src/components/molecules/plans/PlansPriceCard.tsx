@@ -22,12 +22,14 @@ const priceVariants: Variants = {
 function PlansPriceCard({ price, decimalPrice, recurrence }: PlansPriceCardProps) {
   return (
     <motion.div
-      className="relative mt-4 flex h-20 w-48 flex-col items-center justify-end gap-1 rounded-2xl bg-white px-4 py-2 shadow-lg text-black lg:h-32 lg:w-80 lg:gap-4"
+      className="relative mt-8 md:mt-4 flex h-20 w-48 flex-col items-center justify-end gap-1 rounded-2xl bg-white px-4 py-2 shadow-lg text-black lg:h-32 lg:w-80 lg:gap-4"
       variants={priceVariants}
     >
-      <Typography variant="body-md" className="italic font-bold">
-        {PLANS_PAGE_COPYWRITING.helperPriceText}
-      </Typography>
+      <div>
+        <Typography variant="body-md" className="italic font-bold">
+          {PLANS_PAGE_COPYWRITING.helperPriceText}
+        </Typography>
+      </div>
       <div className="relative flex h-fit w-full justify-center italic">
         <div className="flex items-end">
           <Typography variant="body-sm" className="mr-1 lg:text-[17px]">
