@@ -12,6 +12,7 @@ export default function NavbarMenu() {
         >
           <TextButton
             href={e.link}
+            target={'_self'}
             variant="body-md"
             className="hover:text-white text-white/90 transition-colors cursor-pointer"
           >

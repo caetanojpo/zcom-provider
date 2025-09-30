@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import Image from 'next/image';
 import { Typography } from '@/components/atoms/text/Typography';
@@ -10,6 +10,7 @@ import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
 import { InstagramIcon, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { COMERCIAL_WHATSAPP, INSTAGRAM_LINK } from '@/data/links.data';
 
 interface FormData {
   name: string;
@@ -105,6 +106,8 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
     name: '',
     email: '',
   });
+  const [isNotValid, setIsNotValid] = useState(true);
+  const [whatsMessage, setWhatsMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -114,9 +117,28 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit(formData);
+  useEffect(() => {
+    if (formData.name !== '' && formData.email !== '') {
+      setIsNotValid(false);
+    } else {
+      setIsNotValid(true);
+    }
+
+    setWhatsMessage(
+      `Nome: ${formData.name}
+E-Mail: ${formData.email}
+\n 
+Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para receber novidades, dicas e promoções.
+`,
+    );
+  }, [formData]);
+
+  const handleSubmit = () => {
+    if (isNotValid) return;
+    const url = `https://api.whatsapp.com/send?phone=5518996660018&text=${encodeURIComponent(
+      whatsMessage,
+    )}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -169,8 +191,13 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
           variants={buttonVariants}
         >
           <button
+            disabled={isNotValid}
             type="submit"
-            className="transform cursor-pointer rounded-full bg-zcom-200 px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent shadow-md drop-shadow-md"
+            className={cn(
+              'transform cursor-pointer rounded-full px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 shadow-md drop-shadow-md focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent',
+              'bg-zcom-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg',
+              'disabled:cursor-not-allowed disabled:bg-gray-500/70 disabled:text-white/60 disabled:hover:scale-100 disabled:hover:shadow-none',
+            )}
           >
             CADASTRAR
           </button>
@@ -182,7 +209,12 @@ function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
       >
         <button
           type="submit"
-          className="transform cursor-pointer rounded-full bg-zcom-200 px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent"
+          disabled={isNotValid}
+          className={cn(
+            'transform cursor-pointer rounded-full px-8 py-2 text-lg italic tracking-wide text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zcom-500 focus:ring-offset-2 focus:ring-offset-transparent',
+            'bg-zcom-200 hover:scale-105 hover:bg-zcom-500 hover:shadow-lg',
+            'disabled:cursor-not-allowed disabled:bg-gray-500/70 disabled:text-white/60 disabled:hover:scale-100 disabled:hover:shadow-none',
+          )}
         >
           CADASTRAR
         </button>
@@ -197,17 +229,22 @@ function FooterLinks() {
       <Typography className="text-blue-600 xl:text-[20px]">ZCOM</Typography>
       <ul className="flex flex-col gap-4">
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href="/contato">
+          <Link href={'/#hero'}>
+            <Typography className="xl:text-[18px]">HOME</Typography>
+          </Link>
+        </motion.li>
+        <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
+          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
             <Typography className="xl:text-[18px]">CONTATO</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href="/duvidas">
+          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
             <Typography className="xl:text-[18px]">DÚVIDAS</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href="/contratar">
+          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
             <Typography className="xl:text-[18px]">COMO CONTRATAR</Typography>
           </Link>
         </motion.li>
@@ -226,7 +263,8 @@ function FooterContacts() {
       <ul className="flex flex-col gap-3">
         <motion.li variants={linkItemVariants}>
           <IconTextButton
-            link=""
+            link={COMERCIAL_WHATSAPP}
+            target={'_blank'}
             size="sm"
             gap="xs"
             icon={WhatsAppIcon}
@@ -238,7 +276,8 @@ function FooterContacts() {
         </motion.li>
         <motion.li variants={linkItemVariants}>
           <IconTextButton
-            link=""
+            link="https://maps.app.goo.gl/MyU5hPo811obicZj6"
+            target={'_blank'}
             size="sm"
             gap="xs"
             icon={MapPin}
@@ -247,7 +286,8 @@ function FooterContacts() {
             className="md:hidden"
           />
           <IconTextButton
-            link=""
+            link="https://maps.app.goo.gl/MyU5hPo811obicZj6"
+            target={'_blank'}
             size="sm"
             gap="xs"
             icon={MapPin}
@@ -262,7 +302,8 @@ function FooterContacts() {
         </motion.li>
         <motion.li variants={linkItemVariants}>
           <IconTextButton
-            link=""
+            link={INSTAGRAM_LINK}
+            target={'_blank'}
             size="sm"
             gap="xs"
             icon={InstagramIcon}
@@ -284,7 +325,10 @@ function Footer() {
 
   return (
     <motion.section
-      className={cn('relative flex h-full w-full bg-gradient-to-r from-dark to-zcom-500')}
+      id={'footer'}
+      className={cn(
+        'relative flex h-full w-full bg-gradient-to-r from-dark to-zcom-500 overflow-hidden',
+      )}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 'some' }}

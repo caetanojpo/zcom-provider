@@ -30,7 +30,7 @@ export default function NavBar() {
         className="
           w-full
           px-8 md:py-3 py-4
-          z-50
+          z-[200]
           absolute
         "
       >
@@ -40,8 +40,8 @@ export default function NavBar() {
 	      shadow-xl
 	      border border-white/10"
         >
-          <div className="flex flex-[0.6] items-center justify-between md:gap-8 gap-4">
-            <Link href="/" className="w-[100px] flex-shrink-0">
+          <div className="flex flex-[1] items-center justify-between md:gap-8 gap-4">
+            <Link href="/#hero" className="w-[100px] flex-shrink-0">
               <Image
                 src={IMAGE_SRC.navBar.logo}
                 alt={NAVBAR_COPYWRITING.logoAlt}
@@ -58,7 +58,8 @@ export default function NavBar() {
             <TextButton
               href={NAVBAR_COPYWRITING.invoice.link}
               variant="body-xs"
-              className="text-white/90 hover:text-white transition-colors text-center"
+              className="text-white/90 hover:text-white transition-colors text-center transition-transform hover:scale-105"
+              target={'_blank'}
             >
               {NAVBAR_COPYWRITING.invoice.text}
             </TextButton>

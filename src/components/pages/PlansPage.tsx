@@ -54,6 +54,7 @@ const cardVariants: Variants = {
 function PlansPage() {
   return (
     <motion.section
+      id={'plans'}
       className={cn(
         'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  via-z p-8 text-white',
       )}
