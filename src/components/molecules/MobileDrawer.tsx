@@ -48,7 +48,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         `}
       >
         <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <Link href="/" onClick={onClose}>
+          <Link href="/#hero" onClick={onClose}>
             <Image
               src={IMAGE_SRC.navBar.logo}
               alt={NAVBAR_COPYWRITING.logoAlt}
@@ -87,6 +87,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               href={item.link}
               onClick={onClose}
               className="py-3 px-4 rounded-lg hover:bg-white/10 transition-colors"
+              target={'_blank'}
             >
               <Typography variant="body-lg" className="text-white">
                 {item.text}

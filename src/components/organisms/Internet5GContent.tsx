@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import { cn } from '@/lib/utils';
+import { PHONE_DATA } from '@/data/links.data';
 
 interface Internet5GContentProps {
   className?: string;
@@ -105,7 +106,7 @@ function Internet5GContent({ className = '' }: Internet5GContentProps) {
 
           <motion.div className="my-2 h-fit w-fit" variants={buttonVariants} whileHover="hover">
             <TextButton
-              href="#"
+              href={PHONE_DATA.link}
               target="_blank"
               variant="heading-md"
               className="mt-4 w-full max-w-xs rounded-4xl bg-zcom-200 px-[6dvw] py-[1.5dvh] lg:py-[1.2rem] shadow-md text-center transition-all duration-200 hover:bg-zcom-300 focus:outline-none focus:ring-2 focus:ring-zcom-200 focus:ring-offset-2 focus:ring-offset-transparent sm:mt-5"

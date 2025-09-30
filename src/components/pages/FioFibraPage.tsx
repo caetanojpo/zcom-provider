@@ -64,6 +64,7 @@ const ctaVariants: Variants = {
 function FioFibraPage() {
   return (
     <motion.section
+      id={'fioFibra'}
       className={cn(
         'relative flex h-[70dvh] w-full flex-col bg-gradient-to-r from-dark to-zcom-500 text-white xl:h-screen',
       )}
@@ -113,7 +114,7 @@ function FioFibraPage() {
         </motion.div>
         <motion.div className="h-fit w-full" variants={ctaVariants}>
           <Link
-            href={COMERCIAL_WHATSAPP}
+            href="https://fiofibra.com.br/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-10 w-[90%] items-center justify-center rounded-4xl bg-zcom-500 shadow-lg transition-all duration-150 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-zcom-200 md:h-14 md:w-[70%] xl:h-12 xl:w-[40%]"

@@ -6,15 +6,27 @@ export const NAVBAR_COPYWRITING = {
   mainSection: [
     {
       text: 'Home',
-      link: '#Home',
+      link: '#home',
+    },
+    {
+      text: 'Fibra',
+      link: '#fibra',
+    },
+    {
+      text: '5G',
+      link: '#5g',
     },
     {
       text: 'Planos',
-      link: '#Planos',
+      link: '#plans',
+    },
+    {
+      text: 'FioFibra',
+      link: '#fioFibra',
     },
     {
       text: 'Parceiros',
-      link: '#Parceiros',
+      link: '#partner',
     },
   ],
   phone: {

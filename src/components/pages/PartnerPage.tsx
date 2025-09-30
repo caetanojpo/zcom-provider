@@ -12,6 +12,7 @@ import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import Link from 'next/link';
 import ClientImage from '@/components/molecules/ClientImage';
+import { INSTAGRAM_DATA, PHONE_DATA } from '@/data/links.data';
 //
 // const sectionVariants: Variants = {
 // 	hidden: { opacity: 0 },
@@ -69,38 +70,39 @@ function PartnerPage() {
   const clients = [
     {
       logo: '/images/logo/partners/alvaresagricola.webp',
-      link: '#1B5EBA',
+      link: 'https://www.instagram.com/alvaresagricola/',
       glow: '#1B5EBA',
     },
     {
       logo: '/images/logo/partners/blackbully.webp',
-      link: '#1C242C',
+      link: 'https://www.instagram.com/blackbullycrossfit/?hl=en',
       glow: '#05a3b3',
     },
     {
       logo: '/images/logo/partners/casadiconti.webp',
-      link: '',
+      link: 'https://www.casadiconti.com.br/',
       glow: '#052d83',
     },
     {
       logo: '/images/logo/partners/coopermota.webp',
-      link: '',
+      link: 'https://www.coopermota.coop.br/',
       glow: '#0c6635',
     },
     {
       logo: '/images/logo/partners/gigantevermelho.webp',
-      link: '',
+      link: 'https://www.instagram.com/gigantevermelhooficial/?hl=en',
       glow: '#d02d34',
     },
     {
       logo: '/images/logo/partners/saldaterra.webp',
-      link: '',
+      link: 'https://www.instagram.com/osaldaterrarestaurante/?hl=en',
       glow: '#0c3304',
     },
   ];
 
   return (
     <motion.section
+      id={'partner'}
       className={cn('relative h-full w-full bg-gradient-to-r from-dark to-zcom-500')}
       initial="hidden"
       whileInView="visible"
@@ -176,21 +178,22 @@ function PartnerPage() {
 
         <motion.div variants={buttonVariants} className={'z-20'}>
           <IconTextButton
-            link=""
+            link={NAVBAR_COPYWRITING.phone.link}
             icon={MousePointer}
             size="md"
             textClassName="italic font-bold text-[20px] text-white"
             text="Venha fazer parte desse time de parceiros!"
             className="hidden h-fit w-fit rounded-4xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 px-4 shadow-md md:flex"
+            target={'_blank'}
           />
         </motion.div>
 
         <motion.div className="z-20 flex gap-4" variants={buttonVariants}>
           <IconTextButton
-            name={NAVBAR_COPYWRITING.phone.name}
-            target={NAVBAR_COPYWRITING.phone.target}
-            icon={NAVBAR_COPYWRITING.phone.icon}
-            link={NAVBAR_COPYWRITING.phone.link}
+            name={PHONE_DATA.title}
+            target={PHONE_DATA.target}
+            icon={PHONE_DATA.icon}
+            link={PHONE_DATA.link}
             text=""
             variant="white"
             size="md"
@@ -199,10 +202,10 @@ function PartnerPage() {
             gap="xs"
           />
           <IconTextButton
-            name={NAVBAR_COPYWRITING.phone.name}
-            target={NAVBAR_COPYWRITING.phone.target}
-            icon={InstagramIcon}
-            link={NAVBAR_COPYWRITING.phone.link}
+            name={INSTAGRAM_DATA.title}
+            target={INSTAGRAM_DATA.target}
+            icon={INSTAGRAM_DATA.icon}
+            link={INSTAGRAM_DATA.link}
             text=""
             variant="white"
             size="md"

@@ -59,6 +59,7 @@ const mapVariants: Variants = {
 const MapPage: React.FC = () => {
   return (
     <motion.section
+      id={'map'}
       className={cn(
         'relative flex min-h-fit w-screen flex-col gap-8 bg-gradient-to-r from-dark to-zcom-500 py-8 text-white md:py-20',
       )}
