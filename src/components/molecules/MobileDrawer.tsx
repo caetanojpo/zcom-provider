@@ -122,20 +122,19 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <Typography variant="body-xs" className="text-white/70 mr-2">
               Siga-nos:
             </Typography>
-            {socialMediaLinks.map(
-              (item, idx) =>
-                item.link != COMERCIAL_WHATSAPP && (
-                  <SocialIconButton
-                    key={idx}
-                    name={item.title}
-                    target={item.target}
-                    icon={item.icon}
-                    link={item.link}
-                    variant="white"
-                    size="sm"
-                  />
-                ),
-            )}
+            {socialMediaLinks
+              .filter(({ link }) => link !== COMERCIAL_WHATSAPP)
+              .map((item) => (
+                <SocialIconButton
+                  key={item.link}
+                  name={item.title}
+                  target={item.target}
+                  icon={item.icon}
+                  link={item.link}
+                  variant="white"
+                  size="sm"
+                />
+              ))}
           </div>
         </div>
       </div>
