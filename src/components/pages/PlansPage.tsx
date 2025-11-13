@@ -60,7 +60,6 @@ function PlansPage() {
       )}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
     >
       <DarkOverlay />
       <motion.div
@@ -84,7 +83,7 @@ function PlansPage() {
       </motion.header>
 
       <section
-        className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3 items-start justify-center lg:mt-16"
+        className="grid grid-cols-1 gap-20 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-start justify-center lg:mt-16 mb-16 2xl:mb-0"
         aria-label="Planos zcom"
       >
         {zcomPlans.map((plan, index) => (
@@ -95,6 +94,7 @@ function PlansPage() {
             whileInView="visible"
             variants={cardVariants}
             transition={{ delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <PlanCard plan={plan} />
           </motion.div>

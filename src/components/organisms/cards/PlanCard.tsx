@@ -6,6 +6,8 @@ import PlansSpeedBadge from '@/components/molecules/plans/PlansSpeedBadge';
 import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';
 import PlansCTA from '@/components/molecules/plans/PlansCTA';
 import PlansPriceCard from '@/components/molecules/plans/PlansPriceCard';
+import { Typography } from '@/components/atoms/text/Typography';
+import { useState } from 'react';
 
 const cardVariants: Variants = {
   hidden: { opacity: 0 },
@@ -28,7 +30,7 @@ const innerVariants: Variants = {
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1, y: '10%', x: '10%' }, // From bottom-right corner
+  hidden: { opacity: 0, scale: 1.1, y: '10%', x: '10%' },
   visible: {
     opacity: 1,
     scale: 1,
@@ -38,16 +40,21 @@ const imageVariants: Variants = {
   },
 };
 
+const MotionImage = motion(Image);
+
 function PlanCard({ plan }: { plan: ZcomPlans }) {
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
     <motion.article
-      className={cn(
-        `relative flex h-fit max-w-xs flex-col items-center md:max-w-md ${plan.id === 2 && 'lg:scale-108 2xl:scale-115'}`,
-      )}
+      className={cn(`relative flex h-fit max-w-md flex-col items-center md:max-w-md'}`)}
       aria-labelledby={`plan-${plan.title}-title`}
       initial="hidden"
       whileInView="visible"
       variants={cardVariants}
+      animate={{ scale: isHovering ? 1.1 : 1 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
         className={cn(
@@ -63,27 +70,44 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
           />
         </div>
 
-        <PlansSpeedBadge title={plan.title} speed={plan.speed} dataStorage={plan.dataStorage} />
         <PlansBenefitList benefits={plan.benefits} />
 
-        <motion.div className="relative h-[60%] w-full" variants={imageVariants}>
-          <Image
+        <motion.div className="relative h-full w-full" variants={imageVariants}>
+          {/* Imagem padrão - visível quando não há hover */}
+          <MotionImage
             src={plan.image}
             alt={plan.alt ?? plan.title}
             fill
-            className={cn(plan.cover ? 'object-cover' : 'object-contain', 'object-bottom')}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className={'object-contain object-bottom'}
+            // Animamos a opacidade
+            animate={{ opacity: isHovering ? 0 : 1 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }} // Duração da transição
+            priority // Pode ajudar a carregar mais rápido se for a primeira imagem
+          />
+
+          {/* Imagem colorida - visível quando há hover */}
+          <MotionImage
+            src={plan.imageColored}
+            alt={plan.alt ?? plan.title} // Use o mesmo alt ou um específico para a versão colorida
+            fill
+            className={'object-contain object-bottom absolute inset-0'} // Absolute para sobrepor
             loading="lazy"
+            // Animamos a opacidade
+            animate={{ opacity: isHovering ? 1 : 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }} // Duração da transição
           />
         </motion.div>
       </motion.div>
 
-      <PlansCTA title={plan.title} ctaLink={plan.ctaLink} />
+      <PlansCTA title={plan.title} ctaLink={plan.ctaLink} setIsHovering={setIsHovering} />
       <PlansPriceCard
         price={plan.price}
         decimalPrice={plan.decimalPrice}
         recurrence={plan.recurrence}
       />
+      <div className="absolute z-10 bottom-[-30] flex h-8 w-40 items-center justify-center rounded-b-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 text-white text-center font-medium italic lg:bottom-[-38] lg:h-10 lg:w-60">
+        <Typography className="text-[10px] lg:text-[16px]">{plan.extra}</Typography>
+      </div>
     </motion.article>
   );
 }
