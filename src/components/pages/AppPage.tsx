@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import AppPageHeader from '@/components/organisms/AppPageHeader';
 import AppPageContent from '@/components/organisms/AppPageContent';
+import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 
 // --- NOVO ---
 // 1. Variante do container principal (orquestrador)
@@ -82,12 +83,17 @@ function AppPage() {
       id={'app'}
       aria-label="Página do APP da Zcom"
       className={cn(
-        'relative bg-gradient-to-l from-dark via-zcom-700 to-zcom-500 flex h-full w-full min-h-[80dvh] xl:h-[100dvh] justify-end overflow-hidden z-100', // Adicionado overflow-hidden
+        'relative bg-gradient-to-l from-dark via-zcom-700 to-zcom-500 flex h-full w-full',
+        'min-h-[100dvh]', // Padrão (para iPhone SE e menores)
+        '[@media(min-height:800px)]:min-h-[80dvh]', // Para iPhone XR e maiores
+        'xl:h-[100dvh]', // Para desktop
+        'justify-end overflow-hidden z-100',
       )}
       initial="hidden"
       whileInView="visible"
       variants={pageVariants}
     >
+      <DarkOverlay />
       <motion.div
         className="hidden xl:flex absolute bottom-[-20dvh] left-[-26dvw]  h-full w-full z-0"
         aria-hidden="true"
@@ -111,7 +117,19 @@ function AppPage() {
       </motion.div>
 
       <motion.div
-        className="flex absolute bottom-[-28dvh] md:bottom-[-18dvh] xl:bottom-[-14dvh] right-[-32dvw] xl:right-[-40dvw] 2xl:right-[-36dvw] h-full w-full z-20"
+        className={cn(
+          'flex absolute h-full w-full z-20',
+          'bottom-[-34dvh]',
+          'sm:bottom-[-28dvh]',
+          'md:bottom-[-24dvh]',
+          'lg:bottom-[-18dvh]',
+          'xl:bottom-[-14dvh]',
+
+          // --- Controle de Posição Horizontal (right) ---
+          'right-[-32dvw]', // Padrão
+          'xl:right-[-40dvw]',
+          '2xl:right-[-36dvw]',
+        )}
         aria-hidden="true"
         variants={phoneVariants} // <-- APLICADA VARIANTE "PHONE"
       >
@@ -120,7 +138,7 @@ function AppPage() {
           alt="Celular com o aplicativo ZCOM TV"
           fill
           priority
-          className="object-contain scale-50 md:scale-75 xl:scale-70 2xl:scale-100"
+          className="object-contain scale-50 lg:scale-75 xl:scale-70 2xl:scale-100"
         />
       </motion.div>
     </motion.main>

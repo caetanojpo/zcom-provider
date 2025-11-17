@@ -98,7 +98,10 @@ const linkVariants: Variants = {
 function AppPageContent({ className = '' }: AppPageContentProps) {
   return (
     <motion.section
-      className={cn('flex-1 flex mt-45 py-14 px-8 sm:px-10 md:px-15 z-40', className)}
+      className={cn(
+        'flex-1 flex mt-35 sm:mt-40 xl:mt-45 py-14 px-8 sm:px-10 md:px-15 z-40',
+        className,
+      )}
       aria-label="Informações sobre Internet 5G"
       initial="hidden"
       whileInView="visible"
