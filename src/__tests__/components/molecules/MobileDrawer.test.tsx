@@ -80,7 +80,7 @@ jest.mock('@/data/links.data', () => ({
   socialMediaLinks: [
     {
       title: 'WhatsApp ZCOM',
-      link: COMERCIAL_WHATSAPP,
+      link: COMERCIAL_WHATSAPP_LINK,
       target: '_blank',
       icon: 'WhatsAppIcon',
     },
@@ -90,7 +90,7 @@ jest.mock('@/data/links.data', () => ({
 
 import MobileDrawer from '@/components/molecules/MobileDrawer';
 import { JSX } from 'react';
-import { COMERCIAL_WHATSAPP } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 
 describe('MobileDrawer test suite', () => {
   const mockOnClose = jest.fn();

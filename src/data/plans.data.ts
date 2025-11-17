@@ -1,6 +1,6 @@
 import { DataStorageEnum } from '@/enums/DataStorage.enum';
 import { RecurrenceEnum } from '@/enums/Recurrence.enum';
-import { COMERCIAL_WHATSAPP } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 
 export interface ZcomPlans {
   id: number;
@@ -29,7 +29,7 @@ export const zcomPlans: ZcomPlans[] = [
     price: '89',
     decimalPrice: '.90',
     recurrence: RecurrenceEnum.Monthly,
-    ctaLink: COMERCIAL_WHATSAPP,
+    ctaLink: COMERCIAL_WHATSAPP_LINK,
     image: '/images/subs/zoio-450-bw.png',
     imageColored: '/images/subs/zoio-450.png',
     alt: 'Internet 450 mega',
@@ -45,7 +45,7 @@ export const zcomPlans: ZcomPlans[] = [
     price: '99',
     decimalPrice: '.90',
     recurrence: RecurrenceEnum.Monthly,
-    ctaLink: COMERCIAL_WHATSAPP,
+    ctaLink: COMERCIAL_WHATSAPP_LINK,
     image: '/images/subs/zoio-700-bw.png',
     imageColored: '/images/subs/zoio-700.png',
     alt: 'Internet 700 mega',
@@ -61,7 +61,7 @@ export const zcomPlans: ZcomPlans[] = [
     price: '129',
     decimalPrice: '.90',
     recurrence: RecurrenceEnum.Monthly,
-    ctaLink: COMERCIAL_WHATSAPP,
+    ctaLink: COMERCIAL_WHATSAPP_LINK,
     image: '/images/subs/zoio-900-bw.png',
     imageColored: '/images/subs/zoio-900.png',
     alt: 'Internet 900 mega',
@@ -77,7 +77,7 @@ export const zcomPlans: ZcomPlans[] = [
     price: '149',
     decimalPrice: '.90',
     recurrence: RecurrenceEnum.Monthly,
-    ctaLink: COMERCIAL_WHATSAPP,
+    ctaLink: COMERCIAL_WHATSAPP_LINK,
     image: '/images/subs/zoio-1000-bw.png',
     imageColored: '/images/subs/zoio-1000.png',
     alt: 'Internet 1000 mega',

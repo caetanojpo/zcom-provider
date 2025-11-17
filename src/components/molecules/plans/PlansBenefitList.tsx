@@ -37,7 +37,7 @@ function PlansBenefitList({ benefits }: PlansBenefitListProps) {
       <motion.li className="flex items-center justify-center gap-2" variants={itemVariants}>
         <div className="h-1 w-1 rounded-full bg-dark lg:h-2 lg:w-2" />
         <Typography variant="body-xs" className="italic lg:text-[14px]">
-          <span className={'font-medium text-[18px]'}>WiFi 6</span> (comodata)
+          <span className={'font-medium text-[18px]'}>Internet ultra rápida</span>
         </Typography>
       </motion.li>
       <motion.li className="flex items-center justify-center gap-2" variants={itemVariants}>

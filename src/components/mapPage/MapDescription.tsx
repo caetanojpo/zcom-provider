@@ -43,7 +43,7 @@ const MapDescription: React.FC = () => {
           Nosso foco está em suprir nossa cidade, fomos{' '}
           <span className="text-zcom-500">pioneiros</span> em implementar a fibra óptica através do
           grupo <span className="text-zcom-500">Fiofibra</span> e seremos pioneiros novamente em
-          trazer a Internet 5G para nossa cidade!
+          trazer a Internet ultra rápida para nossa cidade!
         </Typography>
         <Typography className="text-[12px] md:text-[13px] xl:text-[16px]">
           Nosso foco está em suprir a demanda da cidade, priorizando o melhor atendimento, serviços

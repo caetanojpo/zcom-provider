@@ -65,13 +65,13 @@ const gridItemVariants: Variants = {
     transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
-
+// #1B5EBA
 function PartnerPage() {
   const clients = [
     {
-      logo: '/images/logo/partners/alvaresagricola.webp',
-      link: 'https://www.instagram.com/alvaresagricola/',
-      glow: '#1B5EBA',
+      logo: '/images/logo/fiofibra.webp',
+      link: 'https://fiofibra.com.br/',
+      glow: '#052d83',
     },
     {
       logo: '/images/logo/partners/blackbully.webp',
@@ -79,24 +79,24 @@ function PartnerPage() {
       glow: '#05a3b3',
     },
     {
-      logo: '/images/logo/partners/casadiconti.webp',
-      link: 'https://www.casadiconti.com.br/',
-      glow: '#052d83',
+      logo: '/images/logo/partners/ektech.jpg',
+      link: 'https://ektech.com.br/',
+      glow: '#16e77f',
     },
     {
-      logo: '/images/logo/partners/coopermota.webp',
-      link: 'https://www.coopermota.coop.br/',
-      glow: '#0c6635',
+      logo: '/images/logo/partners/link-brasil.jpg',
+      link: 'https://linkbrasil.net.br/',
+      glow: '#7ec6f9',
     },
     {
-      logo: '/images/logo/partners/gigantevermelho.webp',
-      link: 'https://www.instagram.com/gigantevermelhooficial/?hl=en',
+      logo: '/images/logo/partners/tim-brazil-jiujitsu.jpg',
+      link: 'https://www.instagram.com/timbrazilianjiujitsu/',
       glow: '#d02d34',
     },
     {
-      logo: '/images/logo/partners/saldaterra.webp',
-      link: 'https://www.instagram.com/osaldaterrarestaurante/?hl=en',
-      glow: '#0c3304',
+      logo: '/images/logo/partners/caipira.jpg',
+      link: 'https://www.instagram.com/caipirasgames/',
+      glow: '#3e9496',
     },
   ];
 
@@ -138,7 +138,7 @@ function PartnerPage() {
                       alt=""
                       width={100}
                       height={100}
-                      className="object-contain"
+                      className="object-contain w-full h-full rounded-full"
                     />
                   </Link>
                 </motion.div>

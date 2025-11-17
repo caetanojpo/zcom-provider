@@ -44,7 +44,7 @@ function ClientImage({
 }: ClientImageProps) {
   return (
     <motion.a
-      className={cn('flex h-22 w-22 p items-center justify-center rounded-full', className)}
+      className={cn('flex h-22 w-22 items-center justify-center rounded-full', className)}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }} // Matches PartnerPage animation trigger
@@ -54,7 +54,13 @@ function ClientImage({
       href={link}
       target={`_blank`}
     >
-      <Image src={src} alt={alt} width={100} height={100} className="object-cover w-full h-full" />
+      <Image
+        src={src}
+        alt={alt}
+        width={100}
+        height={100}
+        className="object-contain w-full h-full rounded-full"
+      />
     </motion.a>
   );
 }

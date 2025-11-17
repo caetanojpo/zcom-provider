@@ -56,7 +56,7 @@ function PlansPage() {
     <motion.section
       id={'plans'}
       className={cn(
-        'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  via-z p-8 text-white',
+        'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  via-z z-40 p-8 text-white',
       )}
       initial="hidden"
       whileInView="visible"

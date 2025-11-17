@@ -5,7 +5,7 @@ import { Icon } from '@/components/atoms/icons/Icon';
 import { Typography } from '@/components/atoms/text/Typography';
 
 export interface MapBadgeProps {
-  quantity: number;
+  quantity: number | string;
   title: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
@@ -74,10 +74,10 @@ const MapBadge: React.FC<MapBadgeProps> = ({ quantity, title, icon }) => {
         <Typography className="text-[30px] font-black md:text-[46px]">{quantity}</Typography>
       </motion.div>
       <motion.div
-        className="absolute bottom-[-20px] left-[-10px] rounded-2xl border border-dark bg-gradient-to-l from-zcom-500 to-zcom-700 px-8 py-1 shadow-sm drop-shadow-sm md:px-6"
+        className="absolute bottom-[-20px] left-[-10px] rounded-2xl border border-dark bg-gradient-to-l from-zcom-500 to-zcom-700 px-8 py-1 shadow-sm drop-shadow-sm md:px-14"
         variants={titleVariants}
       >
-        <Typography className="text-[12px] md:text-[19px]">{title}</Typography>
+        <Typography className="text-[19px]">{title}</Typography>
       </motion.div>
     </motion.div>
   );

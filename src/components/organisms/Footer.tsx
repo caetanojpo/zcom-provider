@@ -10,7 +10,8 @@ import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
 import { InstagramIcon, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { COMERCIAL_WHATSAPP, INSTAGRAM_LINK } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK, INSTAGRAM_LINK } from '@/data/links.data';
+import { COMERCIAL_PHONE } from '@/utils/constants.utils';
 
 interface FormData {
   name: string;
@@ -234,17 +235,17 @@ function FooterLinks() {
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
             <Typography className="xl:text-[18px]">CONTATO</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
             <Typography className="xl:text-[18px]">DÚVIDAS</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
             <Typography className="xl:text-[18px]">COMO CONTRATAR</Typography>
           </Link>
         </motion.li>
@@ -263,12 +264,12 @@ function FooterContacts() {
       <ul className="flex flex-col gap-3">
         <motion.li variants={linkItemVariants}>
           <IconTextButton
-            link={COMERCIAL_WHATSAPP}
+            link={COMERCIAL_WHATSAPP_LINK}
             target={'_blank'}
             size="sm"
             gap="xs"
             icon={WhatsAppIcon}
-            text="(18) 99785-6960"
+            text={COMERCIAL_PHONE[1]}
             variant="iconFooter"
             textClassName="xl:text-[18px]"
             iconClassName="xl:w-[30px] xl:h-[30px]"
@@ -307,7 +308,7 @@ function FooterContacts() {
             size="sm"
             gap="xs"
             icon={InstagramIcon}
-            text="@zcom.internet"
+            text="@zcomprovedor"
             variant="iconFooter"
             textClassName="xl:text-[18px]"
             iconClassName="xl:w-[25px] xl:h-[25px]"

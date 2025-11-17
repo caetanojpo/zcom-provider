@@ -1,5 +1,6 @@
 import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
-import { COMERCIAL_WHATSAPP } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
+import { COMERCIAL_PHONE } from '@/utils/constants.utils';
 
 export const NAVBAR_COPYWRITING = {
   logoAlt: 'Logo da empresa ZCOM',
@@ -32,12 +33,12 @@ export const NAVBAR_COPYWRITING = {
   phone: {
     name: 'whatsapp',
     target: '_blank',
-    text: '(18) 99785-6960',
+    text: COMERCIAL_PHONE[1],
     icon: WhatsAppIcon,
-    link: COMERCIAL_WHATSAPP,
+    link: COMERCIAL_WHATSAPP_LINK,
   },
   invoice: {
     text: '2ª via da fatura',
-    link: COMERCIAL_WHATSAPP,
+    link: COMERCIAL_WHATSAPP_LINK,
   },
 };

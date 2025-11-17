@@ -8,7 +8,7 @@ import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import { Typography } from '@/components/atoms/text/Typography';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 import IconTextButton from '@/components/atoms/buttons/IconTextButton';
-import { COMERCIAL_WHATSAPP, socialMediaLinks } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK, socialMediaLinks } from '@/data/links.data';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -124,7 +124,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               Siga-nos:
             </Typography>
             {socialMediaLinks
-              .filter(({ link }) => link !== COMERCIAL_WHATSAPP)
+              .filter(({ link }) => link !== COMERCIAL_WHATSAPP_LINK)
               .map((item) => (
                 <SocialIconButton
                   key={item.link}

@@ -2,7 +2,6 @@ import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { ZcomPlans } from '@/data/plans.data';
-import PlansSpeedBadge from '@/components/molecules/plans/PlansSpeedBadge';
 import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';
 import PlansCTA from '@/components/molecules/plans/PlansCTA';
 import PlansPriceCard from '@/components/molecules/plans/PlansPriceCard';
@@ -73,28 +72,24 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
         <PlansBenefitList benefits={plan.benefits} />
 
         <motion.div className="relative h-full w-full" variants={imageVariants}>
-          {/* Imagem padrão - visível quando não há hover */}
           <MotionImage
             src={plan.image}
             alt={plan.alt ?? plan.title}
             fill
             className={'object-contain object-bottom'}
-            // Animamos a opacidade
             animate={{ opacity: isHovering ? 0 : 1 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }} // Duração da transição
-            priority // Pode ajudar a carregar mais rápido se for a primeira imagem
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            priority
           />
 
-          {/* Imagem colorida - visível quando há hover */}
           <MotionImage
             src={plan.imageColored}
-            alt={plan.alt ?? plan.title} // Use o mesmo alt ou um específico para a versão colorida
+            alt={plan.alt ?? plan.title}
             fill
-            className={'object-contain object-bottom absolute inset-0'} // Absolute para sobrepor
+            className={'object-contain object-bottom absolute inset-0'}
             loading="lazy"
-            // Animamos a opacidade
             animate={{ opacity: isHovering ? 1 : 0 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }} // Duração da transição
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
           />
         </motion.div>
       </motion.div>
@@ -105,9 +100,10 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
         decimalPrice={plan.decimalPrice}
         recurrence={plan.recurrence}
       />
-      <div className="absolute z-10 bottom-[-30] flex h-8 w-40 items-center justify-center rounded-b-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 text-white text-center font-medium italic lg:bottom-[-38] lg:h-10 lg:w-60">
-        <Typography className="text-[10px] lg:text-[16px]">{plan.extra}</Typography>
-      </div>
+      {/*PONTUALIDADE*/}
+      {/*<div className="absolute z-10 bottom-[-30] flex h-8 w-40 items-center justify-center rounded-b-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 text-white text-center font-medium italic lg:bottom-[-38] lg:h-10 lg:w-60">*/}
+      {/*  <Typography className="text-[10px] lg:text-[16px]">{plan.extra}</Typography>*/}
+      {/*</div>*/}
     </motion.article>
   );
 }

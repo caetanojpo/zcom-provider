@@ -1,7 +1,7 @@
 import { Typography } from '@/components/atoms/text/Typography';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import { HERO_PAGE_COPYWRITING } from '@/data/copywriting/hero-page.data';
-import { COMERCIAL_WHATSAPP } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 
 function InternetPlanCard() {
   return (
@@ -71,7 +71,7 @@ function InternetPlanCard() {
       </div>
       <div className="my-2 hover:scale-105 ease-in-out duration-150">
         <TextButton
-          href={COMERCIAL_WHATSAPP}
+          href={COMERCIAL_WHATSAPP_LINK}
           variant={'heading-sm'}
           className={
             'text-white bg-zcom-200 rounded-[100px] px-[6dvw] py-[1.5dvh] lg:py-[1.2rem] shadow-md '

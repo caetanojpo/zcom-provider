@@ -12,15 +12,15 @@ import MapFocusHeader from '@/components/mapPage/MapFocusHeader';
 
 const badgeData: MapBadgeProps[] = [
   {
-    quantity: 893,
-    title: 'Residências',
+    quantity: '29mil',
+    title: 'Habitantes',
     icon: HouseIconSVG,
   },
-  {
-    quantity: 98,
-    title: 'Empresas',
-    icon: BuildingIconSVG,
-  },
+  // {
+  //   quantity: 98,
+  //   title: 'Empresas',
+  //   icon: BuildingIconSVG,
+  // },
 ] as const;
 
 const sectionVariants: Variants = {

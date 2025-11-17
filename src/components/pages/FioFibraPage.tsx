@@ -3,7 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { Typography } from '@/components/atoms/text/Typography';
-import { COMERCIAL_WHATSAPP } from '@/data/links.data';
+import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 import Link from 'next/link';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
