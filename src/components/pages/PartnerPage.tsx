@@ -69,7 +69,7 @@ const gridItemVariants: Variants = {
 function PartnerPage() {
   const clients = [
     {
-      logo: '/images/logo/fiofibra.webp',
+      logo: '/images/logo/partners/fiofibra.png',
       link: 'https://fiofibra.com.br/',
       glow: '#052d83',
     },
