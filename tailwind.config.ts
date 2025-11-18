@@ -31,12 +31,9 @@ const config: Config = {
         // Mobile devices
         xs: '375px', // iPhone SE, iPhone 12/13 mini
         sm: '390px', // iPhone 12/13/14 Pro, iPhone 14
-
         mdMini: '744px', // iPad mini (portrait)
         mdAir: '820px', // iPad Air (portrait)
         mdPro: '1023px', // iPad Pro 11" (portrait) / Tablets landscape
-        xl: '1366px', // Notebooks padrão
-        '2xl': '1920px', // Desktop Full HD
         '3xl': '2560px', // Desktop 2K/QHD
       },
     },
