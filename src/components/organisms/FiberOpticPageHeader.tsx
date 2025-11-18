@@ -63,7 +63,7 @@ function FiberOpticPageHeader({ className = '' }: FiberOpticPageHeaderProps) {
     >
       <motion.div
         className={cn(
-          'absolute left-[-20px] top-[40px] flex w-[200px] justify-end rounded-4xl bg-white pb-2 pr-9 pt-0 text-zcom-200 sm:w-1/3 md:w-1/2 md:pr-14 lg:w-1/3 lg:pr-10 xl:w-1/4',
+          'absolute left-[-20px] top-[40px] flex w-[200px] justify-end rounded-4xl bg-white pb-2 pr-9 pt-0 text-zcom-200  mdMini:w-1/2 mdMini:pr-14 lg:w-1/3 lg:pr-10 xl:w-1/4',
         )}
         variants={childVariants}
       >

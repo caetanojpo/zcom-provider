@@ -31,7 +31,7 @@ const config: Config = {
         // Mobile devices
         xs: '375px', // iPhone SE, iPhone 12/13 mini
         sm: '390px', // iPhone 12/13/14 Pro, iPhone 14
-        md: '428px', // iPhone 14 Pro Max, iPhone 14 Plus
+
         mdMini: '744px', // iPad mini (portrait)
         mdAir: '820px', // iPad Air (portrait)
         mdPro: '1023px', // iPad Pro 11" (portrait) / Tablets landscape
