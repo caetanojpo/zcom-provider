@@ -69,7 +69,11 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
           />
         </div>
 
-        <PlansBenefitList benefits={plan.benefits} />
+        <PlansBenefitList
+          benefits={plan.benefits}
+          planTitle={plan.planTitle}
+          planSubtitle={plan.planSubtitle}
+        />
 
         <motion.div className="relative h-full w-full" variants={imageVariants}>
           <MotionImage

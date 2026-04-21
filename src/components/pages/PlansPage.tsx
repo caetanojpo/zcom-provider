@@ -83,7 +83,7 @@ function PlansPage() {
       </motion.header>
 
       <section
-        className="grid grid-cols-1 gap-20 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-start justify-center lg:mt-16 mb-16 2xl:mb-0"
+        className="grid grid-cols-1 gap-20 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-start justify-center  mb-8 2xl:mb-0"
         aria-label="Planos zcom"
       >
         {zcomPlans.map((plan, index) => (
@@ -100,6 +100,24 @@ function PlansPage() {
           </motion.div>
         ))}
       </section>
+
+      <motion.footer
+        className="flex flex-col items-center justify-center gap-1 pb-8 text-center"
+        variants={headerVariants}
+      >
+        <div
+          className={cn(
+            'relative my-4 flex items-center justify-center rounded-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 px-6 shadow-lg lg:px-8',
+          )}
+        >
+          <Typography className="font-bold italic text-lg lg:text-xl">
+            {PLANS_PAGE_COPYWRITING.footerPunctuality}
+          </Typography>
+        </div>
+        <Typography className="text-md lg:text-lg opacity-80 md:w-[50%] lg:w-[40%] 2xl:w-[25%]">
+          {PLANS_PAGE_COPYWRITING.footerPrize}
+        </Typography>
+      </motion.footer>
     </motion.section>
   );
 }
