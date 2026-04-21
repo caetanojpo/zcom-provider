@@ -5,7 +5,7 @@ export const HERO_PAGE_COPYWRITING = {
   ctaLink: '#',
   currencySymbol: 'R$',
   price: '99',
-  decimalPrice: ',90',
+  decimalPrice: ',99',
   helperText: 'Internet rápida e TV de qualidade!',
   recurrence: RecurrenceEnum.Monthly,
   speed: 700,
