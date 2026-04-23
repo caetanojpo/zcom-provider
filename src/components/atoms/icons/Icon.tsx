@@ -28,8 +28,7 @@ export const iconVariants = cva('inline-block select-none', {
 });
 
 export interface IconProps
-  extends
-    Omit<React.SVGProps<SVGSVGElement>, 'className' | 'style' | 'width' | 'height' | 'color'>,
+  extends Omit<React.SVGProps<SVGSVGElement>, 'className' | 'style' | 'width' | 'height' | 'color'>,
     VariantProps<typeof iconVariants> {
   icon: SVGIcon;
   decorative?: boolean;
