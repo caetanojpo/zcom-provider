@@ -23,7 +23,7 @@ const contentVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 100, scale: 0.95, rotate: 3 }, // From bottom-right with slight rotation
+  hidden: { opacity: 0, y: 100, scale: 0.95, rotate: 3 },
   visible: {
     opacity: 1,
     y: 0,
@@ -40,7 +40,7 @@ const childVariants: Variants = {
 };
 
 const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 }, // From bottom with scale
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
@@ -51,7 +51,7 @@ const buttonVariants: Variants = {
       type: 'spring',
       stiffness: 100,
       damping: 15,
-      delay: 0.5, // Delay for button to appear last
+      delay: 0.5,
     },
   },
   hover: {

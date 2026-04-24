@@ -7,10 +7,6 @@ import AppPageHeader from '@/components/organisms/AppPageHeader';
 import AppPageContent from '@/components/organisms/AppPageContent';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 
-// --- NOVO ---
-// 1. Variante do container principal (orquestrador)
-// Usamos o 'sectionVariants' que você tinha comentado.
-// Ele vai "orquestrar" a entrada dos filhos um após o outro.
 const pageVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -18,14 +14,11 @@ const pageVariants: Variants = {
     transition: {
       duration: 0.5,
       ease: 'easeOut',
-      staggerChildren: 0.3, // Cada filho animará com 0.3s de atraso
+      staggerChildren: 0.3,
     },
   },
 };
 
-// --- NOVO ---
-// 2. Variante para a imagem da esquerda ("zoio")
-// Entra da esquerda e ganha escala (efeito de "empurrar" para a cena)
 const zoioVariants: Variants = {
   hidden: { opacity: 0, x: -100, scale: 0.9 },
   visible: {
@@ -42,9 +35,6 @@ const zoioVariants: Variants = {
   },
 };
 
-// --- NOVO ---
-// 3. Variante para a imagem da direita ("phone")
-// Entra da direita, com rotação e escala (similar ao que você tinha)
 const phoneVariants: Variants = {
   hidden: { opacity: 0, x: 100, scale: 1.1, rotate: 5 },
   visible: {
@@ -62,9 +52,6 @@ const phoneVariants: Variants = {
   },
 };
 
-// --- NOVO ---
-// 4. Variante para o bloco de conteúdo (Header + Content)
-// Entra de baixo para cima, com fade-in
 const contentVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -84,9 +71,9 @@ function AppPage() {
       aria-label="Página do APP da Zcom"
       className={cn(
         'relative bg-gradient-to-l from-dark via-zcom-700 to-zcom-500 flex h-full w-full',
-        'min-h-[100dvh]', // Padrão (para iPhone SE e menores)
-        '[@media(min-height:800px)]:min-h-[80dvh]', // Para iPhone XR e maiores
-        'xl:h-[100dvh]', // Para desktop
+        'min-h-[100dvh]',
+        '[@media(min-height:800px)]:min-h-[80dvh]',
+        'xl:h-[100dvh]',
         'justify-end overflow-hidden z-100',
       )}
       initial="hidden"
@@ -124,14 +111,12 @@ function AppPage() {
           'md:bottom-[-24dvh]',
           'lg:bottom-[-18dvh]',
           'xl:bottom-[-14dvh]',
-
-          // --- Controle de Posição Horizontal (right) ---
-          'right-[-32dvw]', // Padrão
+          'right-[-32dvw]',
           'xl:right-[-40dvw]',
           '2xl:right-[-36dvw]',
         )}
         aria-hidden="true"
-        variants={phoneVariants} // <-- APLICADA VARIANTE "PHONE"
+        variants={phoneVariants}
       >
         <Image
           src="/images/app/phone.webp"

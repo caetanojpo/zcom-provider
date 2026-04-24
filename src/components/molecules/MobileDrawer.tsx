@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { X } from 'lucide-react';
 import { IMAGE_SRC } from '@/data/imageSrc.data';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import { Typography } from '@/components/atoms/text/Typography';
@@ -63,19 +64,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             className="p-2 rounded-full hover:bg-white/10 transition-colors"
             aria-label="Fechar menu"
           >
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X className="w-6 h-6 text-white" />
           </button>
         </div>
 

@@ -23,7 +23,7 @@ const contentVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 100, scale: 0.95 }, // From bottom with slight scale
+  hidden: { opacity: 0, y: 100, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
@@ -39,7 +39,7 @@ const childVariants: Variants = {
 };
 
 const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 }, // From bottom with scale
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
@@ -50,7 +50,7 @@ const buttonVariants: Variants = {
       type: 'spring',
       stiffness: 100,
       damping: 15,
-      delay: 0.4, // Delay for button to appear last
+      delay: 0.4,
     },
   },
 };
@@ -62,7 +62,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
       aria-label="Informações sobre Internet Fibra Óptica"
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.3 }} // Trigger on every viewport entry
+      viewport={{ amount: 0.3 }}
       variants={contentVariants}
     >
       <div className="w-full max-w-4xl text-white md:w-1/2 lg:w-1/3">
@@ -100,7 +100,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
           <motion.div
             variants={buttonVariants}
             className="my-2 h-fit w-fit"
-            whileHover={{ scale: 1.05 }} // Glow on hover
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
             <TextButton

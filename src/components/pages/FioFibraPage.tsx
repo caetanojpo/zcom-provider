@@ -3,36 +3,12 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { Typography } from '@/components/atoms/text/Typography';
-import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 import Link from 'next/link';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
 
-const sectionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' }, // From top-left corner
-  visible: {
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    y: 0,
-    transition: { duration: 1.2, ease: 'easeOut' },
-  },
-};
-
 const logoVariants: Variants = {
-  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
+  hidden: { opacity: 0, y: -50, x: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -42,7 +18,7 @@ const logoVariants: Variants = {
 };
 
 const textVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -52,7 +28,7 @@ const textVariants: Variants = {
 };
 
 const ctaVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -73,7 +49,6 @@ function FioFibraPage() {
     >
       <motion.div className="absolute h-full w-full bg-fio-fibra-bg bg-cover bg-center bg-no-repeat" />
       <DarkOverlay />
-      <div />
       <div className="z-20 flex h-full w-full flex-col justify-around px-6 xl:px-10">
         <motion.div
           className="flex h-fit w-full items-center gap-4 md:h-[60px] md:w-[50%] xl:h-[85px]"

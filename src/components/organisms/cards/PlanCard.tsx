@@ -5,7 +5,6 @@ import { ZcomPlans } from '@/data/plans.data';
 import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';
 import PlansCTA from '@/components/molecules/plans/PlansCTA';
 import PlansPriceCard from '@/components/molecules/plans/PlansPriceCard';
-import { Typography } from '@/components/atoms/text/Typography';
 import { useState } from 'react';
 
 const cardVariants: Variants = {
@@ -46,7 +45,7 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
 
   return (
     <motion.article
-      className={cn(`relative flex h-fit max-w-md flex-col items-center md:max-w-md'}`)}
+      className={cn('relative flex h-fit max-w-md flex-col items-center')}
       aria-labelledby={`plan-${plan.title}-title`}
       initial="hidden"
       whileInView="visible"
@@ -104,10 +103,6 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
         decimalPrice={plan.decimalPrice}
         recurrence={plan.recurrence}
       />
-      {/*PONTUALIDADE*/}
-      {/*<div className="absolute z-10 bottom-[-30] flex h-8 w-40 items-center justify-center rounded-b-3xl bg-gradient-to-r from-zcom-700 to-zcom-500 text-white text-center font-medium italic lg:bottom-[-38] lg:h-10 lg:w-60">*/}
-      {/*  <Typography className="text-[10px] lg:text-[16px]">{plan.extra}</Typography>*/}
-      {/*</div>*/}
     </motion.article>
   );
 }

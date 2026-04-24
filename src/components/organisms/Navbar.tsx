@@ -17,7 +17,7 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const closeMobileMenu = () => {
@@ -26,14 +26,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div
-        className="
-          w-full
-          px-8 md:py-3 py-4
-          z-[200]
-          absolute
-        "
-      >
+      <div className="absolute z-[200] w-full px-8 py-4 md:py-3">
         <div
           className={` ${isMobileMenuOpen ? 'hidden' : 'flex'} items-center justify-between md:gap-6 px-8 md:py-3 py-4 rounded-full  bg-gradient-to-r from-zcom-700 to-zcom-500 shadow-xl border border-white/10`}
         >

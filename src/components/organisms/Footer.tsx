@@ -13,29 +13,13 @@ import { cn } from '@/lib/utils';
 import { COMERCIAL_WHATSAPP_LINK, INSTAGRAM_LINK } from '@/data/links.data';
 import { COMERCIAL_PHONE } from '@/utils/constants.utils';
 
-interface FormData {
+interface NewsletterFormData {
   name: string;
   email: string;
 }
 
-interface FooterNewsletterProps {
-  onSubmit: (data: FormData) => void;
-}
-
-const sectionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' }, // From top-left corner
+  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' },
   visible: {
     opacity: 1,
     scale: 1,
@@ -46,7 +30,7 @@ const backgroundVariants: Variants = {
 };
 
 const newsletterVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -55,17 +39,8 @@ const newsletterVariants: Variants = {
   },
 };
 
-const inputVariants: Variants = {
-  hidden: { opacity: 0, y: 50 }, // From bottom
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
-};
-
-const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 50 }, // From bottom
+const slideUpVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -74,7 +49,7 @@ const buttonVariants: Variants = {
 };
 
 const linksVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -84,7 +59,7 @@ const linksVariants: Variants = {
 };
 
 const linkItemVariants: Variants = {
-  hidden: { opacity: 0, x: -50 }, // From left
+  hidden: { opacity: 0, x: -50 },
   visible: {
     opacity: 1,
     x: 0,
@@ -93,7 +68,7 @@ const linkItemVariants: Variants = {
 };
 
 const contactsVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: 50 }, // From bottom-right corner
+  hidden: { opacity: 0, y: 100, x: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -102,50 +77,34 @@ const contactsVariants: Variants = {
   },
 };
 
-function FooterNewsletter({ onSubmit }: FooterNewsletterProps) {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-  });
+function FooterNewsletter() {
+  const [formData, setFormData] = useState<NewsletterFormData>({ name: '', email: '' });
   const [isNotValid, setIsNotValid] = useState(true);
   const [whatsMessage, setWhatsMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   useEffect(() => {
-    if (formData.name !== '' && formData.email !== '') {
-      setIsNotValid(false);
-    } else {
-      setIsNotValid(true);
-    }
-
+    setIsNotValid(formData.name === '' || formData.email === '');
     setWhatsMessage(
-      `Nome: ${formData.name}
-E-Mail: ${formData.email}
-\n 
-Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para receber novidades, dicas e promoções.
-`,
+      `Nome: ${formData.name}\nE-Mail: ${formData.email}\n\nMensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para receber novidades, dicas e promoções.`,
     );
   }, [formData]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (isNotValid) return;
-    const url = `https://api.whatsapp.com/send?phone=5518996660018&text=${encodeURIComponent(
-      whatsMessage,
-    )}`;
+    const url = `https://api.whatsapp.com/send?phone=5518996660018&text=${encodeURIComponent(whatsMessage)}`;
     window.open(url, '_blank');
   };
 
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-[700px] xl:max-w-[1500px] flex-col xl:flex-row gap-4 xl:w-[80%] "
+      className="flex w-full max-w-[700px] xl:max-w-[1500px] flex-col xl:flex-row gap-4 xl:w-[80%]"
       variants={newsletterVariants}
     >
       <motion.div
@@ -162,7 +121,7 @@ Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para rec
           />
         </div>
         <div className="flex h-full w-full flex-col xl:flex-row gap-4 xl:items-center">
-          <motion.div className="relative xl:w-full" variants={inputVariants}>
+          <motion.div className="relative xl:w-full" variants={slideUpVariants}>
             <input
               type="text"
               name="name"
@@ -174,7 +133,7 @@ Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para rec
               aria-label="Seu nome"
             />
           </motion.div>
-          <motion.div className="relative xl:w-full" variants={inputVariants}>
+          <motion.div className="relative xl:w-full" variants={slideUpVariants}>
             <input
               type="email"
               name="email"
@@ -189,7 +148,7 @@ Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para rec
         </div>
         <motion.div
           className="z-40 hidden xl:flex w-full xl:w-fit justify-center pt-4 xl:pt-0 xl:items-center "
-          variants={buttonVariants}
+          variants={slideUpVariants}
         >
           <button
             disabled={isNotValid}
@@ -206,7 +165,7 @@ Mensagem: Olá, gostaria de me cadastrar na newsletter da ZCOM Provedor para rec
       </motion.div>
       <motion.div
         className="z-30 flex xl:hidden w-full justify-center pt-4"
-        variants={buttonVariants}
+        variants={slideUpVariants}
       >
         <button
           type="submit"
@@ -320,10 +279,6 @@ function FooterContacts() {
 }
 
 function Footer() {
-  const handleNewsletterSubmit = (data: FormData) => {
-    console.log('Newsletter submitted:', data);
-  };
-
   return (
     <motion.section
       id={'footer'}
@@ -341,7 +296,7 @@ function Footer() {
         viewport={{ once: true, amount: 0.3 }}
       />
       <div className="z-20 flex h-full w-full flex-col p-6 lg:items-center xl:px-10">
-        <FooterNewsletter onSubmit={handleNewsletterSubmit} />
+        <FooterNewsletter />
         <motion.div
           className="z-50 mb-24 mt-10 flex h-full w-full justify-center gap-[20px] italic text-white md:gap-[80px] xl:mt-16 xl:gap-[150px]"
           variants={linksVariants}

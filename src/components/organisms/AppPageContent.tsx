@@ -37,7 +37,7 @@ const contentVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 100, scale: 0.95, rotate: 3 }, // From bottom-right with slight rotation
+  hidden: { opacity: 0, y: 100, scale: 0.95, rotate: 3 },
   visible: {
     opacity: 1,
     y: 0,
@@ -53,45 +53,21 @@ const childVariants: Variants = {
   },
 };
 
-const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 }, // From bottom with scale
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-      delay: 0.5, // Delay for button to appear last
-    },
-  },
-  hover: {
-    scale: 1.05,
-    transition: {
-      duration: 0.3,
-      ease: 'easeOut',
-    },
-  },
-};
-
 const linkVariants: Variants = {
   initial: {
     scale: 1,
-    filter: 'drop-shadow(0px 0px 0px rgba(59, 130, 246, 0))', // Cor base azul (invisível)
+    filter: 'drop-shadow(0px 0px 0px rgba(59, 130, 246, 0))',
   },
   hover: {
-    scale: 1.05, // Efeito de scale
-    filter: 'drop-shadow(0px 4px 12px rgba(59, 130, 246, 0.5))', // Glow azul normal
+    scale: 1.05,
+    filter: 'drop-shadow(0px 4px 12px rgba(59, 130, 246, 0.5))',
     transition: {
       duration: 0.3,
       ease: 'easeOut',
     },
   },
   tap: {
-    scale: 0.95, // Efeito ao clicar
+    scale: 0.95,
   },
 };
 
@@ -135,8 +111,7 @@ function AppPageContent({ className = '' }: AppPageContentProps) {
             </Typography>
           </motion.div>
 
-          {/* --- ATUALIZADO --- */}
-          <motion.div className="my-2 h-full w-full flex gap-4 mt-8 relative  ">
+          <motion.div className="my-2 h-full w-full flex gap-4 mt-8 relative">
             {appData.map((app) => (
               <motion.div
                 key={app.name}
@@ -144,15 +119,14 @@ function AppPageContent({ className = '' }: AppPageContentProps) {
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
-                className={'cursor-pointer'}
+                className="cursor-pointer"
               >
-                <Link href={app.link} target={'_blank'} className={'w-fit flex h-fit'}>
+                <Link href={app.link} target={'_blank'} className="w-fit flex h-fit">
                   <Image src={app.image} alt={app.name} width={160} height={160} />
                 </Link>
               </motion.div>
             ))}
           </motion.div>
-          {/* --- FIM DA ATUALIZAÇÃO --- */}
         </motion.div>
       </motion.div>
     </motion.section>

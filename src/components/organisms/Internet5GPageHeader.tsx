@@ -21,7 +21,7 @@ const headerVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, x: -200, rotate: -5 }, // Slide from left with slight rotation
+  hidden: { opacity: 0, x: -200, rotate: -5 },
   visible: {
     opacity: 1,
     x: 0,
@@ -37,7 +37,7 @@ const childVariants: Variants = {
 };
 
 const secondChildVariants: Variants = {
-  hidden: { opacity: 0, x: 200, rotate: 5 }, // Slide from right with slight rotation
+  hidden: { opacity: 0, x: 200, rotate: 5 },
   visible: {
     opacity: 1,
     x: 0,
@@ -48,7 +48,7 @@ const secondChildVariants: Variants = {
       type: 'spring',
       stiffness: 100,
       damping: 15,
-      delay: 0.3, // Staggered for layered effect
+      delay: 0.3,
     },
   },
 };

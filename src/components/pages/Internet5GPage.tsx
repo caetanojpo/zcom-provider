@@ -7,19 +7,6 @@ import Image from 'next/image';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
 
-// const sectionVariants: Variants = {
-// 	hidden: { opacity: 0, scale: 0.98 },
-// 	visible: {
-// 		opacity: 1,
-// 		scale: 1,
-// 		transition: {
-// 			duration: 0.8,
-// 			ease: 'easeOut',
-// 			staggerChildren: 0.3,
-// 		},
-// 	},
-// };
-
 const backgroundVariants: Variants = {
   hidden: { opacity: 0, scale: 1.1, rotate: 2 }, // Subtle rotation for dynamic entry
   visible: {
@@ -49,7 +36,7 @@ function Internet5GPage() {
     >
       <motion.div className="absolute w-full h-full">
         <Image
-          src="/images/5g/bg-5g.webp" // Replace with actual path for bg-bg-5g
+          src="/images/5g/bg-5g.webp"
           alt="Fundo decorativo para Internet 5G"
           fill
           priority

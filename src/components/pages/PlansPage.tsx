@@ -8,20 +8,8 @@ import { zcomPlans } from '@/data/plans.data';
 import PlanCard from '@/components/organisms/cards/PlanCard';
 import { PLANS_PAGE_COPYWRITING } from '@/data/copywriting/plans-page.data';
 
-const sectionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' }, // From top-left corner
+  hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' },
   visible: {
     opacity: 1,
     scale: 1,
@@ -32,7 +20,7 @@ const backgroundVariants: Variants = {
 };
 
 const headerVariants: Variants = {
-  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right
+  hidden: { opacity: 0, y: -50, x: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -42,7 +30,7 @@ const headerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -56,7 +44,7 @@ function PlansPage() {
     <motion.section
       id={'plans'}
       className={cn(
-        'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500  via-z z-40 p-8 text-white',
+        'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 z-40 p-8 text-white',
       )}
       initial="hidden"
       whileInView="visible"

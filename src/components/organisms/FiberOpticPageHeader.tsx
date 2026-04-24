@@ -21,7 +21,7 @@ const headerVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, x: -150 }, // Slide in from far left
+  hidden: { opacity: 0, x: -150 },
   visible: {
     opacity: 1,
     x: 0,
@@ -36,7 +36,7 @@ const childVariants: Variants = {
 };
 
 const secondChildVariants: Variants = {
-  hidden: { opacity: 0, x: 150 }, // Slide in from far right
+  hidden: { opacity: 0, x: 150 },
   visible: {
     opacity: 1,
     x: 0,
@@ -46,7 +46,7 @@ const secondChildVariants: Variants = {
       type: 'spring',
       stiffness: 100,
       damping: 15,
-      delay: 0.2, // Slight delay for staggered effect
+      delay: 0.2,
     },
   },
 };
@@ -58,7 +58,7 @@ function FiberOpticPageHeader({ className = '' }: FiberOpticPageHeaderProps) {
       className={cn('relative h-32 flex-shrink-0 sm:h-40 md:h-48', className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.3 }} // Trigger on every viewport entry
+      viewport={{ amount: 0.3 }}
       variants={headerVariants}
     >
       <motion.div

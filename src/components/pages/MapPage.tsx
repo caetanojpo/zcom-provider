@@ -4,7 +4,6 @@ import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import HouseIconSVG from '../../../public/icons/house.svg';
-import BuildingIconSVG from '../../../public/icons/building.svg';
 import MapDescription from '@/components/mapPage/MapDescription';
 import MapWithPoints from '@/components/mapPage/MapWithPoints';
 import MapBadge, { MapBadgeProps } from '@/components/mapPage/MapBadge';
@@ -16,27 +15,10 @@ const badgeData: MapBadgeProps[] = [
     title: 'Habitantes',
     icon: HouseIconSVG,
   },
-  // {
-  //   quantity: 98,
-  //   title: 'Empresas',
-  //   icon: BuildingIconSVG,
-  // },
 ] as const;
 
-const sectionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-      staggerChildren: 0.3,
-    },
-  },
-};
-
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -46,7 +28,7 @@ const childVariants: Variants = {
 };
 
 const mapVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' }, // From top-right corner
+  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' },
   visible: {
     opacity: 1,
     scale: 1,
@@ -56,7 +38,7 @@ const mapVariants: Variants = {
   },
 };
 
-const MapPage: React.FC = () => {
+function MapPage() {
   return (
     <motion.section
       id={'map'}
@@ -76,7 +58,7 @@ const MapPage: React.FC = () => {
               className="mt-8 flex justify-around gap-8 md:order-2 md:gap-16 md:justify-start xl:gap-32"
               variants={childVariants}
             >
-              {badgeData.map((item, index) => (
+              {badgeData.map((item) => (
                 <MapBadge key={item.title} {...item} />
               ))}
             </motion.div>
@@ -95,6 +77,6 @@ const MapPage: React.FC = () => {
       </div>
     </motion.section>
   );
-};
+}
 
 export default MapPage;

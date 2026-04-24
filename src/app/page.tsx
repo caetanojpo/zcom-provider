@@ -14,7 +14,6 @@ export default function Home() {
       <NavBar />
       <HeroPage />
       <FiberOpticPage />
-      {/*<Internet5GPage />*/}
       <AppPage />
       <PlansPage />
       <MapPage />

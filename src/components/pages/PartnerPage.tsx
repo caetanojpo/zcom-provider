@@ -6,25 +6,13 @@ import Image from 'next/image';
 import { Typography } from '@/components/atoms/text/Typography';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import { InstagramIcon, MousePointer } from 'lucide-react';
+import { MousePointer } from 'lucide-react';
 import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import { NAVBAR_COPYWRITING } from '@/data/copywriting/navbar.data';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import Link from 'next/link';
 import ClientImage from '@/components/molecules/ClientImage';
 import { INSTAGRAM_DATA, PHONE_DATA } from '@/data/links.data';
-//
-// const sectionVariants: Variants = {
-// 	hidden: { opacity: 0 },
-// 	visible: {
-// 		opacity: 1,
-// 		transition: {
-// 			duration: 0.8,
-// 			ease: 'easeOut',
-// 			staggerChildren: 0.3,
-// 		},
-// 	},
-// };
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
@@ -65,7 +53,6 @@ const gridItemVariants: Variants = {
     transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
-// #1B5EBA
 function PartnerPage() {
   const clients = [
     {
