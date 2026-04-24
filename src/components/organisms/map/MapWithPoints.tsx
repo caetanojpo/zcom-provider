@@ -23,7 +23,7 @@ const points: Point[] = [
 ];
 
 const mapVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' }, // From top-right corner
+  hidden: { opacity: 0, scale: 0.95, x: '10%', y: '-10%' },
   visible: {
     opacity: 1,
     scale: 1,
@@ -36,15 +36,15 @@ const mapVariants: Variants = {
 const pointVariants: Variants = {
   hidden: { opacity: 0, scale: 0 },
   visible: {
-    opacity: [1, 0.5, 1], // Pulsing opacity for blinking effect
-    scale: [1, 1.3, 1], // Slight scale pulse to enhance blinking
+    opacity: [1, 0.5, 1],
+    scale: [1, 1.3, 1],
     transition: {
       duration: 1.3,
       ease: 'easeOut',
-      delay: Math.random() * 0.5, // Random initial delay for varied blinking
-      repeat: Infinity, // Continuous blinking
+      delay: Math.random() * 0.5,
+      repeat: Infinity,
       repeatType: 'loop',
-      times: [0, 0.5, 1], // Timing for opacity and scale keyframes
+      times: [0, 0.5, 1],
     },
   },
 };
@@ -57,7 +57,6 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
       whileInView="visible"
       variants={mapVariants}
     >
-      {/* MAPA BASE */}
       <Image
         src="/images/map/cm-map.webp"
         alt="Mapa de Cândido Mota"

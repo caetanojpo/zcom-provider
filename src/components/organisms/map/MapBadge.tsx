@@ -22,7 +22,7 @@ const badgeVariants: Variants = {
 };
 
 const iconVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, x: 50, y: -50 }, // From top-right corner
+  hidden: { opacity: 0, scale: 0.8, x: 50, y: -50 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -33,7 +33,7 @@ const iconVariants: Variants = {
 };
 
 const quantityVariants: Variants = {
-  hidden: { opacity: 0, y: 50, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 50, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -43,7 +43,7 @@ const quantityVariants: Variants = {
 };
 
 const titleVariants: Variants = {
-  hidden: { opacity: 0, y: 50, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 50, x: -50 },
   visible: {
     opacity: 1,
     y: 0,

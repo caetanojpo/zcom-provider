@@ -8,7 +8,7 @@
     "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "tailwindcss", "react-refresh"],
+  "plugins": ["@typescript-eslint", "tailwindcss"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
@@ -16,7 +16,6 @@
     "ecmaVersion": 2020
   },
   "rules": {
-    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",

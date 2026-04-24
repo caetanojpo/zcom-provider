@@ -75,7 +75,6 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               href={item.link}
               onClick={onClose}
               className="py-3 px-4 rounded-lg hover:bg-white/10 transition-colors"
-              target={'_blank'}
             >
               <Typography variant="body-lg" className="text-white">
                 {item.text}

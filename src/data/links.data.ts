@@ -1,6 +1,7 @@
 import WhatsAppIcon from '../../public/icons/whatsapp.svg';
 import InstagramIcon from '../../public/icons/instagram.svg';
 import { SVGIcon } from '@/types/svg';
+import { COMERCIAL_PHONE } from '@/utils/constants.utils';
 
 type LinksData = {
   title?: string;
@@ -26,7 +27,7 @@ export const socialMediaLinks: LinksData[] = [
     target: '_blank',
   },
   {
-    link: 'https://www.instagram.com/zcomprovedor?igsh=MWh6eHkzYW9hb3E1ZQ%3D%3D&utm_source=qr',
+    link: INSTAGRAM_LINK,
     icon: InstagramIcon,
     title: 'Instagram ZCOM',
     target: '_blank',
@@ -36,13 +37,13 @@ export const socialMediaLinks: LinksData[] = [
 export const PHONE_DATA: LinksData = {
   title: 'whatsapp',
   target: '_blank',
-  text: '(18) 99785-6960',
+  text: COMERCIAL_PHONE[1],
   icon: WhatsAppIcon,
   link: COMERCIAL_WHATSAPP_LINK,
 };
 
 export const INSTAGRAM_DATA: LinksData = {
-  title: 'instragram',
+  title: 'instagram',
   target: '_blank',
   text: '@zcom.internet',
   icon: InstagramIcon,

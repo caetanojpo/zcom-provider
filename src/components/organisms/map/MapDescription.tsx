@@ -15,7 +15,7 @@ const descriptionVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,

@@ -4,10 +4,10 @@ import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import HouseIconSVG from '../../../public/icons/house.svg';
-import MapDescription from '@/components/mapPage/MapDescription';
-import MapWithPoints from '@/components/mapPage/MapWithPoints';
-import MapBadge, { MapBadgeProps } from '@/components/mapPage/MapBadge';
-import MapFocusHeader from '@/components/mapPage/MapFocusHeader';
+import MapDescription from '@/components/organisms/map/MapDescription';
+import MapWithPoints from '@/components/organisms/map/MapWithPoints';
+import MapBadge, { MapBadgeProps } from '@/components/organisms/map/MapBadge';
+import MapFocusHeader from '@/components/organisms/map/MapFocusHeader';
 
 const badgeData: MapBadgeProps[] = [
   {

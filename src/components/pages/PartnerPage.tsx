@@ -13,9 +13,10 @@ import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import Link from 'next/link';
 import ClientImage from '@/components/molecules/ClientImage';
 import { INSTAGRAM_DATA, PHONE_DATA } from '@/data/links.data';
+import { partnersData } from '@/data/partners.data';
 
 const headerVariants: Variants = {
-  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
+  hidden: { opacity: 0, y: -50, x: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -25,7 +26,7 @@ const headerVariants: Variants = {
 };
 
 const carouselVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -35,7 +36,7 @@ const carouselVariants: Variants = {
 };
 
 const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, y: 100, x: -50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -45,7 +46,7 @@ const buttonVariants: Variants = {
 };
 
 const gridItemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, x: -50 }, // From bottom-left corner
+  hidden: { opacity: 0, scale: 0.8, x: -50 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -54,39 +55,6 @@ const gridItemVariants: Variants = {
   },
 };
 function PartnerPage() {
-  const clients = [
-    {
-      logo: '/images/logo/partners/fiofibra.png',
-      link: 'https://fiofibra.com.br/',
-      glow: '#052d83',
-    },
-    {
-      logo: '/images/logo/partners/blackbully.webp',
-      link: 'https://www.instagram.com/blackbullycrossfit/?hl=en',
-      glow: '#05a3b3',
-    },
-    {
-      logo: '/images/logo/partners/ektech.jpg',
-      link: 'https://ektech.com.br/',
-      glow: '#16e77f',
-    },
-    {
-      logo: '/images/logo/partners/link-brasil.jpg',
-      link: 'https://linkbrasil.net.br/',
-      glow: '#7ec6f9',
-    },
-    {
-      logo: '/images/logo/partners/tim-brazil-jiujitsu.jpg',
-      link: 'https://www.instagram.com/timbrazilianjiujitsu/',
-      glow: '#d02d34',
-    },
-    {
-      logo: '/images/logo/partners/caipira.jpg',
-      link: 'https://www.instagram.com/caipirasgames/',
-      glow: '#3e9496',
-    },
-  ];
-
   return (
     <motion.section
       id={'partner'}
@@ -96,7 +64,6 @@ function PartnerPage() {
     >
       <DarkOverlay />
       <div className="z-20 flex h-full w-full flex-col items-center justify-around gap-10 p-6 xl:px-10">
-        {/* Header */}
         <motion.div
           className="relative z-20 mt-14 flex w-full flex-col items-center justify-center md:mt-20"
           variants={headerVariants}
@@ -107,12 +74,11 @@ function PartnerPage() {
             </Typography>
           </div>
           <div className="z-30 h-fit w-full rounded-[50px] bg-gradient-to-r from-zcom-700 to-zcom-500 shadow-md md:rounded-[80px] xl:w-[70%]">
-            {/* Mobile Grid: 3 cols, 2 rows */}
             <motion.div
               className="grid grid-cols-3 grid-rows-2 gap-4 px-4 md:hidden"
               variants={carouselVariants}
             >
-              {clients.map((client, index) => (
+              {partnersData.map((client, index) => (
                 <motion.div
                   key={index}
                   className="flex items-center justify-center"
@@ -138,10 +104,10 @@ function PartnerPage() {
                   align: 'center',
                   loop: true,
                 }}
-                plugins={[Autoplay({ delay: 2000 })]} // Autoplay every 2 seconds
+                plugins={[Autoplay({ delay: 2000 })]}
               >
                 <CarouselContent className={'flex py-8 items-center justify-center'}>
-                  {clients.map((client, index) => (
+                  {partnersData.map((client, index) => (
                     <CarouselItem key={index} className="basis-1/7 ">
                       <ClientImage link={client.link} src={client.logo} glowColor={client.glow} />
                     </CarouselItem>

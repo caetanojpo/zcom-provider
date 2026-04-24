@@ -15,7 +15,7 @@ const headerVariants: Variants = {
 };
 
 const childVariants: Variants = {
-  hidden: { opacity: 0, y: -50, x: 50 }, // From top-right corner
+  hidden: { opacity: 0, y: -50, x: 50 },
   visible: {
     opacity: 1,
     y: 0,
