@@ -8,12 +8,12 @@ interface ClientImageProps {
   src: string;
   link: string;
   alt?: string;
-  glowColor?: string; // Customizable glow color
+  glowColor?: string;
   className?: string;
 }
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, y: 50 }, // From bottom
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -26,8 +26,8 @@ const imageVariants: Variants = {
     },
   },
   hover: {
-    filter: 'brightness(1.2) contrast(1.1)', // Subtle brightness/contrast boost
-    boxShadow: '0 0 15px 3px var(--glow-color)', // Glow effect using CSS variable
+    filter: 'brightness(1.2) contrast(1.1)',
+    boxShadow: '0 0 15px 3px var(--glow-color)',
     transition: {
       duration: 0.3,
       ease: 'easeOut',
@@ -47,7 +47,7 @@ function ClientImage({
       className={cn('flex h-22 w-22 items-center justify-center rounded-full', className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }} // Matches PartnerPage animation trigger
+      viewport={{ once: true, amount: 0.5 }}
       variants={imageVariants}
       whileHover="hover"
       style={{ '--glow-color': glowColor } as React.CSSProperties} // Pass glow color as CSS variable

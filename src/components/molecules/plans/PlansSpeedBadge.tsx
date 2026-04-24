@@ -9,7 +9,7 @@ type PlansSpeedBadgeProps = {
 };
 
 const badgeVariants: Variants = {
-  hidden: { opacity: 0, y: -50, x: -50 }, // From top-left
+  hidden: { opacity: 0, y: -50, x: -50 },
   visible: {
     opacity: 1,
     y: 0,

@@ -13,7 +13,7 @@ interface BackgroundPageLayoutProps {
 }
 
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1 }, // Start slightly zoomed for a dynamic effect
+  hidden: { opacity: 0, scale: 1.1 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -43,14 +43,7 @@ function BackgroundPageLayout({
       viewport={{ once: true, amount: 0.3 }}
       variants={backgroundVariants}
     >
-      {/* Use Image component for preloading to prevent white flash */}
-      <Image
-        src={backgroundImage}
-        alt={backgroundAlt}
-        fill
-        className="object-cover"
-        priority // Preload for immediate rendering
-      />
+      <Image src={backgroundImage} alt={backgroundAlt} fill className="object-cover" priority />
       <div className="relative z-10">{children}</div>
     </motion.div>
   );

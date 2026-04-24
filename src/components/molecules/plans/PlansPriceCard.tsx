@@ -10,7 +10,7 @@ type PlansPriceCardProps = {
 };
 
 const priceVariants: Variants = {
-  hidden: { opacity: 0, y: 100, x: 50 }, // From bottom-right
+  hidden: { opacity: 0, y: 100, x: 50 },
   visible: {
     opacity: 1,
     y: 0,

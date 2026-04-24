@@ -8,7 +8,7 @@ import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
 
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1, rotate: 2 }, // Subtle rotation for dynamic entry
+  hidden: { opacity: 0, scale: 1.1, rotate: 2 },
   visible: {
     opacity: 1,
     scale: 1,
