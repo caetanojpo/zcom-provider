@@ -6,6 +6,16 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ZCOM_TV_ANDROID_LINK, ZCOM_TV_IOS_LINK } from '@/data/links.data';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import {
+  ANIMATION_DURATION_STAGGER_CONTAINER,
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_DURATION_HOVER,
+  ANIMATION_STAGGER_DEFAULT,
+  SPRING_STIFFNESS_MEDIUM,
+  SPRING_DAMPING_LIGHT,
+} from '@/constants/animation.constants';
+import { APP_STORE_BADGE_SIZE, LINK_TARGET_BLANK } from '@/constants/ui.constants';
 
 interface AppPageContentProps {
   className?: string;
@@ -13,12 +23,12 @@ interface AppPageContentProps {
 
 const appData = [
   {
-    image: '/images/app/apple.webp',
+    image: IMAGE_SRC.app.appleBadge,
     name: 'Apple',
     link: ZCOM_TV_IOS_LINK,
   },
   {
-    image: '/images/app/android.webp',
+    image: IMAGE_SRC.app.androidBadge,
     name: 'Play Store',
     link: ZCOM_TV_ANDROID_LINK,
   },
@@ -29,9 +39,9 @@ const contentVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
-      staggerChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_DEFAULT,
     },
   },
 };
@@ -44,11 +54,11 @@ const childVariants: Variants = {
     scale: 1,
     rotate: 0,
     transition: {
-      duration: 0.7,
+      duration: ANIMATION_DURATION_PRICE_CARD,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_MEDIUM,
+      damping: SPRING_DAMPING_LIGHT,
     },
   },
 };
@@ -62,7 +72,7 @@ const linkVariants: Variants = {
     scale: 1.05,
     filter: 'drop-shadow(0px 4px 12px rgba(59, 130, 246, 0.5))',
     transition: {
-      duration: 0.3,
+      duration: ANIMATION_DURATION_HOVER,
       ease: 'easeOut',
     },
   },
@@ -121,8 +131,13 @@ function AppPageContent({ className = '' }: AppPageContentProps) {
                 whileTap="tap"
                 className="cursor-pointer"
               >
-                <Link href={app.link} target={'_blank'} className="w-fit flex h-fit">
-                  <Image src={app.image} alt={app.name} width={160} height={160} />
+                <Link href={app.link} target={LINK_TARGET_BLANK} className="w-fit flex h-fit">
+                  <Image
+                    src={app.image}
+                    alt={app.name}
+                    width={APP_STORE_BADGE_SIZE}
+                    height={APP_STORE_BADGE_SIZE}
+                  />
                 </Link>
               </motion.div>
             ))}

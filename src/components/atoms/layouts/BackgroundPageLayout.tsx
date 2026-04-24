@@ -3,26 +3,35 @@ import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
 import Image from 'next/image';
+import {
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  ANIMATION_SCALE_OVERSHOOT,
+  SPRING_STIFFNESS_SOFT,
+  SPRING_DAMPING_MEDIUM,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
+import { DEFAULT_BACKGROUND_COLOR } from '@/constants/ui.constants';
 
 interface BackgroundPageLayoutProps {
   children: ReactNode;
   backgroundImage: string;
   backgroundAlt: string;
   className?: string;
-  backgroundColor?: string; // fallback color behind image (handles transparent edges)
+  backgroundColor?: string;
 }
 
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1 },
+  hidden: { opacity: 0, scale: ANIMATION_SCALE_OVERSHOOT },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1.2,
+      duration: ANIMATION_DURATION_BACKGROUND_SLOW,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 80,
-      damping: 20,
+      stiffness: SPRING_STIFFNESS_SOFT,
+      damping: SPRING_DAMPING_MEDIUM,
     },
   },
 };
@@ -32,7 +41,7 @@ function BackgroundPageLayout({
   backgroundImage,
   backgroundAlt,
   className = '',
-  backgroundColor = '#000',
+  backgroundColor = DEFAULT_BACKGROUND_COLOR,
 }: BackgroundPageLayoutProps) {
   return (
     <motion.div
@@ -40,7 +49,7 @@ function BackgroundPageLayout({
       initial="hidden"
       style={{ backgroundColor }}
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
       variants={backgroundVariants}
     >
       <Image src={backgroundImage} alt={backgroundAlt} fill className="object-cover" priority />

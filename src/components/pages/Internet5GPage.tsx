@@ -6,19 +6,27 @@ import Internet5GContent from '@/components/organisms/Internet5GContent';
 import Image from 'next/image';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import {
+  ANIMATION_DURATION_BACKGROUND,
+  ANIMATION_SCALE_OVERSHOOT,
+  SPRING_STIFFNESS_MEDIUM,
+  SPRING_DAMPING_MEDIUM,
+} from '@/constants/animation.constants';
+import { SECTION_ID_5G } from '@/constants/sections.constants';
 
 const backgroundVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1, rotate: 2 },
+  hidden: { opacity: 0, scale: ANIMATION_SCALE_OVERSHOOT, rotate: 2 },
   visible: {
     opacity: 1,
     scale: 1,
     rotate: 0,
     transition: {
-      duration: 1,
+      duration: ANIMATION_DURATION_BACKGROUND,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 20,
+      stiffness: SPRING_STIFFNESS_MEDIUM,
+      damping: SPRING_DAMPING_MEDIUM,
     },
   },
 };
@@ -26,7 +34,7 @@ const backgroundVariants: Variants = {
 function Internet5GPage() {
   return (
     <motion.main
-      id={'5g'}
+      id={SECTION_ID_5G}
       aria-label="Página de Internet 5G da Zcom"
       className={cn(
         'relative bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 flex h-full w-full xl:h-[100dvh] justify-end',
@@ -36,7 +44,7 @@ function Internet5GPage() {
     >
       <motion.div className="absolute w-full h-full">
         <Image
-          src="/images/5g/bg-5g.webp"
+          src={IMAGE_SRC.internet5G.background}
           alt="Fundo decorativo para Internet 5G"
           fill
           priority
@@ -51,7 +59,7 @@ function Internet5GPage() {
         variants={backgroundVariants}
       >
         <Image
-          src="/images/5g/lines-5g.webp"
+          src={IMAGE_SRC.internet5G.decorativeLines}
           alt="Linhas decorativas representando conexões 5G"
           fill
           priority

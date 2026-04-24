@@ -7,6 +7,7 @@ import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 import { CONSTRUCTION_PAGE_COPYWRITING } from '@/data/copywriting/construction-page.data';
 import { IMAGE_SRC } from '@/data/imageSrc.data';
+import { IMAGE_QUALITY_FULL } from '@/constants/ui.constants';
 
 export default function EmConstrucao() {
   return (
@@ -31,7 +32,7 @@ export default function EmConstrucao() {
           sizes="(max-width: 768px) 60vw, (max-width: 1280px) 40vw, 33vw"
           className="object-contain h-full absolute top-0 left-16 md:static md:w-auto"
           priority={true}
-          quality={100}
+          quality={IMAGE_QUALITY_FULL}
         />
       </section>
       <section className="w-full h-[50dvh] xl:h-dvh z-20 flex flex-col items-center justify-center gap-6 px-6 md:px-12 xl:px-32 2xl:px-64">

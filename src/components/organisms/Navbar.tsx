@@ -12,6 +12,8 @@ import MobileDrawer from '@/components/molecules/MobileDrawer';
 import Link from 'next/link';
 import IconTextButton from '../atoms/buttons/IconTextButton';
 import { navbarLinks } from '@/data/navbar.links.data';
+import { NAVBAR_LOGO_SIZE, IMAGE_QUALITY_FULL, LINK_TARGET_BLANK } from '@/constants/ui.constants';
+import { SECTION_ID_HERO } from '@/constants/sections.constants';
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,14 +33,14 @@ export default function NavBar() {
           className={` ${isMobileMenuOpen ? 'hidden' : 'flex'} items-center justify-between md:gap-6 px-8 md:py-3 py-4 rounded-full  bg-gradient-to-r from-zcom-700 to-zcom-500 shadow-xl border border-white/10`}
         >
           <div className="flex flex-[1] items-center justify-between md:gap-8 gap-4">
-            <Link href="/#hero" className="w-[100px] flex-shrink-0">
+            <Link href={`/#${SECTION_ID_HERO}`} className="w-[100px] flex-shrink-0">
               <Image
                 src={IMAGE_SRC.navBar.logo}
                 alt={NAVBAR_COPYWRITING.logoAlt}
-                width={100}
-                height={100}
+                width={NAVBAR_LOGO_SIZE}
+                height={NAVBAR_LOGO_SIZE}
                 priority
-                quality={100}
+                quality={IMAGE_QUALITY_FULL}
               />
             </Link>
             <NavbarMenu />
@@ -49,7 +51,7 @@ export default function NavBar() {
               href={NAVBAR_COPYWRITING.invoice.link}
               variant="body-xs"
               className="hidden xl:flex text-white/90 hover:text-white transition-colors text-center transition-transform hover:scale-105"
-              target={'_blank'}
+              target={LINK_TARGET_BLANK}
             >
               {NAVBAR_COPYWRITING.invoice.text}
             </TextButton>

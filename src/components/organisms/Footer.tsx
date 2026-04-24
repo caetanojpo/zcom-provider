@@ -10,8 +10,24 @@ import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import WhatsAppIcon from '../../../public/icons/whatsapp.svg';
 import { InstagramIcon, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { COMERCIAL_WHATSAPP_LINK, INSTAGRAM_LINK } from '@/data/links.data';
-import { COMERCIAL_PHONE } from '@/utils/constants.utils';
+import { COMERCIAL_WHATSAPP_LINK, INSTAGRAM_LINK, ZCOM_MAPS_LINK } from '@/data/links.data';
+import {
+  COMERCIAL_PHONE,
+  WHATSAPP_SEND_API_URL,
+  COMERCIAL_PHONE_INTL,
+} from '@/utils/constants.utils';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import {
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_DURATION_ELEMENT,
+  ANIMATION_STAGGER_FAST,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+  VIEWPORT_AMOUNT_SOME,
+} from '@/constants/animation.constants';
+import { NEWSLETTER_LOGO_SIZE, LINK_TARGET_BLANK } from '@/constants/ui.constants';
+import { SECTION_ID_FOOTER } from '@/constants/sections.constants';
 
 interface NewsletterFormData {
   name: string;
@@ -25,7 +41,7 @@ const backgroundVariants: Variants = {
     scale: 1,
     x: 0,
     y: 0,
-    transition: { duration: 1.2, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_BACKGROUND_SLOW, ease: 'easeOut' },
   },
 };
 
@@ -35,7 +51,7 @@ const newsletterVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -44,7 +60,7 @@ const slideUpVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_ELEMENT, ease: 'easeOut' },
   },
 };
 
@@ -54,7 +70,11 @@ const linksVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut', staggerChildren: 0.2 },
+    transition: {
+      duration: ANIMATION_DURATION_PRICE_CARD,
+      ease: 'easeOut',
+      staggerChildren: ANIMATION_STAGGER_FAST,
+    },
   },
 };
 
@@ -73,7 +93,11 @@ const contactsVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut', staggerChildren: 0.2 },
+    transition: {
+      duration: ANIMATION_DURATION_PRICE_CARD,
+      ease: 'easeOut',
+      staggerChildren: ANIMATION_STAGGER_FAST,
+    },
   },
 };
 
@@ -97,8 +121,8 @@ function FooterNewsletter() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isNotValid) return;
-    const url = `https://api.whatsapp.com/send?phone=5518996660018&text=${encodeURIComponent(whatsMessage)}`;
-    window.open(url, '_blank');
+    const url = `${WHATSAPP_SEND_API_URL}?phone=${COMERCIAL_PHONE_INTL}&text=${encodeURIComponent(whatsMessage)}`;
+    window.open(url, LINK_TARGET_BLANK);
   };
 
   return (
@@ -113,10 +137,10 @@ function FooterNewsletter() {
       >
         <div className="flex items-center justify-center">
           <Image
-            src="/images/logo.png"
+            src={IMAGE_SRC.navBar.logo}
             alt="ZCOM Logo"
-            width={100}
-            height={100}
+            width={NEWSLETTER_LOGO_SIZE}
+            height={NEWSLETTER_LOGO_SIZE}
             className="object-contain md:w-[140px] xl:w-[200px]"
           />
         </div>
@@ -194,17 +218,17 @@ function FooterLinks() {
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={LINK_TARGET_BLANK}>
             <Typography className="xl:text-[18px]">CONTATO</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={LINK_TARGET_BLANK}>
             <Typography className="xl:text-[18px]">DÚVIDAS</Typography>
           </Link>
         </motion.li>
         <motion.li className="transition-transform hover:scale-105" variants={linkItemVariants}>
-          <Link href={COMERCIAL_WHATSAPP_LINK} target={'_blank'}>
+          <Link href={COMERCIAL_WHATSAPP_LINK} target={LINK_TARGET_BLANK}>
             <Typography className="xl:text-[18px]">COMO CONTRATAR</Typography>
           </Link>
         </motion.li>
@@ -224,7 +248,7 @@ function FooterContacts() {
         <motion.li variants={linkItemVariants}>
           <IconTextButton
             link={COMERCIAL_WHATSAPP_LINK}
-            target={'_blank'}
+            target={LINK_TARGET_BLANK}
             size="sm"
             gap="xs"
             icon={WhatsAppIcon}
@@ -236,8 +260,8 @@ function FooterContacts() {
         </motion.li>
         <motion.li variants={linkItemVariants}>
           <IconTextButton
-            link="https://maps.app.goo.gl/MyU5hPo811obicZj6"
-            target={'_blank'}
+            link={ZCOM_MAPS_LINK}
+            target={LINK_TARGET_BLANK}
             size="sm"
             gap="xs"
             icon={MapPin}
@@ -246,8 +270,8 @@ function FooterContacts() {
             className="md:hidden"
           />
           <IconTextButton
-            link="https://maps.app.goo.gl/MyU5hPo811obicZj6"
-            target={'_blank'}
+            link={ZCOM_MAPS_LINK}
+            target={LINK_TARGET_BLANK}
             size="sm"
             gap="xs"
             icon={MapPin}
@@ -263,7 +287,7 @@ function FooterContacts() {
         <motion.li variants={linkItemVariants}>
           <IconTextButton
             link={INSTAGRAM_LINK}
-            target={'_blank'}
+            target={LINK_TARGET_BLANK}
             size="sm"
             gap="xs"
             icon={InstagramIcon}
@@ -281,19 +305,19 @@ function FooterContacts() {
 function Footer() {
   return (
     <motion.section
-      id={'footer'}
+      id={SECTION_ID_FOOTER}
       className={cn(
         'relative flex h-full w-full bg-gradient-to-r from-dark to-zcom-500 overflow-hidden',
       )}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 'some' }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_SOME }}
     >
       <DarkOverlay />
       <motion.div
         className="absolute bottom-[-80px] left-[-150px] h-full w-full scale-150 bg-lines-footer bg-bottom bg-contain bg-no-repeat md:bottom-[-280px] md:left-[-300px] lg:bottom-[-420px] lg:left-[-600px] lg:scale-125 2xl:bottom-[-430px] 2xl:left-[-750px]"
         variants={backgroundVariants}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
       />
       <div className="z-20 flex h-full w-full flex-col p-6 lg:items-center xl:px-10">
         <FooterNewsletter />

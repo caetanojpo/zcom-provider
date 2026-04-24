@@ -3,6 +3,11 @@
 import { motion, Variants } from 'framer-motion';
 import { Icon } from '@/components/atoms/icons/Icon';
 import { Typography } from '@/components/atoms/text/Typography';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_STAGGER_FAST,
+  ANIMATION_DELAY_CHILDREN_DEFAULT,
+} from '@/constants/animation.constants';
 
 export interface MapBadgeProps {
   quantity: number | string;
@@ -15,8 +20,8 @@ const badgeVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_FAST,
+      delayChildren: ANIMATION_DELAY_CHILDREN_DEFAULT,
     },
   },
 };
@@ -28,7 +33,7 @@ const iconVariants: Variants = {
     scale: 1,
     x: 0,
     y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -38,7 +43,7 @@ const quantityVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -48,7 +53,7 @@ const titleVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut', delay: 0.2 },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut', delay: 0.2 },
   },
 };
 

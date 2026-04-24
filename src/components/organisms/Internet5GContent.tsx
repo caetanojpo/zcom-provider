@@ -5,6 +5,16 @@ import { Typography } from '@/components/atoms/text/Typography';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import { cn } from '@/lib/utils';
 import { PHONE_DATA } from '@/data/links.data';
+import {
+  ANIMATION_DURATION_STAGGER_CONTAINER,
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_DURATION_HOVER,
+  ANIMATION_STAGGER_DEFAULT,
+  SPRING_STIFFNESS_MEDIUM,
+  SPRING_DAMPING_LIGHT,
+  SPRING_STIFFNESS_FIRM,
+} from '@/constants/animation.constants';
+import { LINK_TARGET_BLANK } from '@/constants/ui.constants';
 
 interface Internet5GContentProps {
   className?: string;
@@ -15,9 +25,9 @@ const contentVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
-      staggerChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_DEFAULT,
     },
   },
 };
@@ -30,11 +40,11 @@ const childVariants: Variants = {
     scale: 1,
     rotate: 0,
     transition: {
-      duration: 0.7,
+      duration: ANIMATION_DURATION_PRICE_CARD,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_MEDIUM,
+      damping: SPRING_DAMPING_LIGHT,
     },
   },
 };
@@ -46,18 +56,18 @@ const buttonVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.7,
+      duration: ANIMATION_DURATION_PRICE_CARD,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 100,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_FIRM,
+      damping: SPRING_DAMPING_LIGHT,
       delay: 0.5,
     },
   },
   hover: {
     scale: 1.05,
     transition: {
-      duration: 0.3,
+      duration: ANIMATION_DURATION_HOVER,
       ease: 'easeOut',
     },
   },
@@ -112,7 +122,7 @@ function Internet5GContent({ className = '' }: Internet5GContentProps) {
           <motion.div className="my-2 h-fit w-fit" variants={buttonVariants} whileHover="hover">
             <TextButton
               href={PHONE_DATA.link}
-              target="_blank"
+              target={LINK_TARGET_BLANK}
               variant="heading-md"
               className="mt-4 w-full max-w-xs rounded-4xl bg-zcom-200 px-[6dvw] py-[1.5dvh] lg:py-[1.2rem] shadow-md text-center transition-all duration-200 hover:bg-zcom-300 focus:outline-none focus:ring-2 focus:ring-zcom-200 focus:ring-offset-2 focus:ring-offset-transparent sm:mt-5"
               aria-label="Conheça nosso plano internet 5G"

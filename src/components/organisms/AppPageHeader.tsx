@@ -3,6 +3,12 @@
 import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
 import { cn } from '@/lib/utils';
+import {
+  ANIMATION_DURATION_STAGGER_CONTAINER,
+  ANIMATION_STAGGER_SLOW,
+  SPRING_STIFFNESS_FIRM,
+  SPRING_DAMPING_LIGHT,
+} from '@/constants/animation.constants';
 
 interface AppPageHeaderProps {
   className?: string;
@@ -13,9 +19,9 @@ const headerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
-      staggerChildren: 0.4,
+      staggerChildren: ANIMATION_STAGGER_SLOW,
     },
   },
 };
@@ -27,11 +33,11 @@ const childVariants: Variants = {
     x: 0,
     rotate: 0,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 100,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_FIRM,
+      damping: SPRING_DAMPING_LIGHT,
     },
   },
 };
@@ -43,11 +49,11 @@ const secondChildVariants: Variants = {
     x: 0,
     rotate: 0,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 100,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_FIRM,
+      damping: SPRING_DAMPING_LIGHT,
       delay: 0.3,
     },
   },

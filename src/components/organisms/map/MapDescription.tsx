@@ -2,14 +2,19 @@
 
 import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_STAGGER_FAST,
+  ANIMATION_DELAY_CHILDREN_DEFAULT,
+} from '@/constants/animation.constants';
 
 const descriptionVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_FAST,
+      delayChildren: ANIMATION_DELAY_CHILDREN_DEFAULT,
     },
   },
 };
@@ -20,7 +25,7 @@ const childVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 

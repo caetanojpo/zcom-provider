@@ -19,6 +19,9 @@ export const ZCOM_TV_ANDROID_LINK: string =
   'https://play.google.com/store/apps/details?id=br.com.zcomprovedor.tv.mobile';
 export const ZCOM_TV_IOS_LINK: string = 'https://apps.apple.com/br/app/zcomtv/id6754389903';
 
+export const FIOFIBRA_WEBSITE_LINK: string = 'https://fiofibra.com.br/';
+export const ZCOM_MAPS_LINK: string = 'https://maps.app.goo.gl/MyU5hPo811obicZj6';
+
 export const socialMediaLinks: LinksData[] = [
   {
     link: COMERCIAL_WHATSAPP_LINK,

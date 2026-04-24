@@ -14,6 +14,13 @@ import Link from 'next/link';
 import ClientImage from '@/components/molecules/ClientImage';
 import { INSTAGRAM_DATA, PHONE_DATA } from '@/data/links.data';
 import { partnersData } from '@/data/partners.data';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_DURATION_ELEMENT,
+  PARTNER_GRID_STAGGER_DELAY_MULTIPLIER,
+} from '@/constants/animation.constants';
+import { CAROUSEL_AUTOPLAY_DELAY_MS, LINK_TARGET_BLANK } from '@/constants/ui.constants';
+import { SECTION_ID_PARTNER } from '@/constants/sections.constants';
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: -50, x: 50 },
@@ -21,7 +28,7 @@ const headerVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -31,7 +38,7 @@ const carouselVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -41,7 +48,7 @@ const buttonVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -51,13 +58,14 @@ const gridItemVariants: Variants = {
     opacity: 1,
     scale: 1,
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_ELEMENT, ease: 'easeOut' },
   },
 };
+
 function PartnerPage() {
   return (
     <motion.section
-      id={'partner'}
+      id={SECTION_ID_PARTNER}
       className={cn('relative h-full w-full bg-gradient-to-r from-dark to-zcom-500')}
       initial="hidden"
       whileInView="visible"
@@ -83,7 +91,7 @@ function PartnerPage() {
                   key={index}
                   className="flex items-center justify-center"
                   variants={gridItemVariants}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * PARTNER_GRID_STAGGER_DELAY_MULTIPLIER }}
                 >
                   <Link href={client.link} className={'h-full w-full py-4'}>
                     <Image
@@ -104,7 +112,7 @@ function PartnerPage() {
                   align: 'center',
                   loop: true,
                 }}
-                plugins={[Autoplay({ delay: 2000 })]}
+                plugins={[Autoplay({ delay: CAROUSEL_AUTOPLAY_DELAY_MS })]}
               >
                 <CarouselContent className={'flex py-8 items-center justify-center'}>
                   {partnersData.map((client, index) => (
@@ -137,7 +145,7 @@ function PartnerPage() {
             textClassName="italic font-bold text-[20px] text-white"
             text="Venha fazer parte desse time de parceiros!"
             className="hidden h-fit w-fit rounded-4xl bg-gradient-to-r from-zcom-700 to-zcom-500 p-2 px-4 shadow-md md:flex"
-            target={'_blank'}
+            target={LINK_TARGET_BLANK}
           />
         </motion.div>
 

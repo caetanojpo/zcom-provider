@@ -2,15 +2,16 @@ import './globals.css';
 import { neometric } from '@/data/fonts.data';
 import Script from 'next/script';
 import { organizationSchemaConfig } from '@/config/organizationSchema.config';
+import { HTML_LANG, SCHEMA_JSON_LD_SCRIPT_ID } from '@/constants/ui.constants';
 
 export { metadataConfig } from '@/config/metadata.config';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-br" className={`${neometric.variable}`}>
+    <html lang={HTML_LANG} className={`${neometric.variable}`}>
       <head>
         <Script
-          id="zcom-schema"
+          id={SCHEMA_JSON_LD_SCRIPT_ID}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaConfig) }}
         />

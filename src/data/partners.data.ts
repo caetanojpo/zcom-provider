@@ -1,3 +1,5 @@
+import { FIOFIBRA_WEBSITE_LINK } from '@/data/links.data';
+
 export interface PartnerData {
   logo: string;
   link: string;
@@ -7,7 +9,7 @@ export interface PartnerData {
 export const partnersData: PartnerData[] = [
   {
     logo: '/images/logo/partners/fiofibra.png',
-    link: 'https://fiofibra.com.br/',
+    link: FIOFIBRA_WEBSITE_LINK,
     glow: '#052d83',
   },
   {

@@ -5,6 +5,15 @@ import { cn } from '@/lib/utils';
 import { Typography } from '@/components/atoms/text/Typography';
 import TextButton from '@/components/atoms/buttons/TextButton';
 import { PHONE_DATA } from '@/data/links.data';
+import {
+  ANIMATION_DURATION_STAGGER_CONTAINER,
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_STAGGER_DEFAULT,
+  SPRING_STIFFNESS_FIRM,
+  SPRING_DAMPING_LIGHT,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
+import { LINK_TARGET_BLANK } from '@/constants/ui.constants';
 
 interface FiberOpticContentProps {
   className?: string;
@@ -15,9 +24,9 @@ const contentVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
-      staggerChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_DEFAULT,
     },
   },
 };
@@ -29,11 +38,11 @@ const childVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.7,
+      duration: ANIMATION_DURATION_PRICE_CARD,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_FIRM,
+      damping: SPRING_DAMPING_LIGHT,
     },
   },
 };
@@ -45,11 +54,11 @@ const buttonVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.7,
+      duration: ANIMATION_DURATION_PRICE_CARD,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 100,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_FIRM,
+      damping: SPRING_DAMPING_LIGHT,
       delay: 0.4,
     },
   },
@@ -62,7 +71,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
       aria-label="Informações sobre Internet Fibra Óptica"
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.3 }}
+      viewport={{ amount: VIEWPORT_AMOUNT_DEFAULT }}
       variants={contentVariants}
     >
       <div className="w-full max-w-4xl text-white md:w-1/2 lg:w-1/3">
@@ -105,7 +114,7 @@ function FiberOpticContent({ className = '' }: FiberOpticContentProps) {
           >
             <TextButton
               href={PHONE_DATA.link}
-              target="_blank"
+              target={LINK_TARGET_BLANK}
               variant="heading-md"
               className="mt-4 w-full max-w-xs rounded-4xl bg-zcom-200 px-[6dvw] py-[1.5dvh] lg:py-[1.2rem] shadow-md text-center transition-all duration-200 hover:bg-zcom-300 focus:outline-none focus:ring-2 focus:ring-zcom-200 focus:ring-offset-2 focus:ring-offset-transparent sm:mt-5"
               aria-label="Saiba mais sobre nossos planos de Internet Fibra Óptica"

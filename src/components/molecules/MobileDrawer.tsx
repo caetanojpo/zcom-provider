@@ -10,6 +10,8 @@ import { Typography } from '@/components/atoms/text/Typography';
 import SocialIconButton from '@/components/atoms/buttons/SocialIconButton';
 import IconTextButton from '@/components/atoms/buttons/IconTextButton';
 import { COMERCIAL_WHATSAPP_LINK, socialMediaLinks } from '@/data/links.data';
+import { NAVBAR_LOGO_SIZE, IMAGE_QUALITY_FULL } from '@/constants/ui.constants';
+import { SECTION_ID_HERO } from '@/constants/sections.constants';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -48,14 +50,14 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         `}
       >
         <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <Link href="/#hero" onClick={onClose}>
+          <Link href={`/#${SECTION_ID_HERO}`} onClick={onClose}>
             <Image
               src={IMAGE_SRC.navBar.logo}
               alt={NAVBAR_COPYWRITING.logoAlt}
-              width={80}
-              height={80}
+              width={NAVBAR_LOGO_SIZE}
+              height={NAVBAR_LOGO_SIZE}
               priority
-              quality={100}
+              quality={IMAGE_QUALITY_FULL}
             />
           </Link>
 

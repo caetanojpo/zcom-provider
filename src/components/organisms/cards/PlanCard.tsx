@@ -8,14 +8,24 @@ import PlansBenefitList from '@/components/molecules/plans/PlansBenefitList';
 import PlansCTA from '@/components/molecules/plans/PlansCTA';
 import PlansPriceCard from '@/components/molecules/plans/PlansPriceCard';
 import { useState } from 'react';
+import {
+  ANIMATION_DURATION_HOVER,
+  ANIMATION_DURATION_ELEMENT,
+  ANIMATION_DURATION_BACKGROUND,
+  ANIMATION_STAGGER_FAST,
+  ANIMATION_DELAY_CHILDREN_DEFAULT,
+  ANIMATION_SCALE_OVERSHOOT,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
 
 const cardVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_FAST,
+      delayChildren: ANIMATION_DELAY_CHILDREN_DEFAULT,
     },
   },
 };
@@ -25,18 +35,18 @@ const innerVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_ELEMENT, ease: 'easeOut' },
   },
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 1.1, y: '10%', x: '10%' },
+  hidden: { opacity: 0, scale: ANIMATION_SCALE_OVERSHOOT, y: '10%', x: '10%' },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
     x: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_BACKGROUND, ease: 'easeOut' },
   },
 };
 
@@ -52,9 +62,9 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
       initial="hidden"
       whileInView="visible"
       variants={cardVariants}
-      animate={{ scale: isHovering ? 1.1 : 1 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-      viewport={{ once: true, amount: 0.3 }}
+      animate={{ scale: isHovering ? ANIMATION_SCALE_OVERSHOOT : 1 }}
+      transition={{ duration: ANIMATION_DURATION_HOVER, ease: 'easeInOut' }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
     >
       <motion.div
         className={cn(

@@ -1,6 +1,15 @@
 import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
 import Image from 'next/image';
+import {
+  ANIMATION_STAGGER_ITEMS,
+  ANIMATION_STAGGER_FAST,
+  ANIMATION_DELAY_CHILDREN_DEFAULT,
+  ANIMATION_DURATION_ELEMENT,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
+import { BENEFIT_IMAGE_SIZE } from '@/constants/ui.constants';
 
 type PlansBenefitListProps = {
   benefits: string[];
@@ -13,7 +22,7 @@ const listVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: ANIMATION_STAGGER_ITEMS,
     },
   },
 };
@@ -24,7 +33,7 @@ const itemVariants: Variants = {
     opacity: 1,
     x: 0,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_ELEMENT, ease: 'easeOut' },
   },
 };
 
@@ -33,7 +42,7 @@ function PlansBenefitList({ benefits, planTitle, planSubtitle }: PlansBenefitLis
     <motion.div
       className="z-10 mt-4 mb-2 flex flex-col items-center justify-center lg:mb-4 lg:gap-1 relative"
       variants={listVariants}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
     >
       <motion.div
         className="flex flex-col items-center text-center leading-tight italic"
@@ -65,7 +74,13 @@ function PlansBenefitList({ benefits, planTitle, planSubtitle }: PlansBenefitLis
           className="flex items-center justify-center mt-1 w-[70%]"
           variants={itemVariants}
         >
-          <Image src={benefit} alt="" width={90} height={90} loading="lazy" />
+          <Image
+            src={benefit}
+            alt=""
+            width={BENEFIT_IMAGE_SIZE}
+            height={BENEFIT_IMAGE_SIZE}
+            loading="lazy"
+          />
         </motion.div>
       ))}
     </motion.div>

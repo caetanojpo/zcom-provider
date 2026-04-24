@@ -1,10 +1,11 @@
 import React from 'react';
+import { DARK_OVERLAY_DEFAULT_PERCENTAGE } from '@/constants/ui.constants';
 
 type DarkOverlayProps = {
   percentage?: number;
 };
 
-function DarkOverlay({ percentage = 30 }: DarkOverlayProps) {
+function DarkOverlay({ percentage = DARK_OVERLAY_DEFAULT_PERCENTAGE }: DarkOverlayProps) {
   return (
     <div
       data-testid="dark-overlay"

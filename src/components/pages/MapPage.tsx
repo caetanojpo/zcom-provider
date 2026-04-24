@@ -8,6 +8,13 @@ import MapDescription from '@/components/organisms/map/MapDescription';
 import MapWithPoints from '@/components/organisms/map/MapWithPoints';
 import MapBadge, { MapBadgeProps } from '@/components/organisms/map/MapBadge';
 import MapFocusHeader from '@/components/organisms/map/MapFocusHeader';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
+import { SECTION_ID_MAP } from '@/constants/sections.constants';
 
 const badgeData: MapBadgeProps[] = [
   {
@@ -23,7 +30,7 @@ const childVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -34,20 +41,20 @@ const mapVariants: Variants = {
     scale: 1,
     x: 0,
     y: 0,
-    transition: { duration: 1.2, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_BACKGROUND_SLOW, ease: 'easeOut' },
   },
 };
 
 function MapPage() {
   return (
     <motion.section
-      id={'map'}
+      id={SECTION_ID_MAP}
       className={cn(
         'relative flex min-h-fit w-screen flex-col gap-8 bg-gradient-to-r from-dark to-zcom-500 py-8 text-white md:py-20',
       )}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
     >
       <DarkOverlay />
       <div className="z-20 flex h-full w-full flex-col items-center justify-start gap-4">

@@ -2,6 +2,11 @@ import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
 import { RecurrenceEnum } from '@/enums/Recurrence.enum';
 import { PLANS_PAGE_COPYWRITING } from '@/data/copywriting/plans-page.data';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
 
 type PlansPriceCardProps = {
   price: string;
@@ -15,7 +20,7 @@ const priceVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -24,7 +29,7 @@ function PlansPriceCard({ price, decimalPrice, recurrence }: PlansPriceCardProps
     <motion.div
       className="relative mt-8 md:mt-4 flex h-20 w-48 flex-col items-center justify-end gap-1 rounded-2xl bg-white px-4 py-2 shadow-lg text-black lg:h-32 lg:w-80 lg:gap-4 z-20"
       variants={priceVariants}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
     >
       <div>
         <Typography variant="body-md" className="italic font-bold">

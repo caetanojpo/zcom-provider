@@ -1,6 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Typography } from '@/components/atoms/text/Typography';
+import { ANIMATION_DURATION_ELEMENT } from '@/constants/animation.constants';
 
 type PlansSpeedBadgeProps = {
   title: string;
@@ -14,7 +15,7 @@ const badgeVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_ELEMENT, ease: 'easeOut' },
   },
 };
 

@@ -6,6 +6,17 @@ import { cn } from '@/lib/utils';
 import AppPageHeader from '@/components/organisms/AppPageHeader';
 import AppPageContent from '@/components/organisms/AppPageContent';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import {
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  ANIMATION_DURATION_STAGGER_CONTAINER,
+  ANIMATION_STAGGER_DEFAULT,
+  ANIMATION_SCALE_OVERSHOOT,
+  SPRING_STIFFNESS_SOFT,
+  SPRING_STIFFNESS_MEDIUM,
+  SPRING_DAMPING_MEDIUM,
+} from '@/constants/animation.constants';
+import { SECTION_ID_APP } from '@/constants/sections.constants';
 
 const pageVariants: Variants = {
   hidden: { opacity: 0 },
@@ -14,7 +25,7 @@ const pageVariants: Variants = {
     transition: {
       duration: 0.5,
       ease: 'easeOut',
-      staggerChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_DEFAULT,
     },
   },
 };
@@ -26,28 +37,28 @@ const zoioVariants: Variants = {
     x: 0,
     scale: 1,
     transition: {
-      duration: 1.2,
+      duration: ANIMATION_DURATION_BACKGROUND_SLOW,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 80,
-      damping: 20,
+      stiffness: SPRING_STIFFNESS_SOFT,
+      damping: SPRING_DAMPING_MEDIUM,
     },
   },
 };
 
 const phoneVariants: Variants = {
-  hidden: { opacity: 0, x: 100, scale: 1.1, rotate: 5 },
+  hidden: { opacity: 0, x: 100, scale: ANIMATION_SCALE_OVERSHOOT, rotate: 5 },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
     rotate: 0,
     transition: {
-      duration: 1.2,
+      duration: ANIMATION_DURATION_BACKGROUND_SLOW,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 20,
+      stiffness: SPRING_STIFFNESS_MEDIUM,
+      damping: SPRING_DAMPING_MEDIUM,
     },
   },
 };
@@ -58,7 +69,7 @@ const contentVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: ANIMATION_DURATION_STAGGER_CONTAINER,
       ease: 'easeOut',
     },
   },
@@ -67,7 +78,7 @@ const contentVariants: Variants = {
 function AppPage() {
   return (
     <motion.main
-      id={'app'}
+      id={SECTION_ID_APP}
       aria-label="Página do APP da Zcom"
       className={cn(
         'relative bg-gradient-to-l from-dark via-zcom-700 to-zcom-500 flex h-full w-full',
@@ -87,7 +98,7 @@ function AppPage() {
         variants={zoioVariants}
       >
         <Image
-          src="/images/app/zoio.webp"
+          src={IMAGE_SRC.app.zoio}
           alt="Pessoa chamada Zoio "
           fill
           priority
@@ -119,7 +130,7 @@ function AppPage() {
         variants={phoneVariants}
       >
         <Image
-          src="/images/app/phone.webp"
+          src={IMAGE_SRC.app.phone}
           alt="Celular com o aplicativo ZCOM TV"
           fill
           priority

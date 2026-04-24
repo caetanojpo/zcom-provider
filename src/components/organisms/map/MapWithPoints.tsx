@@ -2,6 +2,12 @@
 
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import {
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  MAP_POINT_PULSE_DURATION,
+  MAP_POINT_MAX_RANDOM_DELAY,
+} from '@/constants/animation.constants';
 
 interface Point {
   top: string;
@@ -9,14 +15,14 @@ interface Point {
 }
 
 const points: Point[] = [
-  { top: '20%', left: '50%' }, // topo direito
-  { top: '45%', left: '35%' }, // meio acima
+  { top: '20%', left: '50%' },
+  { top: '45%', left: '35%' },
   { top: '28%', left: '45%' },
   { top: '32%', left: '50%' },
-  { top: '55%', left: '55%' }, // meio direita
-  { top: '60%', left: '60%' }, // canto direito inferior
-  { top: '65%', left: '50%' }, // meio esquerda
-  { top: '80%', left: '55%' }, // canto esquerdo baixo
+  { top: '55%', left: '55%' },
+  { top: '60%', left: '60%' },
+  { top: '65%', left: '50%' },
+  { top: '80%', left: '55%' },
   { top: '85%', left: '40%' },
   { top: '87%', left: '48%' },
   { top: '88%', left: '55%' },
@@ -29,7 +35,7 @@ const mapVariants: Variants = {
     scale: 1,
     x: 0,
     y: 0,
-    transition: { duration: 1.2, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_BACKGROUND_SLOW, ease: 'easeOut' },
   },
 };
 
@@ -39,9 +45,9 @@ const pointVariants: Variants = {
     opacity: [1, 0.5, 1],
     scale: [1, 1.3, 1],
     transition: {
-      duration: 1.3,
+      duration: MAP_POINT_PULSE_DURATION,
       ease: 'easeOut',
-      delay: Math.random() * 0.5,
+      delay: Math.random() * MAP_POINT_MAX_RANDOM_DELAY,
       repeat: Infinity,
       repeatType: 'loop',
       times: [0, 0.5, 1],
@@ -58,7 +64,7 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
       variants={mapVariants}
     >
       <Image
-        src="/images/map/cm-map.webp"
+        src={IMAGE_SRC.map.candidoMota}
         alt="Mapa de Cândido Mota"
         fill
         priority
@@ -74,13 +80,8 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
             variants={pointVariants}
           >
             <span className="relative flex items-center justify-center">
-              {/* Glow difuso externo */}
               <span className="absolute h-5 w-5 rounded-full bg-blue-500 opacity-30 blur-md"></span>
-
-              {/* Anel médio */}
               <span className="absolute h-4 w-4 rounded-full bg-blue-400 opacity-70 blur-[2px]"></span>
-
-              {/* Miolo branco brilhante */}
               <span className="relative h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_2px_rgba(59,130,246,0.8)]"></span>
             </span>
           </motion.div>

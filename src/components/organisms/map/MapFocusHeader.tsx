@@ -2,14 +2,21 @@
 
 import { motion, Variants } from 'framer-motion';
 import { Typography } from '@/components/atoms/text/Typography';
+import {
+  ANIMATION_DURATION_PRICE_CARD,
+  ANIMATION_STAGGER_FAST,
+  ANIMATION_DELAY_CHILDREN_DEFAULT,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+} from '@/constants/animation.constants';
 
 const headerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: ANIMATION_STAGGER_FAST,
+      delayChildren: ANIMATION_DELAY_CHILDREN_DEFAULT,
     },
   },
 };
@@ -20,7 +27,7 @@ const childVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -31,7 +38,7 @@ const MapFocusHeader: React.FC = () => {
       initial="hidden"
       whileInView="visible"
       variants={headerVariants}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
     >
       <motion.div
         className="flex h-full w-[50%] items-center justify-end rounded-tr-2xl bg-white text-zcom-500 font-bold md:max-w-[280px] md:rounded-tr-4xl"

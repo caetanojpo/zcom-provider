@@ -3,6 +3,17 @@
 import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import {
+  ANIMATION_DURATION_ELEMENT,
+  ANIMATION_DURATION_HOVER,
+  SPRING_STIFFNESS_MEDIUM,
+  SPRING_DAMPING_LIGHT,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_ELEMENT,
+  HOVER_BRIGHTNESS_FILTER,
+  GLOW_BOX_SHADOW,
+} from '@/constants/animation.constants';
+import { DEFAULT_GLOW_COLOR, CLIENT_IMAGE_SIZE } from '@/constants/ui.constants';
 
 interface ClientImageProps {
   src: string;
@@ -18,18 +29,18 @@ const imageVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: ANIMATION_DURATION_ELEMENT,
       ease: 'easeOut',
       type: 'spring',
-      stiffness: 90,
-      damping: 15,
+      stiffness: SPRING_STIFFNESS_MEDIUM,
+      damping: SPRING_DAMPING_LIGHT,
     },
   },
   hover: {
-    filter: 'brightness(1.2) contrast(1.1)',
-    boxShadow: '0 0 15px 3px var(--glow-color)',
+    filter: HOVER_BRIGHTNESS_FILTER,
+    boxShadow: GLOW_BOX_SHADOW,
     transition: {
-      duration: 0.3,
+      duration: ANIMATION_DURATION_HOVER,
       ease: 'easeOut',
     },
   },
@@ -39,7 +50,7 @@ function ClientImage({
   src,
   link,
   alt = '',
-  glowColor = '#00FFFF', // Default to cyan (zcom-200)
+  glowColor = DEFAULT_GLOW_COLOR,
   className = '',
 }: ClientImageProps) {
   return (
@@ -47,18 +58,18 @@ function ClientImage({
       className={cn('flex h-22 w-22 items-center justify-center rounded-full', className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_ELEMENT }}
       variants={imageVariants}
       whileHover="hover"
-      style={{ '--glow-color': glowColor } as React.CSSProperties} // Pass glow color as CSS variable
+      style={{ '--glow-color': glowColor } as React.CSSProperties}
       href={link}
-      target={`_blank`}
+      target="_blank"
     >
       <Image
         src={src}
         alt={alt}
-        width={100}
-        height={100}
+        width={CLIENT_IMAGE_SIZE}
+        height={CLIENT_IMAGE_SIZE}
         className="object-contain w-full h-full rounded-full"
       />
     </motion.a>

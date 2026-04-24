@@ -6,6 +6,11 @@ import { Typography } from '@/components/atoms/text/Typography';
 import Link from 'next/link';
 import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { cn } from '@/lib/utils';
+import { IMAGE_SRC } from '@/data/imageSrc.data';
+import { FIOFIBRA_WEBSITE_LINK } from '@/data/links.data';
+import { ANIMATION_DURATION_PRICE_CARD } from '@/constants/animation.constants';
+import { LINK_TARGET_BLANK } from '@/constants/ui.constants';
+import { SECTION_ID_FIOFIBRA } from '@/constants/sections.constants';
 
 const logoVariants: Variants = {
   hidden: { opacity: 0, y: -50, x: 50 },
@@ -13,7 +18,7 @@ const logoVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -23,7 +28,7 @@ const textVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -33,14 +38,14 @@ const ctaVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
 function FioFibraPage() {
   return (
     <motion.section
-      id={'fioFibra'}
+      id={SECTION_ID_FIOFIBRA}
       className={cn(
         'relative flex h-[70dvh] w-full flex-col bg-gradient-to-r from-dark to-zcom-500 text-white xl:h-screen',
       )}
@@ -56,7 +61,7 @@ function FioFibraPage() {
         >
           <div className="relative h-full w-full">
             <Image
-              src="/images/logo/logo.webp"
+              src={IMAGE_SRC.brand.logoWebp}
               alt="Logo da ZCOM"
               fill
               className="object-contain"
@@ -65,7 +70,7 @@ function FioFibraPage() {
           <Typography className="font-black text-[24px] text-zcom-500 md:text-[48px]">+</Typography>
           <div className="relative h-full w-full">
             <Image
-              src="/images/logo/fiofibra.webp"
+              src={IMAGE_SRC.brand.fiofibraLogo}
               alt="Logo da Fiofibra"
               fill
               className="object-contain"
@@ -89,8 +94,8 @@ function FioFibraPage() {
         </motion.div>
         <motion.div className="h-fit w-full" variants={ctaVariants}>
           <Link
-            href="https://fiofibra.com.br/"
-            target="_blank"
+            href={FIOFIBRA_WEBSITE_LINK}
+            target={LINK_TARGET_BLANK}
             rel="noopener noreferrer"
             className="px-4 py-8 sm:py-0 sm:px-0 flex h-10 w-[90%] items-center justify-center rounded-4xl bg-zcom-500 shadow-lg transition-all duration-150 ease-in-out hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-zcom-200 md:h-14 md:w-[70%] xl:h-12 xl:w-[40%]"
             aria-label="Clique aqui e conheça a Fiofibra"

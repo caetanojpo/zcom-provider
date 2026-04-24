@@ -7,6 +7,14 @@ import DarkOverlay from '@/components/atoms/backgrounds/DarkOverlay';
 import { zcomPlans } from '@/data/plans.data';
 import PlanCard from '@/components/organisms/cards/PlanCard';
 import { PLANS_PAGE_COPYWRITING } from '@/data/copywriting/plans-page.data';
+import {
+  ANIMATION_DURATION_BACKGROUND_SLOW,
+  ANIMATION_DURATION_PRICE_CARD,
+  VIEWPORT_ANIMATE_ONCE,
+  VIEWPORT_AMOUNT_DEFAULT,
+  PLAN_CARD_STAGGER_DELAY_MULTIPLIER,
+} from '@/constants/animation.constants';
+import { SECTION_ID_PLANS } from '@/constants/sections.constants';
 
 const backgroundVariants: Variants = {
   hidden: { opacity: 0, scale: 1.05, x: '-10%', y: '-10%' },
@@ -15,7 +23,7 @@ const backgroundVariants: Variants = {
     scale: 1,
     x: 0,
     y: 0,
-    transition: { duration: 1.2, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_BACKGROUND_SLOW, ease: 'easeOut' },
   },
 };
 
@@ -25,7 +33,7 @@ const headerVariants: Variants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: ANIMATION_DURATION_PRICE_CARD, ease: 'easeOut' },
   },
 };
 
@@ -42,7 +50,7 @@ const cardVariants: Variants = {
 function PlansPage() {
   return (
     <motion.section
-      id={'plans'}
+      id={SECTION_ID_PLANS}
       className={cn(
         'relative flex min-h-screen w-screen flex-col gap-8 bg-gradient-to-r from-dark via-zcom-700 to-zcom-500 z-40 p-8 text-white',
       )}
@@ -81,8 +89,8 @@ function PlansPage() {
             initial="hidden"
             whileInView="visible"
             variants={cardVariants}
-            transition={{ delay: index * 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: index * PLAN_CARD_STAGGER_DELAY_MULTIPLIER }}
+            viewport={{ once: VIEWPORT_ANIMATE_ONCE, amount: VIEWPORT_AMOUNT_DEFAULT }}
           >
             <PlanCard plan={plan} />
           </motion.div>
