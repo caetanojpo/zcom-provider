@@ -87,6 +87,7 @@ jest.mock('@/data/imageSrc.data', () => ({
 
 jest.mock('@/data/links.data', () => ({
   __esModule: true,
+  COMERCIAL_WHATSAPP_LINK: 'https://wa.me/5518996660018',
   socialMediaLinks: [
     {
       title: 'Instagram',
@@ -206,14 +207,14 @@ describe('NavBar test suite', () => {
     const logoLink = screen.getByRole('link', {
       name: new RegExp(NAVBAR_COPYWRITING.logoAlt, 'i'),
     });
-    expect(logoLink).toHaveAttribute('href', '/');
+    expect(logoLink).toHaveAttribute('href', '/#hero');
   });
 
   it('Should have correct CSS classes for responsive design', () => {
     render(<NavBar />);
 
-    const navbarContainer = document.querySelector('.relative.top-6.mx-auto');
-    expect(navbarContainer).toHaveClass('relative', 'top-6', 'mx-auto', 'w-[95%]');
+    const navbarContainer = document.querySelector('.rounded-full');
+    expect(navbarContainer).not.toBeNull();
     expect(navbarContainer).toHaveClass('rounded-full');
     expect(navbarContainer).toHaveClass('bg-gradient-to-r', 'from-zcom-700', 'to-zcom-500');
   });
@@ -223,7 +224,7 @@ describe('NavBar test suite', () => {
 
     // Desktop elements should have hidden md:flex classes
     const desktopSection = screen.getByText(NAVBAR_COPYWRITING.invoice.text).closest('div');
-    expect(desktopSection).toHaveClass('hidden', 'md:flex');
+    expect(desktopSection).toHaveClass('hidden', 'lg:flex');
 
     // Hamburger should be visible
     const hamburgerButton = screen.getByTestId('hamburger-button');

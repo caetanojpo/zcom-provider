@@ -77,10 +77,11 @@ jest.mock('@/data/imageSrc.data', () => ({
 }));
 
 jest.mock('@/data/links.data', () => ({
+  COMERCIAL_WHATSAPP_LINK: 'https://wa.me/5518996660018',
   socialMediaLinks: [
     {
       title: 'WhatsApp ZCOM',
-      link: COMERCIAL_WHATSAPP_LINK,
+      link: 'https://wa.me/5518996660018',
       target: '_blank',
       icon: 'WhatsAppIcon',
     },
@@ -90,7 +91,6 @@ jest.mock('@/data/links.data', () => ({
 
 import MobileDrawer from '@/components/molecules/MobileDrawer';
 import { JSX } from 'react';
-import { COMERCIAL_WHATSAPP_LINK } from '@/data/links.data';
 
 describe('MobileDrawer test suite', () => {
   const mockOnClose = jest.fn();
@@ -142,7 +142,8 @@ describe('MobileDrawer test suite', () => {
     render(<MobileDrawer isOpen={true} onClose={mockOnClose} />);
 
     expect(screen.getByText(NAVBAR_COPYWRITING.phone.text)).toBeInTheDocument();
-    expect(screen.getByTestId('social-whatsapp zcom')).toBeInTheDocument();
+    // WhatsApp is filtered out of social icons (shown separately as IconTextButton)
+    expect(screen.getByTestId('social-instagram zcom')).toBeInTheDocument();
   });
 
   it('Should set and reset body overflow', () => {

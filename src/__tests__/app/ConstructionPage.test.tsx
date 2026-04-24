@@ -51,7 +51,7 @@ jest.mock('../../components/atoms/buttons/SocialIconButton', () => {
   };
 });
 
-import ConstructionPage from '@/app/page';
+import ConstructionPage from '@/components/pages/EmConstrucao';
 
 describe('ConstructionPage test suite', () => {
   let container: HTMLElement;
