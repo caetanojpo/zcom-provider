@@ -141,7 +141,7 @@ function FooterNewsletter() {
             alt="ZCOM Logo"
             width={NEWSLETTER_LOGO_SIZE}
             height={NEWSLETTER_LOGO_SIZE}
-            className="object-contain md:w-[140px] xl:w-[200px]"
+            className="object-contain h-auto md:w-[140px] xl:w-[200px]"
           />
         </div>
         <div className="flex h-full w-full flex-col xl:flex-row gap-4 xl:items-center">

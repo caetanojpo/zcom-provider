@@ -101,6 +101,7 @@ function AppPage() {
           src={IMAGE_SRC.app.zoio}
           alt="Pessoa chamada Zoio "
           fill
+          sizes="(min-width: 1280px) 100vw, 1px"
           priority
           className="object-contain scale-155"
         />
@@ -133,6 +134,7 @@ function AppPage() {
           src={IMAGE_SRC.app.phone}
           alt="Celular com o aplicativo ZCOM TV"
           fill
+          sizes="(min-width: 1280px) 60vw, 70vw"
           priority
           className="object-contain scale-50 lg:scale-75 xl:scale-70 2xl:scale-100"
         />

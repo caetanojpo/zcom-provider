@@ -137,6 +137,7 @@ function AppPageContent({ className = '' }: AppPageContentProps) {
                     alt={app.name}
                     width={APP_STORE_BADGE_SIZE}
                     height={APP_STORE_BADGE_SIZE}
+                    style={{ height: 'auto' }}
                   />
                 </Link>
               </motion.div>

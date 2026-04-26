@@ -118,7 +118,7 @@ function HeroPage() {
               alt="Logo da ZCOM Provedor de Internet"
               width={HERO_LOGO_SIZE}
               height={HERO_LOGO_SIZE}
-              className="w-full object-contain"
+              className="w-full h-auto object-contain"
             />
           </motion.div>
 

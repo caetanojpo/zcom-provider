@@ -80,6 +80,7 @@ function PlansBenefitList({ benefits, planTitle, planSubtitle }: PlansBenefitLis
             width={BENEFIT_IMAGE_SIZE}
             height={BENEFIT_IMAGE_SIZE}
             loading="lazy"
+            style={{ height: 'auto' }}
           />
         </motion.div>
       ))}

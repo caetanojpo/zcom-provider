@@ -41,6 +41,7 @@ export default function NavBar() {
                 height={NAVBAR_LOGO_SIZE}
                 priority
                 quality={IMAGE_QUALITY_FULL}
+                style={{ height: 'auto' }}
               />
             </Link>
             <NavbarMenu />

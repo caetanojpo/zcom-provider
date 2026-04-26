@@ -67,6 +67,7 @@ const MapWithPoints: React.FC<{ className?: string }> = ({ className = '' }) => 
         src={IMAGE_SRC.map.candidoMota}
         alt="Mapa de Cândido Mota"
         fill
+        sizes="(min-width: 768px) 50vw, 95vw"
         priority
         className="object-contain pointer-events-none"
       />

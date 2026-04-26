@@ -58,6 +58,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               height={NAVBAR_LOGO_SIZE}
               priority
               quality={IMAGE_QUALITY_FULL}
+              style={{ height: 'auto' }}
             />
           </Link>
 

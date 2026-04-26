@@ -50,7 +50,7 @@ const imageVariants: Variants = {
   },
 };
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 function PlanCard({ plan }: { plan: ZcomPlans }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -91,6 +91,7 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
             src={plan.image}
             alt={plan.alt ?? plan.title}
             fill
+            sizes="(min-width: 1024px) 320px, 192px"
             className={'object-contain object-bottom'}
             animate={{ opacity: isHovering ? 0 : 1 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
@@ -101,6 +102,7 @@ function PlanCard({ plan }: { plan: ZcomPlans }) {
             src={plan.imageColored}
             alt={plan.alt ?? plan.title}
             fill
+            sizes="(min-width: 1024px) 320px, 192px"
             className={'object-contain object-bottom absolute inset-0'}
             loading="lazy"
             animate={{ opacity: isHovering ? 1 : 0 }}

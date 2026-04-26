@@ -64,6 +64,7 @@ function FioFibraPage() {
               src={IMAGE_SRC.brand.logoWebp}
               alt="Logo da ZCOM"
               fill
+              sizes="(min-width: 768px) 25vw, 50vw"
               className="object-contain"
             />
           </div>
@@ -73,6 +74,7 @@ function FioFibraPage() {
               src={IMAGE_SRC.brand.fiofibraLogo}
               alt="Logo da Fiofibra"
               fill
+              sizes="(min-width: 768px) 25vw, 50vw"
               className="object-contain"
             />
           </div>
