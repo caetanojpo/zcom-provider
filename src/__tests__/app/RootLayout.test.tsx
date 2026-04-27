@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import RootLayout, { metadataConfig as exportedMetadataConfig } from '@/app/layout';
+import RootLayout, { metadata as exportedMetadataConfig } from '@/app/layout';
 
 jest.mock('next/script', () => {
   return jest.fn((props) =>
@@ -69,7 +69,7 @@ describe('RootLayout — test suite', () => {
     expect(htmlEl?.getAttribute('lang')).toBe('pt-br');
   });
 
-  it('Should re-exports metadataConfig from the metadata configuration file', () => {
+  it('Should re-export metadata (named "metadata") from the metadata configuration file', () => {
     expect(exportedMetadataConfig).toEqual({ title: 'ZCOM', description: 'Empresa Z' });
   });
 

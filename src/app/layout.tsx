@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { organizationSchemaConfig } from '@/config/organizationSchema.config';
 import { HTML_LANG, SCHEMA_JSON_LD_SCRIPT_ID } from '@/constants/ui.constants';
 
-export { metadataConfig } from '@/config/metadata.config';
+export { metadataConfig as metadata } from '@/config/metadata.config';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
